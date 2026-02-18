@@ -21,18 +21,21 @@ npx vercel
 
 ## Directory Organization
 
-**Campaigns** (marketing campaigns with landing pages):
+**Mastery/** - Mastery programs and AI content
 - **AI Accelerator/** - AI Clone newsletter campaign
-- **CLC/** - Certified Life Coach 2026 email sequences
 
-**Programs**:
-- **Mindvalley Programs/** - Programs CSV data
+**Certs/** - Certification programs
+- **CLC/** - Certified Life Coach 2026 (email sequences + launch PDF)
 
-**Pathways**:
+**Pathways/** - Learning pathways, programs data, and campaigns
 - **Entrepreneurship & AI pathway/** - Superbrain transcript
 - **Manifesting pathway/** - 4 masterclass transcripts + email strategy + strategy-page
+- **quest-calendar/** - Quest release calendar landing page
+- Program CSVs, content calendar, and strategy docs
 
-**Other**:
+**States/** - States campaign landing pages + logo assets
+
+**Newsletter/** - Email archives
 - **Vishen's Newsletter/** - Newsletter email archives
 
 Each program has its own directory. Landing pages are standalone HTML files with embedded CSS.
