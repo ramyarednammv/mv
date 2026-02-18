@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Your Destiny | Mindvalley States</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a0a2e 0%, #2d1b4e 50%, #1a0a2e 100%);
+            min-height: 100vh;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 30px;
+        }
+
+        .header-tag {
+            display: inline-block;
+            background: rgba(138, 43, 226, 0.3);
+            border: 1px solid rgba(138, 43, 226, 0.5);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #fff 0%, #c9a0ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .one-chance {
+            display: inline-block;
+            background: rgba(251, 191, 36, 0.2);
+            border: 1px solid rgba(251, 191, 36, 0.4);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: #fbbf24;
+            margin-bottom: 30px;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            perspective: 1000px;
+            cursor: pointer;
+            aspect-ratio: 3/4;
+        }
+
+        .card.disabled {
+            pointer-events: none;
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+        }
+
+        .card.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card.not-selected .card-inner {
+            opacity: 0.3;
+            transform: scale(0.9);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 10px;
+        }
+
+        .card-front {
+            background: linear-gradient(180deg, #3d2066 0%, #2a1548 100%);
+            border: 2px solid rgba(139, 92, 246, 0.4);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .card-front:hover {
+            border-color: rgba(139, 92, 246, 0.8);
+            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.3);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        .card-name {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .card-tap {
+            font-size: 0.65rem;
+            color: rgba(255,255,255,0.5);
+            margin-top: 8px;
+        }
+
+        .card-back {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            transform: rotateY(180deg);
+            color: #1a0a2e;
+        }
+
+        .card-back .offer-label {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.7;
+            margin-bottom: 5px;
+        }
+
+        .card-back .offer-value {
+            font-size: 1.1rem;
+            font-weight: 800;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        /* Individual card colors */
+        .card[data-state="focus"] .card-front {
+            background: linear-gradient(180deg, #3b82f6 0%, #1d4ed8 100%);
+            border-color: rgba(59, 130, 246, 0.5);
+        }
+
+        .card[data-state="zen"] .card-front {
+            background: linear-gradient(180deg, #10b981 0%, #059669 100%);
+            border-color: rgba(16, 185, 129, 0.5);
+        }
+
+        .card[data-state="bliss"] .card-front {
+            background: linear-gradient(180deg, #ec4899 0%, #db2777 100%);
+            border-color: rgba(236, 72, 153, 0.5);
+        }
+
+        .card[data-state="dream"] .card-front {
+            background: linear-gradient(180deg, #8b5cf6 0%, #7c3aed 100%);
+            border-color: rgba(139, 92, 246, 0.5);
+        }
+
+        .card[data-state="gazm"] .card-front {
+            background: linear-gradient(180deg, #ef4444 0%, #dc2626 100%);
+            border-color: rgba(239, 68, 68, 0.5);
+        }
+
+        .result-section {
+            display: none;
+            padding: 25px;
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.1) 0%, rgba(245, 158, 11, 0.1) 100%);
+            border-radius: 15px;
+            border: 2px solid rgba(251, 191, 36, 0.3);
+            margin-bottom: 20px;
+        }
+
+        .result-section.show {
+            display: block;
+            animation: slideUp 0.5s ease;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .result-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #fbbf24;
+            margin-bottom: 10px;
+        }
+
+        .result-state {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 5px;
+        }
+
+        .result-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .result-description {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 20px;
+        }
+
+        .claim-btn {
+            width: 100%;
+            padding: 18px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1a0a2e;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .claim-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(251, 191, 36, 0.4);
+        }
+
+        .footer-note {
+            margin-top: 25px;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.4);
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            top: -10px;
+            animation: fall 3s linear forwards;
+            pointer-events: none;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* Glow effect on hover for cards */
+        .card:hover .card-front {
+            transform: translateY(-5px);
+        }
+
+        .card-front {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Second row centering for 5 cards */
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .card {
+            width: calc(33.333% - 8px);
+            max-width: 140px;
+        }
+
+        @media (max-width: 400px) {
+            .card {
+                width: calc(50% - 6px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">Mindvalley States</div>
+
+        <div class="header-tag">Just For You</div>
+
+        <h1>Choose Your State,<br>Reveal Your Gift</h1>
+
+        <p class="subtitle">Each card holds a secret discount on the Mindvalley States Box Set. Trust your intuition - pick the state that calls to you.</p>
+
+        <div class="one-chance">You Have 1 Chance - Choose Wisely</div>
+
+        <div class="cards-container" id="cardsContainer">
+            <div class="card" data-state="focus" data-offer="0" onclick="selectCard(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="card-icon">⚡</div>
+                        <div class="card-name">Focus</div>
+                        <div class="card-tap">Tap to reveal</div>
+                    </div>
+                    <div class="card-back">
+                        <div class="offer-label">You Won</div>
+                        <div class="offer-value">20% OFF</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" data-state="zen" data-offer="1" onclick="selectCard(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="card-icon">🧘</div>
+                        <div class="card-name">Zen</div>
+                        <div class="card-tap">Tap to reveal</div>
+                    </div>
+                    <div class="card-back">
+                        <div class="offer-label">You Won</div>
+                        <div class="offer-value">30% OFF</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" data-state="bliss" data-offer="2" onclick="selectCard(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="card-icon">💖</div>
+                        <div class="card-name">Bliss</div>
+                        <div class="card-tap">Tap to reveal</div>
+                    </div>
+                    <div class="card-back">
+                        <div class="offer-label">You Won</div>
+                        <div class="offer-value">$50 OFF</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" data-state="dream" data-offer="3" onclick="selectCard(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="card-icon">🌙</div>
+                        <div class="card-name">Dream</div>
+                        <div class="card-tap">Tap to reveal</div>
+                    </div>
+                    <div class="card-back">
+                        <div class="offer-label">You Won</div>
+                        <div class="offer-value">40% OFF</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" data-state="gazm" data-offer="4" onclick="selectCard(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="card-icon">🔥</div>
+                        <div class="card-name">Gazm</div>
+                        <div class="card-tap">Tap to reveal</div>
+                    </div>
+                    <div class="card-back">
+                        <div class="offer-label">You Won</div>
+                        <div class="offer-value">Buy 1 Get 1 FREE</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="result-section" id="resultSection">
+            <div class="result-label">You Chose</div>
+            <div class="result-state" id="resultState">FOCUS</div>
+            <div class="result-value" id="resultValue">20% OFF</div>
+            <div class="result-description" id="resultDescription">Save on the complete States Box Set</div>
+            <button class="claim-btn" onclick="claimOffer()">Claim Your Discount Now</button>
+        </div>
+
+        <p class="footer-note">This exclusive offer was created just for you. Your discount has been reserved for 48 hours.</p>
+    </div>
+
+    <script>
+        const offers = [
+            { text: '20% OFF', description: 'Save $30 on the Box Set', code: 'STATES20' },
+            { text: '30% OFF', description: 'Save $45 on the Box Set', code: 'STATES30' },
+            { text: '$50 OFF', description: 'Instant $50 savings', code: 'STATES50' },
+            { text: '40% OFF', description: 'Save $60 on the Box Set', code: 'STATES40' },
+            { text: 'Buy 1 Get 1 FREE', description: 'Double your States collection!', code: 'STATESBOGO' }
+        ];
+
+        const stateNames = ['FOCUS', 'ZEN', 'BLISS', 'DREAM', 'GAZM'];
+        let selectedOffer = null;
+        let hasSelected = false;
+
+        // Randomize which offer is on which card
+        function shuffleOffers() {
+            const shuffled = [...offers].sort(() => Math.random() - 0.5);
+            const cards = document.querySelectorAll('.card');
+
+            cards.forEach((card, index) => {
+                const offer = shuffled[index];
+                card.dataset.offer = index;
+                card.querySelector('.card-back .offer-value').textContent = offer.text;
+                card._offer = offer;
+            });
+        }
+
+        shuffleOffers();
+
+        function selectCard(cardElement) {
+            if (hasSelected) return;
+            hasSelected = true;
+
+            const allCards = document.querySelectorAll('.card');
+
+            // Disable all cards
+            allCards.forEach(card => {
+                card.classList.add('disabled');
+                if (card !== cardElement) {
+                    card.classList.add('not-selected');
+                }
+            });
+
+            // Flip selected card
+            cardElement.classList.add('flipped');
+
+            // Get offer details
+            selectedOffer = cardElement._offer;
+            const stateName = cardElement.dataset.state.toUpperCase();
+
+            // Show result after flip animation
+            setTimeout(() => {
+                document.getElementById('resultState').textContent = stateName;
+                document.getElementById('resultValue').textContent = selectedOffer.text;
+                document.getElementById('resultDescription').textContent = selectedOffer.description;
+                document.getElementById('resultSection').classList.add('show');
+
+                createConfetti();
+            }, 800);
+        }
+
+        function claimOffer() {
+            if (!selectedOffer) return;
+
+            const checkoutUrl = `https://www.mindvalley.com/states/checkout?code=${selectedOffer.code}`;
+
+            // For demo, show alert
+            alert(`Your code: ${selectedOffer.code}\n\nRedirecting to checkout...`);
+            window.location.href = checkoutUrl;
+        }
+
+        function createConfetti() {
+            const colors = ['#fbbf24', '#8b5cf6', '#ec4899', '#10b981', '#3b82f6', '#ef4444'];
+            for (let i = 0; i < 60; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                    confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                    document.body.appendChild(confetti);
+                    setTimeout(() => confetti.remove(), 4000);
+                }, i * 30);
+            }
+        }
+    </script>
+</body>
+</html>

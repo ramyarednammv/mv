@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Valentine's Gift from Mindvalley</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --mv-purple: #6C3AE0;
+    --mv-purple-dark: #4A1FB8;
+    --mv-purple-light: #8B5CF6;
+    --mv-pink: #E84393;
+    --mv-pink-soft: #FD79A8;
+    --mv-gold: #F0B90B;
+    --mv-cream: #FFF8F0;
+    --mv-dark: #1A0A2E;
+    --mv-text: #2D1B4E;
+    --mv-text-light: #6B5B8A;
+    --valentine-red: #E63946;
+    --valentine-rose: #FFB3C1;
+    --valentine-blush: #FFF0F3;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--mv-dark);
+    color: var(--mv-text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ============ FLOATING HEARTS BACKGROUND ============ */
+  .hearts-bg {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .heart-float {
+    position: absolute;
+    opacity: 0;
+    animation: floatUp linear infinite;
+  }
+
+  @keyframes floatUp {
+    0% { transform: translateY(100vh) rotate(0deg) scale(0.5); opacity: 0; }
+    10% { opacity: 0.15; }
+    90% { opacity: 0.15; }
+    100% { transform: translateY(-10vh) rotate(360deg) scale(1); opacity: 0; }
+  }
+
+  /* ============ MAIN CONTAINER ============ */
+  .page-wrapper {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    background: 
+      radial-gradient(ellipse at 20% 20%, rgba(232, 67, 147, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 80%, rgba(108, 58, 224, 0.2) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba(26, 10, 46, 0.95) 0%, var(--mv-dark) 100%);
+  }
+
+  /* ============ MINDVALLEY LOGO ============ */
+  .mv-logo {
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeInDown 0.8s ease-out 0.3s forwards;
+  }
+
+  .mv-logo svg {
+    height: 28px;
+    fill: white;
+    opacity: 0.8;
+  }
+
+  .mv-logo-text {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.8);
+  }
+
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ============ PRE-REVEAL STATE ============ */
+  .gift-section {
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+  }
+
+  .headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 5vw, 44px);
+    font-weight: 600;
+    color: white;
+    line-height: 1.25;
+    margin-bottom: 12px;
+    opacity: 0;
+    animation: fadeInDown 0.8s ease-out 0.5s forwards;
+  }
+
+  .headline em {
+    font-style: italic;
+    color: var(--mv-pink-soft);
+  }
+
+  .subheadline {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(15px, 2.5vw, 18px);
+    color: rgba(255,255,255,0.6);
+    font-weight: 300;
+    margin-bottom: 48px;
+    line-height: 1.6;
+    opacity: 0;
+    animation: fadeInDown 0.8s ease-out 0.7s forwards;
+  }
+
+  /* ============ GIFT BOX ============ */
+  .gift-box-container {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    margin: 0 auto 40px;
+    cursor: pointer;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 1s forwards;
+    transition: transform 0.3s ease;
+  }
+
+  .gift-box-container:hover {
+    transform: scale(1.05);
+  }
+
+  .gift-box-container:hover .gift-glow {
+    opacity: 0.6;
+  }
+
+  .gift-glow {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, rgba(232, 67, 147, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+    animation: pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.1); }
+  }
+
+  .gift-box {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .gift-box-body {
+    position: absolute;
+    bottom: 20px;
+    width: 200px;
+    height: 160px;
+    background: linear-gradient(135deg, var(--mv-purple) 0%, var(--mv-purple-dark) 100%);
+    border-radius: 12px;
+    box-shadow: 
+      0 20px 60px rgba(108, 58, 224, 0.4),
+      inset 0 1px 0 rgba(255,255,255,0.15);
+  }
+
+  .gift-box-ribbon-v {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 32px;
+    height: 160px;
+    background: linear-gradient(180deg, var(--mv-pink) 0%, var(--valentine-red) 100%);
+    border-radius: 4px;
+    z-index: 2;
+  }
+
+  .gift-box-ribbon-h {
+    position: absolute;
+    bottom: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 32px;
+    background: linear-gradient(90deg, var(--mv-pink) 0%, var(--valentine-red) 100%);
+    border-radius: 4px;
+    z-index: 2;
+  }
+
+  .gift-box-lid {
+    position: absolute;
+    top: 60px;
+    width: 220px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--mv-purple-light) 0%, var(--mv-purple) 100%);
+    border-radius: 12px 12px 4px 4px;
+    box-shadow: 0 4px 20px rgba(108, 58, 224, 0.3);
+    z-index: 3;
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .gift-box-bow {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .bow-loop {
+    position: absolute;
+    width: 50px;
+    height: 40px;
+    border: 6px solid var(--mv-pink);
+    border-radius: 50%;
+    top: 0;
+  }
+
+  .bow-loop-left {
+    left: -35px;
+    transform: rotate(-30deg);
+  }
+
+  .bow-loop-right {
+    right: -35px;
+    transform: rotate(30deg);
+  }
+
+  .bow-center {
+    width: 24px;
+    height: 24px;
+    background: var(--valentine-red);
+    border-radius: 50%;
+    position: relative;
+    z-index: 5;
+    margin: 10px auto 0;
+  }
+
+  /* Lid opening animation */
+  .gift-box-container.opening .gift-box-lid {
+    transform: translateY(-80px) rotate(-25deg);
+    opacity: 0;
+  }
+
+  .gift-box-container.opening .gift-box-bow {
+    transform: translateX(-50%) translateY(-100px) rotate(-20deg);
+    opacity: 0;
+  }
+
+  .open-cta {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out 1.4s forwards;
+  }
+
+  .open-cta span {
+    display: inline-block;
+    animation: bounceArrow 1.5s ease-in-out infinite;
+  }
+
+  @keyframes bounceArrow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ============ SPARKLE BURST ============ */
+  .sparkle-burst {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 100;
+    display: none;
+  }
+
+  .sparkle-burst.active {
+    display: block;
+  }
+
+  .sparkle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    animation: sparkleOut 1s ease-out forwards;
+  }
+
+  @keyframes sparkleOut {
+    0% { transform: translate(0, 0) scale(1); opacity: 1; }
+    100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity: 0; }
+  }
+
+  /* ============ REVEAL STATE ============ */
+  .reveal-section {
+    display: none;
+    text-align: center;
+    max-width: 560px;
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .reveal-section.visible {
+    display: block;
+    animation: revealFadeIn 0.8s ease-out forwards;
+  }
+
+  @keyframes revealFadeIn {
+    from { opacity: 0; transform: translateY(30px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  .congrats-text {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 3.5vw, 26px);
+    color: rgba(255,255,255,0.8);
+    font-weight: 400;
+    margin-bottom: 16px;
+  }
+
+  .discount-card {
+    background: linear-gradient(135deg, rgba(108, 58, 224, 0.2) 0%, rgba(232, 67, 147, 0.15) 100%);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 24px;
+    padding: 48px 40px;
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(20px);
+  }
+
+  .discount-card::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: conic-gradient(
+      from 0deg,
+      transparent 0%,
+      rgba(232, 67, 147, 0.05) 25%,
+      transparent 50%,
+      rgba(108, 58, 224, 0.05) 75%,
+      transparent 100%
+    );
+    animation: shimmerRotate 8s linear infinite;
+  }
+
+  @keyframes shimmerRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .discount-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(64px, 12vw, 96px);
+    font-weight: 700;
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 30%, #FF69B4 60%, #FFD700 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 1;
+    animation: goldShimmer 3s ease-in-out infinite;
+  }
+
+  @keyframes goldShimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  .discount-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.6);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 20px;
+  }
+
+  .discount-code {
+    display: inline-block;
+    background: rgba(255,255,255,0.08);
+    border: 1px dashed rgba(255,255,255,0.25);
+    border-radius: 10px;
+    padding: 12px 28px;
+    font-family: 'DM Sans', monospace;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    letter-spacing: 3px;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .discount-code:hover {
+    background: rgba(255,255,255,0.12);
+    border-color: rgba(255,255,255,0.4);
+  }
+
+  .discount-code .copy-hint {
+    display: block;
+    font-size: 11px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 1px;
+    margin-top: 4px;
+  }
+
+  .reveal-message {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(16px, 2.5vw, 20px);
+    font-style: italic;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 36px;
+    line-height: 1.5;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--mv-pink) 0%, var(--valentine-red) 100%);
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    padding: 18px 48px;
+    border-radius: 60px;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 
+      0 8px 32px rgba(232, 67, 147, 0.35),
+      0 2px 8px rgba(0,0,0,0.2);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+      0 12px 40px rgba(232, 67, 147, 0.45),
+      0 4px 12px rgba(0,0,0,0.3);
+  }
+
+  .cta-button:hover::before {
+    left: 100%;
+  }
+
+  .timer-section {
+    margin-top: 32px;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out 0.5s forwards;
+  }
+
+  .timer-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+
+  .timer-display {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+  }
+
+  .timer-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .timer-number {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: white;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .timer-unit-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.35);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 6px;
+  }
+
+  .timer-colon {
+    font-size: 28px;
+    color: rgba(255,255,255,0.3);
+    align-self: flex-start;
+    padding-top: 14px;
+  }
+
+  /* ============ FOOTER ============ */
+  .footer {
+    margin-top: 48px;
+    text-align: center;
+    opacity: 0.4;
+  }
+
+  .footer p {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.8;
+  }
+
+  /* ============ MOBILE ADJUSTMENTS ============ */
+  @media (max-width: 480px) {
+    .gift-box-container {
+      width: 220px;
+      height: 220px;
+    }
+    .gift-box-body {
+      width: 160px;
+      height: 130px;
+    }
+    .gift-box-ribbon-v {
+      width: 26px;
+      height: 130px;
+    }
+    .gift-box-ribbon-h {
+      width: 160px;
+      height: 26px;
+      bottom: 75px;
+    }
+    .gift-box-lid {
+      width: 178px;
+      height: 42px;
+      top: 52px;
+    }
+    .discount-card {
+      padding: 36px 24px;
+    }
+    .timer-number {
+      width: 50px;
+      height: 50px;
+      font-size: 22px;
+    }
+  }
+
+  /* ============ NUMBER SCRAMBLE ANIMATION ============ */
+  .scramble-number {
+    display: inline-block;
+    min-width: 1.2em;
+  }
+</style>
+</head>
+<body>
+
+<!-- Floating Hearts Background -->
+<div class="hearts-bg" id="heartsBg"></div>
+
+<!-- Sparkle Burst Overlay -->
+<div class="sparkle-burst" id="sparkleBurst"></div>
+
+<div class="page-wrapper">
+
+  <!-- Mindvalley Logo -->
+  <div class="mv-logo">
+    <span class="mv-logo-text">Mindvalley</span>
+  </div>
+
+  <!-- PRE-REVEAL: Gift Box -->
+  <div class="gift-section" id="giftSection">
+    <h1 class="headline">This Valentine's Day,<br>we have a <em>gift</em> for you</h1>
+    <p class="subheadline">A little something from the Mindvalley family,<br>because you deserve to feel extraordinary.</p>
+
+    <div class="gift-box-container" id="giftBox" onclick="openGift()">
+      <div class="gift-glow"></div>
+      <div class="gift-box">
+        <div class="gift-box-bow">
+          <div class="bow-loop bow-loop-left"></div>
+          <div class="bow-loop bow-loop-right"></div>
+          <div class="bow-center"></div>
+        </div>
+        <div class="gift-box-lid"></div>
+        <div class="gift-box-body"></div>
+        <div class="gift-box-ribbon-v"></div>
+        <div class="gift-box-ribbon-h"></div>
+      </div>
+    </div>
+
+    <p class="open-cta"><span>↑</span>&nbsp; Tap to open your gift &nbsp;<span>↑</span></p>
+  </div>
+
+  <!-- POST-REVEAL: Discount -->
+  <div class="reveal-section" id="revealSection">
+    <p class="congrats-text">Your Valentine's gift has been revealed ✨</p>
+
+    <div class="discount-card">
+      <div class="discount-amount" id="discountAmount">50%</div>
+      <div class="discount-label">off Mindvalley States</div>
+      <div class="discount-code" id="discountCode" onclick="copyCode()">
+        <span id="codeText">LOVE50</span>
+        <span class="copy-hint">tap to copy</span>
+      </div>
+    </div>
+
+    <p class="reveal-message">"Take care of your body — it's the only place you have to live."</p>
+
+    <a href="#" class="cta-button" id="ctaButton">Claim Your Gift Now</a>
+
+    <div class="timer-section">
+      <p class="timer-label">Your gift expires in</p>
+      <div class="timer-display">
+        <div class="timer-unit">
+          <div class="timer-number" id="timerHours">47</div>
+          <div class="timer-unit-label">Hours</div>
+        </div>
+        <div class="timer-colon">:</div>
+        <div class="timer-unit">
+          <div class="timer-number" id="timerMins">59</div>
+          <div class="timer-unit-label">Mins</div>
+        </div>
+        <div class="timer-colon">:</div>
+        <div class="timer-unit">
+          <div class="timer-number" id="timerSecs">59</div>
+          <div class="timer-unit-label">Secs</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>Mindvalley States — Premium Supplements for Peak Performance<br>© 2025 Mindvalley. Sent with love.</p>
+  </div>
+</div>
+
+<script>
+  // ============ DISCOUNT TIERS ============
+  // 40% chance → 50% off
+  // 30% chance → 40% off
+  // 20% chance → 30% off
+  // 10% chance → 60% off
+  const TIERS = [
+    { discount: 50, code: 'LOVE50', weight: 40, url: '#states-50' },
+    { discount: 40, code: 'LOVE40', weight: 30, url: '#states-40' },
+    { discount: 30, code: 'LOVE30', weight: 20, url: '#states-30' },
+    { discount: 60, code: 'LOVE60', weight: 10, url: '#states-60' },
+  ];
+
+  // Determine discount (sticky per session via sessionStorage)
+  function getDiscount() {
+    const stored = sessionStorage.getItem('mv_valentine_discount');
+    if (stored) return JSON.parse(stored);
+
+    const rand = Math.random() * 100;
+    let cumulative = 0;
+    for (const tier of TIERS) {
+      cumulative += tier.weight;
+      if (rand <= cumulative) {
+        sessionStorage.setItem('mv_valentine_discount', JSON.stringify(tier));
+        return tier;
+      }
+    }
+    return TIERS[0];
+  }
+
+  const userDiscount = getDiscount();
+
+  // ============ FLOATING HEARTS ============
+  function createHearts() {
+    const container = document.getElementById('heartsBg');
+    const heartSVG = `<svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="currentColor"/></svg>`;
+    
+    for (let i = 0; i < 20; i++) {
+      const heart = document.createElement('div');
+      heart.className = 'heart-float';
+      heart.innerHTML = heartSVG;
+      heart.style.left = Math.random() * 100 + '%';
+      heart.style.animationDuration = (8 + Math.random() * 12) + 's';
+      heart.style.animationDelay = Math.random() * 10 + 's';
+      heart.style.color = Math.random() > 0.5 ? 'rgba(232, 67, 147, 0.6)' : 'rgba(108, 58, 224, 0.5)';
+      heart.style.fontSize = (12 + Math.random() * 16) + 'px';
+      container.appendChild(heart);
+    }
+  }
+  createHearts();
+
+  // ============ SPARKLE BURST ============
+  function createSparkles() {
+    const burst = document.getElementById('sparkleBurst');
+    burst.innerHTML = '';
+    burst.classList.add('active');
+    
+    const cx = window.innerWidth / 2;
+    const cy = window.innerHeight / 2;
+    const colors = ['#FFD700', '#FF69B4', '#8B5CF6', '#FFA500', '#FFFFFF', '#E84393'];
+
+    for (let i = 0; i < 60; i++) {
+      const sparkle = document.createElement('div');
+      sparkle.className = 'sparkle';
+      const angle = (Math.PI * 2 * i) / 60;
+      const dist = 100 + Math.random() * 250;
+      const tx = Math.cos(angle) * dist;
+      const ty = Math.sin(angle) * dist;
+      sparkle.style.left = cx + 'px';
+      sparkle.style.top = cy + 'px';
+      sparkle.style.setProperty('--tx', tx + 'px');
+      sparkle.style.setProperty('--ty', ty + 'px');
+      sparkle.style.background = colors[Math.floor(Math.random() * colors.length)];
+      sparkle.style.width = (4 + Math.random() * 8) + 'px';
+      sparkle.style.height = sparkle.style.width;
+      sparkle.style.animationDelay = (Math.random() * 0.3) + 's';
+      burst.appendChild(sparkle);
+    }
+
+    setTimeout(() => burst.classList.remove('active'), 1500);
+  }
+
+  // ============ NUMBER SCRAMBLE ============
+  function scrambleReveal(element, finalValue, duration) {
+    const startTime = Date.now();
+    const chars = '0123456789';
+    
+    function update() {
+      const elapsed = Date.now() - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      if (progress < 1) {
+        const randomNum = Math.floor(Math.random() * 70) + 10;
+        element.textContent = randomNum + '%';
+        requestAnimationFrame(update);
+      } else {
+        element.textContent = finalValue + '%';
+      }
+    }
+    
+    requestAnimationFrame(update);
+  }
+
+  // ============ OPEN GIFT ============
+  let isOpened = false;
+
+  function openGift() {
+    if (isOpened) return;
+    isOpened = true;
+
+    const giftBox = document.getElementById('giftBox');
+    giftBox.classList.add('opening');
+
+    // Sparkle burst after lid flies off
+    setTimeout(createSparkles, 400);
+
+    // Transition to reveal
+    setTimeout(() => {
+      document.getElementById('giftSection').style.display = 'none';
+      const reveal = document.getElementById('revealSection');
+      reveal.classList.add('visible');
+
+      // Scramble the number
+      const discountEl = document.getElementById('discountAmount');
+      scrambleReveal(discountEl, userDiscount.discount, 1200);
+
+      // Set code
+      document.getElementById('codeText').textContent = userDiscount.code;
+
+      // Set CTA URL (replace with your actual product URL)
+      document.getElementById('ctaButton').href = userDiscount.url;
+
+      // Start countdown
+      startTimer();
+    }, 1200);
+  }
+
+  // ============ COPY CODE ============
+  function copyCode() {
+    const code = document.getElementById('codeText').textContent;
+    navigator.clipboard.writeText(code).then(() => {
+      const hint = document.querySelector('.copy-hint');
+      hint.textContent = 'copied!';
+      setTimeout(() => { hint.textContent = 'tap to copy'; }, 2000);
+    });
+  }
+
+  // ============ COUNTDOWN TIMER (48 hours) ============
+  function startTimer() {
+    const stored = sessionStorage.getItem('mv_valentine_timer');
+    let endTime;
+    
+    if (stored) {
+      endTime = parseInt(stored);
+    } else {
+      endTime = Date.now() + (48 * 60 * 60 * 1000);
+      sessionStorage.setItem('mv_valentine_timer', endTime.toString());
+    }
+
+    function tick() {
+      const remaining = Math.max(0, endTime - Date.now());
+      const hours = Math.floor(remaining / (1000 * 60 * 60));
+      const mins = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+      const secs = Math.floor((remaining % (1000 * 60)) / 1000);
+
+      document.getElementById('timerHours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('timerMins').textContent = String(mins).padStart(2, '0');
+      document.getElementById('timerSecs').textContent = String(secs).padStart(2, '0');
+
+      if (remaining > 0) requestAnimationFrame(tick);
+    }
+
+    tick();
+    setInterval(tick, 1000);
+  }
+</script>
+
+</body>
+</html>

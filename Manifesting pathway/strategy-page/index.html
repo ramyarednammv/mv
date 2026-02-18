@@ -1,0 +1,2393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindvalley Manifesting Pathway Strategy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #ec4899;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --duality-color: #8b5cf6;
+            --be-color: #f59e0b;
+            --silva-color: #06b6d4;
+            --manifest-color: #ec4899;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--light);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(236, 72, 153, 0.2) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/></svg>') repeat;
+            background-size: 100px 100px;
+        }
+
+        .hero-content {
+            position: relative;
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #fff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Masterclass Cards */
+        .masterclass-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .masterclass-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .masterclass-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255,255,255,0.2);
+        }
+
+        .masterclass-card.duality { border-top: 4px solid var(--duality-color); }
+        .masterclass-card.be-extraordinary { border-top: 4px solid var(--be-color); }
+        .masterclass-card.silva { border-top: 4px solid var(--silva-color); }
+        .masterclass-card.manifesting { border-top: 4px solid var(--manifest-color); }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-instructor {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-description {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* Strategy Tables Section */
+        .strategy-section {
+            background: rgba(255,255,255,0.02);
+            border-radius: 2rem;
+            padding: 3rem;
+            margin-bottom: 4rem;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .strategy-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .strategy-header .icon {
+            font-size: 2.5rem;
+        }
+
+        .strategy-header h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+        }
+
+        .strategy-header .instructor {
+            color: var(--gray);
+            font-size: 1rem;
+        }
+
+        .strategy-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        .strategy-table th {
+            text-align: left;
+            padding: 1rem 1.5rem;
+            background: rgba(255,255,255,0.05);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--gray);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .strategy-table th:first-child {
+            border-radius: 0.75rem 0 0 0;
+            width: 200px;
+        }
+
+        .strategy-table th:last-child {
+            border-radius: 0 0.75rem 0 0;
+        }
+
+        .strategy-table td {
+            padding: 1.5rem;
+            vertical-align: top;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .strategy-table td:first-child {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .strategy-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .strategy-table ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .strategy-table li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #cbd5e1;
+        }
+
+        .strategy-table li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        /* Main Outcome Highlight */
+        .main-outcome {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+            border-radius: 1rem;
+            padding: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* Key Angle Highlight */
+        .key-angle {
+            background: rgba(255,255,255,0.05);
+            border-left: 4px solid var(--secondary);
+            padding: 1rem 1.5rem;
+            border-radius: 0 0.5rem 0.5rem 0;
+            font-weight: 500;
+        }
+
+        /* Sub-angles with story hooks */
+        .sub-angle {
+            background: rgba(0,0,0,0.2);
+            border-radius: 0.75rem;
+            padding: 1rem 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .sub-angle-title {
+            font-weight: 600;
+            color: var(--light);
+            margin-bottom: 0.25rem;
+        }
+
+        .sub-angle-desc {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        /* Email Section */
+        .emails-section {
+            margin-top: 3rem;
+        }
+
+        .emails-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+
+        .emails-header h4 {
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .email-tabs {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .email-tab {
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 2rem;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: var(--gray);
+        }
+
+        .email-tab:hover, .email-tab.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        .email-content {
+            display: none;
+        }
+
+        .email-content.active {
+            display: block;
+        }
+
+        .email-card {
+            background: rgba(0,0,0,0.3);
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .email-header {
+            background: rgba(255,255,255,0.05);
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .email-type {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--primary);
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
+        }
+
+        .email-type.story { background: var(--duality-color); }
+        .email-type.outcome { background: var(--silva-color); }
+        .email-type.lastcall { background: var(--secondary); }
+
+        .email-subject {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .email-preview {
+            color: var(--gray);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .email-body {
+            padding: 2rem;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .email-body::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .email-body::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.05);
+        }
+
+        .email-body::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.2);
+            border-radius: 4px;
+        }
+
+        .email-body h3 {
+            font-size: 1.1rem;
+            margin: 1.5rem 0 1rem;
+            color: var(--primary);
+        }
+
+        .email-body p {
+            margin-bottom: 1rem;
+        }
+
+        .email-body strong {
+            color: var(--light);
+        }
+
+        .email-body .cta {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            margin: 1rem 0;
+            text-decoration: none;
+        }
+
+        .email-body .divider {
+            border: none;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin: 2rem 0;
+        }
+
+        .email-body .highlight {
+            background: rgba(99, 102, 241, 0.2);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border-left: 3px solid var(--primary);
+            margin: 1rem 0;
+        }
+
+        .email-body .testimonial {
+            background: rgba(255,255,255,0.05);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-style: italic;
+            margin: 1rem 0;
+        }
+
+        .email-body .ps {
+            background: rgba(236, 72, 153, 0.1);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* Subject Line Options */
+        .subject-options {
+            background: rgba(255,255,255,0.03);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .subject-options-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+        }
+
+        .subject-option {
+            padding: 0.5rem;
+            background: rgba(0,0,0,0.2);
+            border-radius: 0.25rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* Table of Contents */
+        .toc {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 1rem;
+            padding: 1rem;
+            z-index: 100;
+        }
+
+        .toc-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gray);
+            margin-bottom: 0.75rem;
+        }
+
+        .toc-item {
+            display: block;
+            padding: 0.5rem 0.75rem;
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.85rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .toc-item:hover {
+            color: var(--light);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .toc-item.duality:hover { color: var(--duality-color); }
+        .toc-item.be:hover { color: var(--be-color); }
+        .toc-item.silva:hover { color: var(--silva-color); }
+        .toc-item.manifest:hover { color: var(--manifest-color); }
+
+        /* Summary Cards */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .summary-card {
+            background: rgba(255,255,255,0.03);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .summary-card.duality { border-top: 3px solid var(--duality-color); }
+        .summary-card.be { border-top: 3px solid var(--be-color); }
+        .summary-card.silva { border-top: 3px solid var(--silva-color); }
+        .summary-card.manifest { border-top: 3px solid var(--manifest-color); }
+
+        .summary-card h4 {
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .summary-card p {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        /* Trend Section */
+        .trends-section {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+            border-radius: 2rem;
+            padding: 3rem;
+            margin: 4rem 0;
+        }
+
+        .trends-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .trend-card {
+            background: rgba(0,0,0,0.3);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .trend-card h4 {
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .trend-card p {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .toc {
+                display: none;
+            }
+            .summary-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            .section {
+                padding: 3rem 1rem;
+            }
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+            .strategy-section {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <div class="nav-logo">Mindvalley Manifesting Pathway Strategy</div>
+            <ul class="nav-links">
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#duality">Duality</a></li>
+                <li><a href="#be-extraordinary">BE Extraordinary</a></li>
+                <li><a href="#silva">Silva</a></li>
+                <li><a href="#manifesting">Manifesting</a></li>
+                <li><a href="#trends">2026 Trends</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Table of Contents -->
+    <div class="toc">
+        <div class="toc-title">Jump to</div>
+        <a href="#duality" class="toc-item duality">Duality</a>
+        <a href="#be-extraordinary" class="toc-item be">BE Extraordinary</a>
+        <a href="#silva" class="toc-item silva">Silva</a>
+        <a href="#manifesting" class="toc-item manifest">Manifesting</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Manifesting Pathway Strategy</h1>
+            <p>Strategic mapping, angles, and email campaigns for Mindvalley's manifesting masterclass series. Built from deep transcript analysis and 2026 marketing trends.</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Masterclasses Analyzed</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">Emails Created</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Unique Angles</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section id="overview" class="section">
+        <div class="section-header">
+            <h2>Quick Overview</h2>
+            <p>Four masterclasses, each with unique positioning and story hooks</p>
+        </div>
+
+        <div class="summary-grid">
+            <div class="summary-card duality">
+                <h4>Duality</h4>
+                <p><strong>Key Angle:</strong> "Life Becomes Easy"</p>
+                <p>Energy work transforms struggle into synchronicity</p>
+            </div>
+            <div class="summary-card be">
+                <h4>BE Extraordinary</h4>
+                <p><strong>Key Angle:</strong> "Personal Disruption"</p>
+                <p>Warning: The universe will clear what doesn't serve you</p>
+            </div>
+            <div class="summary-card silva">
+                <h4>Silva Ultramine</h4>
+                <p><strong>Key Angle:</strong> "The Secret of Geniuses"</p>
+                <p>Tesla, Edison accessed this. Now you can too.</p>
+            </div>
+            <div class="summary-card manifest">
+                <h4>Art of Manifesting</h4>
+                <p><strong>Key Angle:</strong> "Vision Boards Don't Work"</p>
+                <p>Traditional manifestation is only 20% of the equation</p>
+            </div>
+        </div>
+
+        <div class="masterclass-grid">
+            <a href="#duality" class="masterclass-card duality">
+                <div class="card-icon">🔮</div>
+                <div class="card-title">Duality</div>
+                <div class="card-instructor">Jeffrey Allen</div>
+                <div class="card-description">Learn to operate as a dualistic being – physical AND energetic – making life feel effortless</div>
+            </a>
+            <a href="#be-extraordinary" class="masterclass-card be-extraordinary">
+                <div class="card-icon">⚡</div>
+                <div class="card-title">BE Extraordinary</div>
+                <div class="card-instructor">Vishen Lakhiani</div>
+                <div class="card-description">Ascend the 4 levels of consciousness to become a "visionary" with perpetual luck</div>
+            </a>
+            <a href="#silva" class="masterclass-card silva">
+                <div class="card-icon">🧠</div>
+                <div class="card-title">Silva Ultramine</div>
+                <div class="card-instructor">Vishen Lakhiani</div>
+                <div class="card-description">Access Alpha, Theta, Delta states for genius-level intuition and creativity</div>
+            </a>
+            <a href="#manifesting" class="masterclass-card manifesting">
+                <div class="card-icon">✨</div>
+                <div class="card-title">Art of Manifesting</div>
+                <div class="card-instructor">Regan Hillyer</div>
+                <div class="card-description">Fix the 3 hidden problems that make traditional manifestation fail</div>
+            </a>
+        </div>
+    </section>
+
+    <!-- DUALITY SECTION -->
+    <section id="duality" class="section">
+        <div class="strategy-section" style="border-top: 4px solid var(--duality-color);">
+            <div class="strategy-header">
+                <span class="icon">🔮</span>
+                <div>
+                    <h3>Duality Masterclass</h3>
+                    <div class="instructor">Jeffrey Allen • Energy Healer & Former Software Engineer</div>
+                </div>
+            </div>
+
+            <table class="strategy-table">
+                <thead>
+                    <tr>
+                        <th>Element</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>MAIN OUTCOME</td>
+                        <td>
+                            <div class="main-outcome">
+                                <strong>Learn to operate as a "dualistic being"</strong> – consciously working with both the physical AND energetic dimensions of reality, transforming struggle into ease and attracting synchronicities naturally. Every spiritual master says the same thing: when you learn these tools, life becomes EASY.
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>SUB-OUTCOMES</td>
+                        <td>
+                            <ul>
+                                <li>Develop instant mental calm and clarity on demand</li>
+                                <li>Feel and activate your energy body in minutes</li>
+                                <li>Locate and dissolve blocks preventing your next level</li>
+                                <li>Make aligned decisions using energy guidance</li>
+                                <li>Become magnetic – someone people love being around</li>
+                                <li>Experience "lucky" synchronicities as a normal part of life</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>KEY ANGLE</td>
+                        <td>
+                            <div class="key-angle">
+                                <strong>"Life Becomes Easy"</strong> – Every spiritual master says the same thing: true spirituality means life becomes effortless. Good things flow to you. The right people appear. This masterclass teaches HOW.
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>SUB-ANGLES</td>
+                        <td>
+                            <div class="sub-angle">
+                                <div class="sub-angle-title">The Engineer-to-Healer Transformation</div>
+                                <div class="sub-angle-desc">Jeffrey went from Silicon Valley software engineer to world-renowned energy healer – his guides literally orchestrated him getting a free car through synchronicity</div>
+                            </div>
+                            <div class="sub-angle">
+                                <div class="sub-angle-title">7-Minute Block Release</div>
+                                <div class="sub-angle-desc">A rapid technique to shift stuck energy instantly – no therapy, no analysis, just energy movement</div>
+                            </div>
+                            <div class="sub-angle">
+                                <div class="sub-angle-title">The Third Path</div>
+                                <div class="sub-angle-desc">When facing a fork in the road, there's always a hidden third option most people miss entirely</div>
+                            </div>
+                            <div class="sub-angle">
+                                <div class="sub-angle-title">Corporate Spirituality</div>
+                                <div class="sub-angle-desc">Jeffrey used energy work in board meetings – his boss started scheduling him into meetings just for the "vibe"</div>
+                            </div>
+                            <div class="sub-angle">
+                                <div class="sub-angle-title">Relationship Magnetism</div>
+                                <div class="sub-angle-desc">Students report spouses suddenly finding them more attractive after just Chapter 1</div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- DUALITY EMAILS -->
+            <div class="emails-section">
+                <div class="emails-header">
+                    <h4>📧 Email Campaigns</h4>
+                    <div class="email-tabs">
+                        <button class="email-tab active" onclick="showEmail('duality', 1)">Email 1: Story</button>
+                        <button class="email-tab" onclick="showEmail('duality', 2)">Email 2: Outcome</button>
+                        <button class="email-tab" onclick="showEmail('duality', 3)">Email 3: Last Call</button>
+                    </div>
+                </div>
+
+                <!-- Email 1 -->
+                <div id="duality-email-1" class="email-content active">
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-type story">Story Email</span>
+                            <div class="subject-options">
+                                <div class="subject-options-title">Subject Line Options</div>
+                                <div class="subject-option">His spirit guides bought him a Prius (true story)</div>
+                                <div class="subject-option">The software engineer whose guides paid off his car</div>
+                                <div class="subject-option">"In 2 weeks, you'll be laid off" – and why that was a gift</div>
+                            </div>
+                            <div class="email-subject">"His Guides Literally Bought Him a Car"</div>
+                            <div class="email-preview">This Silicon Valley story will change how you see "guidance" forever...</div>
+                        </div>
+                        <div class="email-body">
+                            <p>Jeffrey Allen was living a double life.</p>
+
+                            <p>By day? A successful software engineer in Silicon Valley. Respected. Well-paid. Comfortable.</p>
+
+                            <p>By night? He was quietly becoming one of the most gifted energy healers in America – teaching meditation, doing readings, following a calling he couldn't ignore.</p>
+
+                            <p>But here's the thing about living a double life...</p>
+
+                            <p><strong>Eventually, something has to give.</strong></p>
+
+                            <hr class="divider">
+
+                            <p>Jeffrey knew he wanted to leave engineering. He'd been doing energy work on the side for years. He'd even spent a month teaching in Uganda (a trip that happened through a series of "coincidences" so precise, it would make your head spin).</p>
+
+                            <p>But HOW do you leave a stable career for... energy healing?</p>
+
+                            <p>One morning, in meditation, Jeffrey got a very specific message:</p>
+
+                            <div class="highlight"><strong>"Put your house on the market."</strong></div>
+
+                            <p>His response? "What?! I just finished renovating it!"</p>
+
+                            <p>But he'd learned to trust guidance. So he listed it – priced a little high, secretly hoping it wouldn't sell.</p>
+
+                            <p>A week later, he was driving to Sedona to visit a friend. He'd never been there before.</p>
+
+                            <p>The moment he drove into that canyon, a voice said: <strong>"You're moving here."</strong></p>
+
+                            <p>He asked Sedona directly: "Why are you calling me?"</p>
+
+                            <p>The response?</p>
+
+                            <div class="highlight"><strong>"Come here and be healed."</strong></div>
+
+                            <p>That was enough. He cleared his fear. Did a little energy work on his attachment to the house.</p>
+
+                            <p>Within ONE HOUR, he had a full-price offer. By noon, he was under contract.</p>
+
+                            <hr class="divider">
+
+                            <h3>But the story gets wilder.</h3>
+
+                            <p>A few months later, Jeffrey was meditating when his guides said:</p>
+
+                            <p><strong>"Go look at the Toyota Prius."</strong></p>
+
+                            <p>"But I want a used car," he argued.</p>
+
+                            <p><strong>"Go look at the Prius."</strong></p>
+
+                            <p>He went. The dealer was rude. Said they were sold out everywhere.</p>
+
+                            <p>Jeffrey went home frustrated and thought: <em>"I don't care if nobody in the state can get this car. If I want it, I can have it tomorrow."</em></p>
+
+                            <p>The next morning, his guides said: <strong>"Expand your search."</strong></p>
+
+                            <p>He called nearby cities. Found one. Drove over.</p>
+
+                            <p>His guides kept saying: <strong>"Buy the car. Buy the car. Buy the car."</strong></p>
+
+                            <p>He hesitated. "I don't want car payments..."</p>
+
+                            <p><strong>"Don't worry about the money. Buy the car."</strong></p>
+
+                            <p>He bought the top-of-the-line model. Financed the whole thing.</p>
+
+                            <p>Then the next morning, he asked his guides: "Okay, what did you mean 'don't worry about the money'?"</p>
+
+                            <p>Their answer?</p>
+
+                            <div class="highlight">
+                                <strong>"In two weeks, you'll be laid off. But because you're working halftime, you'd only get a halftime severance. Email your boss NOW. Tell her you bought a car and want to go back to full-time."</strong>
+                            </div>
+
+                            <p>Jeffrey sent the email. His boss approved the change immediately.</p>
+
+                            <p>Two weeks later? Laid off with a FULL severance package.</p>
+
+                            <p>The extra money paid off the car completely.</p>
+
+                            <p><strong>His guides literally bought him a car.</strong></p>
+
+                            <hr class="divider">
+
+                            <p>This is what becomes possible when you learn to work with energy.</p>
+
+                            <p>Not "woo-woo" theory. PRACTICAL guidance that shows up in stock options, real estate decisions, career moves, and yes – even car purchases.</p>
+
+                            <p>Jeffrey Allen has spent 20+ years mastering these tools. He's taught over 1.6 million students worldwide. His program Duality has a 4.94 rating from people who've experienced genuine transformation.</p>
+
+                            <p>And right now, he's teaching a <strong>FREE 81-minute masterclass</strong> where he'll show you:</p>
+
+                            <ul>
+                                <li>→ How to develop a calm mind and get clarity (in minutes)</li>
+                                <li>→ How to FEEL your energy body – not imagine it, FEEL it</li>
+                                <li>→ How to locate and release your biggest block</li>
+                                <li>→ How to make decisions energetically (so you always choose the right path)</li>
+                            </ul>
+
+                            <a href="#" class="cta">RESERVE YOUR FREE SPOT →</a>
+
+                            <p>This isn't meditation. This isn't visualization.</p>
+
+                            <p>This is learning to operate as the DUAL being you already are – physical AND energetic – so that life stops being a struggle and starts flowing.</p>
+
+                            <p>Over 1.6 million people have experienced Jeffrey's teachings.</p>
+
+                            <p>Your turn?</p>
+
+                            <a href="#" class="cta">YES – SAVE MY SEAT →</a>
+
+                            <p>To living in flow,<br>[Signature]</p>
+
+                            <div class="ps">
+                                <strong>P.S.</strong> Jeffrey says the same thing every spiritual master says: "When you learn these tools, life becomes EASY." Good things flow to you. The right people appear. Decisions become obvious. The masterclass is free – but only available for a limited time. <a href="#">Grab your spot now →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Email 2 -->
+                <div id="duality-email-2" class="email-content">
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-type outcome">Outcome Email</span>
+                            <div class="subject-options">
+                                <div class="subject-options-title">Subject Line Options</div>
+                                <div class="subject-option">What if you always knew the right choice?</div>
+                                <div class="subject-option">The 4 energy tools that make life feel easy</div>
+                                <div class="subject-option">Blocked? Drained? There's a reason (and a fix)</div>
+                            </div>
+                            <div class="email-subject">"What If Decisions Were Obvious?"</div>
+                            <div class="email-preview">24,574 people transformed. Here's what they discovered...</div>
+                        </div>
+                        <div class="email-body">
+                            <p>Let me ask you something...</p>
+
+                            <p><strong>When's the last time you felt completely CERTAIN about a decision?</strong></p>
+
+                            <p>Not "pretty sure." Not "I hope this works out."</p>
+
+                            <p>CERTAIN. Clear. Aligned.</p>
+
+                            <p>If you're like most people, it's been a while.</p>
+
+                            <p>And that uncertainty? It's exhausting.</p>
+
+                            <ul>
+                                <li>→ Should I take this job... or wait for something better?</li>
+                                <li>→ Should I have that hard conversation... or let it go?</li>
+                                <li>→ Should I invest in this opportunity... or is it a mistake?</li>
+                                <li>→ Should I stay in this relationship... or walk away?</li>
+                            </ul>
+
+                            <p>You analyze. You make pro/con lists. You ask friends. You Google.</p>
+
+                            <p>And still... that knot in your stomach remains.</p>
+
+                            <hr class="divider">
+
+                            <h3>Here's what most people don't realize:</h3>
+
+                            <p>The answers aren't in your head.</p>
+
+                            <p><strong>They're in your ENERGY.</strong></p>
+
+                            <p>Your body already knows. Your intuition already knows. The energetic field around you is already receiving information about which path leads to expansion and which leads to contraction.</p>
+
+                            <p>You've just never been taught how to ACCESS it.</p>
+
+                            <hr class="divider">
+
+                            <p>Jeffrey Allen spent 15 years as a Silicon Valley engineer. Then he discovered something that changed everything:</p>
+
+                            <div class="highlight"><strong>"Energy always comes first."</strong></div>
+
+                            <p>Before anything manifests in the physical world, it exists in the energetic realm. This means:</p>
+
+                            <ul>
+                                <li>If a relationship is going to work, the energy alignment is ALREADY there</li>
+                                <li>If a business decision is right, the energetic "yes" is ALREADY present</li>
+                                <li>If a path leads to your highest good, the signal is ALREADY broadcasting</li>
+                            </ul>
+
+                            <p>You just need to learn to tune in.</p>
+
+                            <hr class="divider">
+
+                            <h3>In Jeffrey's FREE Duality Masterclass, you'll learn 4 energy tools:</h3>
+
+                            <p><strong>TOOL #1: Calm Mind & Clarity</strong><br>
+                            How to drop into a relaxed state instantly – and separate YOUR truth from everyone else's expectations, opinions, and programming.</p>
+
+                            <p><strong>TOOL #2: Feel Your Energy</strong><br>
+                            A simple exercise to activate your hand chakras and FEEL the energy ball between your palms. This isn't imagination – it's sensation.</p>
+
+                            <p><strong>TOOL #3: Locate & Release Blocks</strong><br>
+                            Your fears and doubts aren't abstract – they live in your BODY as stuck energy. You'll learn to find exactly WHERE and dissolve it in minutes.</p>
+
+                            <p><strong>TOOL #4: Energetic Decision-Making</strong><br>
+                            Visualize walking down each potential path and FEEL which one expands you. Plus: discover the hidden "third path" most people miss.</p>
+
+                            <hr class="divider">
+
+                            <h3>What people experience after learning these tools:</h3>
+
+                            <div class="testimonial">"My husband said I don't know why, but you're suddenly so attractive. I can't stop looking at you." – After just Chapter 1</div>
+
+                            <div class="testimonial">"I started being able to see my energy patterns for the first time." – Nicoletta, Romania</div>
+
+                            <div class="testimonial">"My life changed in a matter of three days." – Eric, Barcelona</div>
+
+                            <p><strong>24,574 documented success stories. 4.94 out of 5 rating. 1.6 million students worldwide.</strong></p>
+
+                            <p>And right now, the masterclass is FREE.</p>
+
+                            <a href="#" class="cta">CLAIM YOUR SPOT →</a>
+
+                            <p>The question isn't whether these tools work.</p>
+
+                            <p>The question is: are you ready to stop struggling and let life become easy?</p>
+
+                            <a href="#" class="cta">YES – I'M READY →</a>
+
+                            <div class="ps">
+                                <strong>P.S.</strong> Jeffrey's students report something interesting: people start WANTING to be around them. Compliments like "I don't know what it is, but I love having you here" become normal. That's what happens when your energy is clear and grounded. <a href="#">Join the free masterclass →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Email 3 -->
+                <div id="duality-email-3" class="email-content">
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-type lastcall">Last Call Email</span>
+                            <div class="subject-options">
+                                <div class="subject-options-title">Subject Line Options</div>
+                                <div class="subject-option">[FINAL HOURS] Jeffrey Allen's masterclass closes tonight</div>
+                                <div class="subject-option">Last chance: The energy tools 1.6M people have used</div>
+                                <div class="subject-option">Closing soon – your spot is still reserved</div>
+                            </div>
+                            <div class="email-subject">"Closing Tonight"</div>
+                            <div class="email-preview">The free training disappears at midnight...</div>
+                        </div>
+                        <div class="email-body">
+                            <p>Quick note –</p>
+
+                            <p>Jeffrey Allen's FREE Duality Masterclass is closing registration tonight.</p>
+
+                            <p>If you've been meaning to watch it, now's the time.</p>
+
+                            <hr class="divider">
+
+                            <h3>Here's what you'll learn in 81 minutes:</h3>
+
+                            <ul>
+                                <li>✓ How to get instant clarity on any decision</li>
+                                <li>✓ How to FEEL your energy body – not visualize, actually FEEL it</li>
+                                <li>✓ The 7-minute technique to locate and release whatever's blocking you</li>
+                                <li>✓ How to "walk down" each potential path energetically</li>
+                                <li>✓ Why Jeffrey's boss used to schedule him into meetings just for the "energy"</li>
+                            </ul>
+
+                            <hr class="divider">
+
+                            <h3>The facts:</h3>
+
+                            <p>→ 1.6 million people have learned from Jeffrey<br>
+                            → 24,574 documented transformations<br>
+                            → 4.94 out of 5 rating<br>
+                            → 81 minutes, completely free</p>
+
+                            <hr class="divider">
+
+                            <p><strong>What makes this different from other "energy" teachings:</strong></p>
+
+                            <p>Jeffrey is a former software engineer. He doesn't do vague.</p>
+
+                            <p>Every technique is PRACTICAL. You'll feel results in the session itself – not "someday" but TODAY.</p>
+
+                            <hr class="divider">
+
+                            <p>After tonight, registration closes.</p>
+
+                            <a href="#" class="cta">WATCH THE FREE MASTERCLASS NOW →</a>
+
+                            <p>81 minutes could change everything.</p>
+
+                            <p>[Signature]</p>
+
+                            <div class="ps">
+                                <strong>P.S.</strong> Remember Jeffrey's story – his guides orchestrated a car purchase, a house sale, a layoff, and a severance package into one perfect sequence. That level of "luck" isn't luck. It's alignment. And it can be learned. <a href="#">Last chance to join →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BE EXTRAORDINARY SECTION -->
+    <section id="be-extraordinary" class="section">
+        <div class="strategy-section" style="border-top: 4px solid var(--be-color);">
+            <div class="strategy-header">
+                <span class="icon">⚡</span>
+                <div>
+                    <h3>BE Extraordinary Masterclass</h3>
+                    <div class="instructor">Vishen Lakhiani • Founder of Mindvalley</div>
+                </div>
+            </div>
+
+            <table class="strategy-table">
+                <thead>
+                    <tr>
+                        <th>Element</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>MAIN OUTCOME</td>
+                        <td>
+                            <div class="main-outcome">
+                                <strong>Ascend through the 4 Levels of Consciousness</strong> – from "victim of circumstance" (Level 1) to "visionary" (Level 4) where intuition drives intention, life operates on autopilot, and you are perpetually lucky. At Level 4, you don't chase goals – the right goals find YOU.
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>SUB-OUTCOMES</td>
+                        <td>
+                            <ul>
+                                <li>Unlock 7 emergent qualities: bliss, immunity to overwhelm, win-win relationships, inspiration on demand, abundance, flow/ease, reality bending</li>
+                                <li>Discover which level you're currently operating from (most overestimate by 1 level)</li>
+                                <li>Learn level-specific tools (wrong tools = wasted effort)</li>
+                                <li>Experience "Beautiful Destruction" – life clearing what doesn't serve you</li>
+                                <li>Move from pressure-driven goals to soul-aligned intentions</li>
+                                <li>Become a "visionary" who shapes culture, not follows it</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>KEY ANGLE</td>
+                        <td>
+                            <div class="key-angle">
+                                <strong>"Personal DISRUPTION, Not Just Personal Development"</strong> – Warning: This will change your life. Not gently. The universe will clear relationships, jobs, and situations that no longer serve your highest path. You'll emerge transformed.
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>SUB-ANGLES</td>
+                        <td>
+                            <div class="sub-angle">
+                                <div class="sub-angle-title">The Chamber Experience</div>
+                                <div class="sub-angle-desc">Vishen's mystical download in a neuroscience lab – where the "merging" technique was implanted in his consciousness through thought bubbles</div>
+                            </div>
+                            <div class="sub-angle">
+                                <div class="sub-angle-title">Beautiful Destruction</div>
+                                <div class="sub-angle-desc">Within 6 weeks: knee injury, childhood home burned down, 19-year marriage ended – all leading to Vishen's greatest growth</div>
+                            </div>
+                            <div class="sub-angle">
+                                <div class="sub-angle-title">The Bianca Story</div>
+                                <div class="sub-angle-desc">A 19-year-old student beat Serena Williams at the US Open using these exact tools – showed reporters Vishen's book after winning</div>
+                            </div>
+                            <div class="sub-angle">
+                                <div class="sub-angle-title">Ken Wilber's Warning</div>
+                                <div class="sub-angle-desc">The world's greatest philosopher of consciousness says everyone overestimates their level by 1</div>
+                            </div>
+                            <div class="sub-angle">
+                                <div class="sub-angle-title">The #1 Amazon Book</div>
+                                <div class="sub-angle-desc">Vishen's book hit #1 on Amazon FIVE times in one year with zero promotion – pure synchronicity from Level 4 living</div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- BE EXTRAORDINARY EMAILS -->
+            <div class="emails-section">
+                <div class="emails-header">
+                    <h4>📧 Email Campaigns</h4>
+                    <div class="email-tabs">
+                        <button class="email-tab active" onclick="showEmail('be', 1)">Email 1: Story</button>
+                        <button class="email-tab" onclick="showEmail('be', 2)">Email 2: Outcome</button>
+                        <button class="email-tab" onclick="showEmail('be', 3)">Email 3: Last Call</button>
+                    </div>
+                </div>
+
+                <!-- BE Email 1 -->
+                <div id="be-email-1" class="email-content active">
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-type story">Story Email</span>
+                            <div class="subject-options">
+                                <div class="subject-options-title">Subject Line Options</div>
+                                <div class="subject-option">The year my life fell apart (and why I'm grateful)</div>
+                                <div class="subject-option">When the universe destroys your life on purpose</div>
+                                <div class="subject-option">My knee, my marriage, my childhood home – all gone in 6 weeks</div>
+                            </div>
+                            <div class="email-subject">"The Year Everything Burned Down"</div>
+                            <div class="email-preview">Vishen's most vulnerable story – and the lesson that changed everything...</div>
+                        </div>
+                        <div class="email-body">
+                            <p>I need to tell you about the worst six weeks of my life.</p>
+
+                            <p>And why they were actually the best thing that ever happened to me.</p>
+
+                            <hr class="divider">
+
+                            <p>It started in 2017.</p>
+
+                            <p>I'd just had a mystical experience in a neuroscience lab between Vancouver and Seattle. Scientists were mapping my brainwaves while I meditated deeply.</p>
+
+                            <p>Something happened in that chamber – something I still can't fully explain.</p>
+
+                            <p>I felt my chair shaking violently. But no one else was in the room.</p>
+
+                            <p>Then came what spiritual texts call a "Kundalini experience" – energy rushing through my body.</p>
+
+                            <p>And then... downloads.</p>
+
+                            <p>Thought bubbles. Not words – complete IDEAS transmitted in seconds. A vision of what I was meant to do. And a technique I'd never heard of before:</p>
+
+                            <div class="highlight"><strong>Merging.</strong></div>
+
+                            <p>A way of shifting reality that made everything I'd previously taught – vision boards, affirmations, law of attraction – look like kindergarten.</p>
+
+                            <p>I left that chamber changed. And I started applying this technique to my life.</p>
+
+                            <hr class="divider">
+
+                            <h3>Exactly 14 months later, the universe came for me.</h3>
+
+                            <p>Within a span of SIX WEEKS:</p>
+
+                            <p><strong>First:</strong> I injured my knee badly. Training for a Spartan race. Doctors said I'd never run or jump again without severe damage. I was 43.</p>
+
+                            <p><strong>Second:</strong> My childhood home caught fire. My parents were inside. They escaped on the roof – saved by firemen at the last moment. The house took 18 months to repair.</p>
+
+                            <p><strong>Third:</strong> My marriage of 19 years ended. My wife and I divorced.</p>
+
+                            <hr class="divider">
+
+                            <p>If you looked at my life from the outside during those weeks, you'd think I was cursed.</p>
+
+                            <p>Health crisis. Family trauma. Relationship collapse.</p>
+
+                            <p>All at once.</p>
+
+                            <p>But here's what I've learned:</p>
+
+                            <div class="highlight"><strong>When you start playing at Level 4, the universe clears everything that doesn't serve your highest path.</strong></div>
+
+                            <p>It doesn't ask permission. It doesn't wait for you to be ready. It just... cleans house.</p>
+
+                            <hr class="divider">
+
+                            <p>I call this <strong>The Beautiful Destruction.</strong></p>
+
+                            <p>Think about what happens after a hard workout. Your muscles have tiny tears. You feel broken. But that breakdown is EXACTLY what triggers the rebuild.</p>
+
+                            <p>Your body comes back STRONGER.</p>
+
+                            <p>Life works the same way at Level 4.</p>
+
+                            <h3>Here's what happened after my "destruction":</h3>
+
+                            <p>→ My knee injury led me deep into energy healing. 14 months later? I was running and jumping again – and I'd gained a new skill.</p>
+
+                            <p>→ My parents' home burning down caused them to move closer to me. Today, my kids and their grandparents are neighbors. We've never been closer.</p>
+
+                            <p>→ My divorce was a conscious uncoupling. My ex and I are still close friends, co-parents, and business partners.</p>
+
+                            <hr class="divider">
+
+                            <p>The same year all this happened?</p>
+
+                            <p><strong>My book hit #1 on Amazon. Five times. With zero promotion.</strong></p>
+
+                            <p>I wasn't doing anything. No marketing campaigns. Something had shifted in the fabric of reality.</p>
+
+                            <p>The target was attracting the arrow.</p>
+
+                            <hr class="divider">
+
+                            <p><strong>But here's my warning:</strong></p>
+
+                            <p>If you're going to learn what I teach, know this:</p>
+
+                            <p><strong>Your life WILL be disrupted.</strong></p>
+
+                            <p>Not in a "gentle transformation" way. In a "the universe is reorganizing your reality" way.</p>
+
+                            <p>Things will fall away. Relationships that don't serve you will end. Jobs that keep you small will disappear. Your old identity will burn.</p>
+
+                            <p>And you'll emerge as someone new.</p>
+
+                            <hr class="divider">
+
+                            <p>I'm hosting a free masterclass called <strong>Be Extraordinary.</strong></p>
+
+                            <p>In it, I'll teach you:</p>
+
+                            <ul>
+                                <li>→ The 4 Levels of Consciousness (and how to identify where YOU are)</li>
+                                <li>→ Why most personal development tools don't work (wrong level = wrong tools)</li>
+                                <li>→ The 7 emergent qualities that appear as you ascend</li>
+                                <li>→ The "merging" technique I downloaded in that chamber</li>
+                                <li>→ How to prepare for (and embrace) your Beautiful Destruction</li>
+                            </ul>
+
+                            <a href="#" class="cta">JOIN THE FREE MASTERCLASS →</a>
+
+                            <p>This isn't gentle. This is transformation.</p>
+
+                            <p>Are you ready?</p>
+
+                            <a href="#" class="cta">YES – I'M IN →</a>
+
+                            <p>To your extraordinary life,<br>Vishen</p>
+
+                            <div class="ps">
+                                <strong>P.S.</strong> One of my students, Bianca Andreescu, learned these techniques at 17. At 19, she beat Serena Williams to win the US Open. When reporters asked how, she pulled out her phone and showed them my work. These tools create REAL results. <a href="#">Save your seat →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BE Email 2 -->
+                <div id="be-email-2" class="email-content">
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-type outcome">Outcome Email</span>
+                            <div class="subject-options">
+                                <div class="subject-options-title">Subject Line Options</div>
+                                <div class="subject-option">The 7 abilities that emerge when you level up</div>
+                                <div class="subject-option">What if you were immune to overwhelm?</div>
+                                <div class="subject-option">Bliss. Flow. Luck. (They're not random – they're Level 4)</div>
+                            </div>
+                            <div class="email-subject">"The 7 Qualities of Level 4 Humans"</div>
+                            <div class="email-preview">Which of these 7 qualities would change your life most?</div>
+                        </div>
+                        <div class="email-body">
+                            <p>What if I told you there are SEVEN specific qualities that emerge when you reach the highest level of human consciousness?</p>
+
+                            <p>Not vague "enlightenment." Not abstract "awakening."</p>
+
+                            <p><strong>Specific, measurable qualities that show up in your daily life.</strong></p>
+
+                            <hr class="divider">
+
+                            <h3>THE 7 EMERGENT QUALITIES OF LEVEL 4:</h3>
+
+                            <p><strong>1. BLISS</strong><br>
+                            You find deep joy in everything you do. Work and play merge. Monday feels like Saturday.</p>
+
+                            <p><strong>2. IMMUNITY TO OVERWHELM</strong><br>
+                            You can handle multiple projects, run multiple companies – without stress touching you.</p>
+
+                            <p><strong>3. WIN-WIN RELATIONSHIPS</strong><br>
+                            Every relationship becomes win-win. Even breakups. Even divorces. No resentment, no enemies.</p>
+
+                            <p><strong>4. INSPIRATION ON DEMAND</strong><br>
+                            Ideas download into you. Writing flows. Art emerges. Your mind is plugged into super-intelligence.</p>
+
+                            <p><strong>5. ABUNDANCE IN ALL AREAS</strong><br>
+                            Not just money. Abundance in love, health, friendships, experiences. You feel genuinely BLESSED.</p>
+
+                            <p><strong>6. FLOW & EASE</strong><br>
+                            You're always in the zone. That state athletes call "flow"? It's your default.</p>
+
+                            <p><strong>7. BENDING REALITY</strong><br>
+                            Your goals manifest FAST. The gap between thought and reality shrinks. Things that should take years happen in months.</p>
+
+                            <hr class="divider">
+
+                            <p><strong>Here's what most people don't understand:</strong></p>
+
+                            <p>These qualities don't come from working harder. They don't come from more vision boards.</p>
+
+                            <p><strong>They emerge automatically when you ascend to Level 4 consciousness.</strong></p>
+
+                            <p>It's like a video game. When you level up, new abilities unlock.</p>
+
+                            <p>But most people are stuck at Level 2 – using Level 2 tools – wondering why they're not getting Level 4 results.</p>
+
+                            <hr class="divider">
+
+                            <p>In my free <strong>Be Extraordinary Masterclass</strong>, you'll discover:</p>
+
+                            <ul>
+                                <li>✓ The 4 Levels of Consciousness (and exactly where YOU are)</li>
+                                <li>✓ Why Ken Wilber says everyone overestimates their level by 1</li>
+                                <li>✓ The specific TOOLS for each level</li>
+                                <li>✓ How to trigger "The Beautiful Destruction"</li>
+                                <li>✓ The "merging" technique for Level 4 manifestation</li>
+                            </ul>
+
+                            <p><strong>15,000+ people have joined. 21,624 documented transformations. Free.</strong></p>
+
+                            <a href="#" class="cta">RESERVE YOUR SPOT →</a>
+
+                            <p>Which of the 7 qualities do YOU want to unlock?</p>
+
+                            <a href="#" class="cta">JOIN NOW →</a>
+
+                            <div class="ps">
+                                <strong>P.S.</strong> Here's the uncomfortable truth: you're probably not at the level you think you are. That's actually GOOD news – it means there's so much more available to you. <a href="#">Take the assessment in the free masterclass →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BE Email 3 -->
+                <div id="be-email-3" class="email-content">
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-type lastcall">Last Call Email</span>
+                            <div class="subject-options">
+                                <div class="subject-options-title">Subject Line Options</div>
+                                <div class="subject-option">[CLOSING] Be Extraordinary masterclass ends tonight</div>
+                                <div class="subject-option">Last chance to discover your consciousness level</div>
+                                <div class="subject-option">Final hours: The 7 qualities await</div>
+                            </div>
+                            <div class="email-subject">"Final Hours"</div>
+                            <div class="email-preview">This free training disappears at midnight...</div>
+                        </div>
+                        <div class="email-body">
+                            <p>This is your final reminder –</p>
+
+                            <p>The <strong>Be Extraordinary Masterclass</strong> closes registration tonight.</p>
+
+                            <hr class="divider">
+
+                            <h3>Quick recap of what you'll learn:</h3>
+
+                            <p>→ The 4 Levels of Consciousness (most people are stuck at Level 2)</p>
+
+                            <p>→ The 7 emergent qualities of Level 4 humans: bliss, immunity to overwhelm, win-win relationships, inspiration on demand, abundance, flow, reality-bending</p>
+
+                            <p>→ Why different levels require different tools</p>
+
+                            <p>→ The "Beautiful Destruction" – and how to embrace it</p>
+
+                            <p>→ The "merging" technique that goes beyond visualization</p>
+
+                            <hr class="divider">
+
+                            <p><strong>Warning:</strong></p>
+
+                            <p>This isn't gentle self-help.</p>
+
+                            <p>When you start ascending levels, your life will be disrupted. Relationships that don't serve you will end. Jobs keeping you small will disappear. Your old identity will transform.</p>
+
+                            <p>If that scares you, this masterclass isn't for you.</p>
+
+                            <p>But if you're ready to become EXTRAORDINARY – not just "better" –</p>
+
+                            <a href="#" class="cta">WATCH THE FREE MASTERCLASS NOW →</a>
+
+                            <p>Registration closes tonight.</p>
+
+                            <p>Don't miss this.</p>
+
+                            <p>Vishen</p>
+
+                            <div class="ps">
+                                <strong>P.S.</strong> Bianca Andreescu learned these tools at 17. At 19, she beat Serena Williams. These aren't theories – they're battle-tested methods that create extraordinary results. <a href="#">Final chance to join →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SILVA SECTION -->
+    <section id="silva" class="section">
+        <div class="strategy-section" style="border-top: 4px solid var(--silva-color);">
+            <div class="strategy-header">
+                <span class="icon">🧠</span>
+                <div>
+                    <h3>Silva Ultramine Masterclass</h3>
+                    <div class="instructor">Vishen Lakhiani • Certified Silva Method Instructor</div>
+                </div>
+            </div>
+
+            <table class="strategy-table">
+                <thead>
+                    <tr>
+                        <th>Element</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>MAIN OUTCOME</td>
+                        <td>
+                            <div class="main-outcome">
+                                <strong>Access Alpha, Theta, and Delta brainwave frequencies</strong> to unlock genius-level intuition, creativity, problem-solving, and the ability to manifest "lucky synchronicities" at will. This is how Tesla, Edison, and history's greatest minds operated.
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>SUB-OUTCOMES</td>
+                        <td>
+                            <ul>
+                                <li>Develop crystal-clear intuition (functional psychic ability)</li>
+                                <li>Multiply your manifesting power through the Mental Screen technique</li>
+                                <li>Heal your body through directed visualization</li>
+                                <li>Access guidance from higher sources through Delta state</li>
+                                <li>Solve "impossible" problems with the 3 Scenes Technique</li>
+                                <li>Become unshakeable and grounded even in chaos</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>KEY ANGLE</td>
+                        <td>
+                            <div class="key-angle">
+                                <strong>"The Secret of Geniuses Throughout History"</strong> – Tesla saw complete inventions in his mind. Edison used afternoon naps to access theta. Napoleon Hill called it "communicating with sources of knowledge not available through ordinary thought." Jose Silva cracked the code. Now it's yours.
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>SUB-ANGLES</td>
+                        <td>
+                            <div class="sub-angle">
+                                <div class="sub-angle-title">Vishen's $0 to VP Story</div>
+                                <div class="sub-angle-desc">Broke, sleeping on a couch – learned Silva, doubled sales overnight, promoted 3x in 4 months, became VP in 18 months</div>
+                            </div>
+                            <div class="sub-angle">
+                                <div class="sub-angle-title">Jose Silva's Lottery Win</div>
+                                <div class="sub-angle-desc">A dream showed him 4 numbers. A series of "coincidences" led him to a lottery ticket. He won $10,000 – funding all his research</div>
+                            </div>
+                            <div class="sub-angle">
+                                <div class="sub-angle-title">The Cancer Study</div>
+                                <div class="sub-angle-desc">Dr. O. Carl Simonton taught Silva to 159 terminal patients. 4 years later, 63 were still alive. 14 showed NO signs of cancer</div>
+                            </div>
+                            <div class="sub-angle">
+                                <div class="sub-angle-title">Isabella's Gift</div>
+                                <div class="sub-angle-desc">Jose's daughter could answer questions BEFORE he spoke them – she now works as a medical intuitive in a Texas hospital</div>
+                            </div>
+                            <div class="sub-angle">
+                                <div class="sub-angle-title">World-Class Athletes</div>
+                                <div class="sub-angle-desc">Tony Gonzalez (NFL Hall of Fame), Bianca Andreescu (US Open), Miguel (R&B star) all use these techniques</div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- SILVA EMAILS -->
+            <div class="emails-section">
+                <div class="emails-header">
+                    <h4>📧 Email Campaigns</h4>
+                    <div class="email-tabs">
+                        <button class="email-tab active" onclick="showEmail('silva', 1)">Email 1: Story</button>
+                        <button class="email-tab" onclick="showEmail('silva', 2)">Email 2: Outcome</button>
+                        <button class="email-tab" onclick="showEmail('silva', 3)">Email 3: Last Call</button>
+                    </div>
+                </div>
+
+                <!-- Silva Email 1 -->
+                <div id="silva-email-1" class="email-content active">
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-type story">Story Email</span>
+                            <div class="subject-options">
+                                <div class="subject-options-title">Subject Line Options</div>
+                                <div class="subject-option">I was sleeping on a couch. 18 months later, I was VP.</div>
+                                <div class="subject-option">The yellow pages technique that changed my life</div>
+                                <div class="subject-option">How I doubled my sales using ESP (yes, really)</div>
+                            </div>
+                            <div class="email-subject">"How I Went From Broke to VP in 18 Months"</div>
+                            <div class="email-preview">The true story of how I discovered Silva – and everything changed...</div>
+                        </div>
+                        <div class="email-body">
+                            <p>Let me tell you about the worst year of my life.</p>
+
+                            <p>It was 2001. I'd just moved to San Francisco from New York, excited about the future.</p>
+
+                            <p>My timing couldn't have been worse.</p>
+
+                            <p>In April, the dot-com bubble burst. 14,000 people were laid off overnight.</p>
+
+                            <p>I couldn't get a job. Not even an interview.</p>
+
+                            <p>I was sleeping on a friend's couch, sending out resumes into a void.</p>
+
+                            <p>Then September 11th happened. The economy cratered further.</p>
+
+                            <p>Finally – FINALLY – a company hired me.</p>
+
+                            <p>The catch? Commission only. Selling software to lawyers. Cold calling.</p>
+
+                            <p>I had zero sales experience.</p>
+
+                            <p>But I was desperate. So I took it.</p>
+
+                            <hr class="divider">
+
+                            <h3>My first month: $0 in sales.</h3>
+
+                            <p>Not low sales. ZERO.</p>
+
+                            <p>My job was to call every lawyer in San Antonio, Texas from A to Z in the Yellow Pages.</p>
+
+                            <p>If you know anything about Texas lawyers getting cold calls, you know this: They are NOT kind.</p>
+
+                            <p>After maybe the 13th lawyer verbally abused me that day, I knew something had to change.</p>
+
+                            <p>So I got on Google (which was still new back then) and started searching for answers.</p>
+
+                            <p>I found a website about the <strong>Silva Method</strong>.</p>
+
+                            <p>There was a seminar that weekend in LA. I scraped together the money and flew down.</p>
+
+                            <hr class="divider">
+
+                            <h3>What I learned changed EVERYTHING.</h3>
+
+                            <p>The seminar was supposed to be 2 days. I was the only student who showed up.</p>
+
+                            <p>So the instructor taught me everything in one day – going until 9pm.</p>
+
+                            <p>I flew back to San Francisco that night. The next morning, I started applying what I'd learned.</p>
+
+                            <p><strong>Here's what I did:</strong></p>
+
+                            <p>I went into the <strong>Alpha state</strong> – a relaxed, meditative brainwave frequency.</p>
+
+                            <p>Then I ran my finger down the list of lawyer names.</p>
+
+                            <p>And I only called the ones that gave me an <strong>impulse</strong>.</p>
+
+                            <p>A feeling. Like a light, positive hit. An intuitive "yes."</p>
+
+                            <p>If a name didn't give me that signal, I skipped it.</p>
+
+                            <hr class="divider">
+
+                            <div class="highlight"><strong>I doubled my sales that week. And the next week? Doubled again.</strong></div>
+
+                            <p>My boss came to me and said: <em>"Vishen, what are you doing?"</em></p>
+
+                            <p>I said: <em>"I think they call it ESP."</em></p>
+
+                            <p>He laughed and said: <em>"That's bullshit. But can you keep doing it?"</em></p>
+
+                            <p><strong>Within 18 months:</strong></p>
+
+                            <ul>
+                                <li>→ I was promoted 3 times in 4 months</li>
+                                <li>→ I became Vice President of Sales</li>
+                                <li>→ I was running the New York office in Chelsea Market</li>
+                                <li>→ I was so productive, I took on a SECOND job simultaneously</li>
+                            </ul>
+
+                            <p>All because I could use intuition to make better decisions. All because of Silva.</p>
+
+                            <hr class="divider">
+
+                            <p>Today, I've trained with the Silva family. I've become certified to teach the method.</p>
+
+                            <p><strong>Athletes like Tony Gonzalez (NFL Hall of Fame) meditate with these techniques.</strong></p>
+
+                            <p>And now I'm teaching them in a free masterclass: <strong>Silva Ultramine.</strong></p>
+
+                            <p>In 32 minutes, you'll learn:</p>
+
+                            <ul>
+                                <li>→ How to access Alpha, Theta, and Delta brainwave states</li>
+                                <li>→ The "Mental Screen" technique for creative visualization</li>
+                                <li>→ How to get intuitive guidance for any decision</li>
+                                <li>→ The "3 Scenes" technique for problem-solving and healing</li>
+                            </ul>
+
+                            <a href="#" class="cta">JOIN THE FREE MASTERCLASS →</a>
+
+                            <p>If a broke 26-year-old sleeping on a couch could use this to become a VP in 18 months...</p>
+
+                            <p>Imagine what it could do for you.</p>
+
+                            <a href="#" class="cta">RESERVE YOUR SPOT NOW →</a>
+
+                            <div class="ps">
+                                <strong>P.S.</strong> Jose Silva taught his daughter Isabella these techniques as a child. She could answer questions BEFORE he spoke them out loud. Today, she works as a medical intuitive in a Texas hospital. These tools are real. <a href="#">Join the free training →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Silva Email 2 -->
+                <div id="silva-email-2" class="email-content">
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-type outcome">Outcome Email</span>
+                            <div class="subject-options">
+                                <div class="subject-options-title">Subject Line Options</div>
+                                <div class="subject-option">Tesla saw inventions complete in his mind. Here's how.</div>
+                                <div class="subject-option">What Edison's "naps" were really doing</div>
+                                <div class="subject-option">The brainwave frequency of genius</div>
+                            </div>
+                            <div class="email-subject">"What Geniuses Knew That You Don't (Yet)"</div>
+                            <div class="email-preview">Napoleon Hill called it "sources of knowledge not available through ordinary thought"...</div>
+                        </div>
+                        <div class="email-body">
+                            <p>Have you ever wondered how geniuses do it?</p>
+
+                            <p><strong>Nikola Tesla</strong> would see complete inventions – fully formed – in his mind before building them.</p>
+
+                            <p><strong>Thomas Edison</strong> was famous for his afternoon "naps." He'd lie down holding a metal ball. The moment he drifted off, the ball would drop, clang against a plate, and wake him up. Ideas would come flooding in.</p>
+
+                            <p><strong>Napoleon Hill</strong> interviewed the greatest minds of his era. His conclusion?</p>
+
+                            <div class="highlight"><em>"A genius is a man who has discovered how to increase the intensity of thought to a point where he can freely communicate with sources of knowledge not available through the ordinary rate of thought."</em></div>
+
+                            <p>They all had something in common.</p>
+
+                            <p>They were accessing <strong>altered brainwave states.</strong></p>
+
+                            <hr class="divider">
+
+                            <h3>The Brainwave Frequencies:</h3>
+
+                            <p><strong>Alpha (7-14 cycles/sec)</strong> – Relaxed focus and creativity</p>
+                            <p><strong>Theta (4-7 cycles/sec)</strong> – The dreamy state where genius ideas emerge</p>
+                            <p><strong>Delta (0.5-4 cycles/sec)</strong> – Deep connection with higher guidance</p>
+
+                            <p>Most people only experience Theta as they're falling asleep. They can't STAY there consciously.</p>
+
+                            <p>But what if you could?</p>
+
+                            <hr class="divider">
+
+                            <h3>In the FREE Silva Ultramine Masterclass, you'll learn:</h3>
+
+                            <p><strong>OUTCOME 1: Manifest Lucky Synchronicities</strong><br>
+                            Use Silva techniques to attract opportunities and breakthroughs.</p>
+
+                            <p><strong>OUTCOME 2: Tap Into Peak Creativity & Intuition</strong><br>
+                            Access Alpha and Theta states at will. Download ideas like Tesla and Edison did.</p>
+
+                            <p><strong>OUTCOME 3: Solve "Impossible" Challenges</strong><br>
+                            The 3 Scenes Technique for business problems, relationship conflicts, even health issues.</p>
+
+                            <p><strong>OUTCOME 4: Heal Your Body Through Visualization</strong><br>
+                            Dr. Simonton taught Silva to 159 terminal cancer patients. 4 years later, 63 were still alive. 14 showed NO signs of cancer.</p>
+
+                            <p><strong>1.2 million students. 4.94 rating. 32 minutes. Free.</strong></p>
+
+                            <a href="#" class="cta">JOIN THE MASTERCLASS NOW →</a>
+
+                            <p>Genius isn't genetic. It's a brainwave state. And it can be learned.</p>
+
+                            <div class="ps">
+                                <strong>P.S.</strong> The "Mental Video Technique" lets you implant a problem before sleep. When you wake up, solutions appear over the next 72 hours. I've used it for major business decisions. It works. <a href="#">Learn it free →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Silva Email 3 -->
+                <div id="silva-email-3" class="email-content">
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-type lastcall">Last Call Email</span>
+                            <div class="subject-options">
+                                <div class="subject-options-title">Subject Line Options</div>
+                                <div class="subject-option">[CLOSING TONIGHT] Silva Ultramine masterclass</div>
+                                <div class="subject-option">Last chance: The brainwave technique 1.2M people use</div>
+                                <div class="subject-option">Masterclass closes in hours – don't miss this</div>
+                            </div>
+                            <div class="email-subject">"Final Hours to Access Your Inner Genius"</div>
+                            <div class="email-preview">The free training that unlocks Alpha, Theta, and Delta disappears tonight...</div>
+                        </div>
+                        <div class="email-body">
+                            <p>Final call –</p>
+
+                            <p><strong>The Silva Ultramine Masterclass</strong> closes registration tonight.</p>
+
+                            <h3>In 32 minutes, you'll learn:</h3>
+
+                            <ul>
+                                <li>✓ How to access Alpha (creativity), Theta (intuition), and Delta (guidance) states</li>
+                                <li>✓ The "Mental Screen" technique</li>
+                                <li>✓ The "3 Scenes Technique" for solving any problem</li>
+                                <li>✓ The exact method I used to go from broke to VP in 18 months</li>
+                            </ul>
+
+                            <h3>Who's used this:</h3>
+
+                            <p>→ Tony Gonzalez (NFL Hall of Fame)<br>
+                            → Bianca Andreescu (US Open champion at 19)<br>
+                            → Miguel (R&B star)<br>
+                            → 1.2 million students worldwide</p>
+
+                            <p><strong>32 minutes. Completely free. Closes tonight.</strong></p>
+
+                            <a href="#" class="cta">WATCH THE FREE MASTERCLASS →</a>
+
+                            <p>This is your mind. Learn to use it.</p>
+
+                            <p>Vishen</p>
+
+                            <div class="ps">
+                                <strong>P.S.</strong> Dr. O. Carl Simonton said: "The Silva Method is the most powerful single tool I have to offer patients." If it can help terminal cancer patients, imagine what it can do for your goals. <a href="#">Last chance →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MANIFESTING SECTION -->
+    <section id="manifesting" class="section">
+        <div class="strategy-section" style="border-top: 4px solid var(--manifest-color);">
+            <div class="strategy-header">
+                <span class="icon">✨</span>
+                <div>
+                    <h3>Art of Manifesting Masterclass</h3>
+                    <div class="instructor">Regan Hillyer • World's Leading Manifestation Coach</div>
+                </div>
+            </div>
+
+            <table class="strategy-table">
+                <thead>
+                    <tr>
+                        <th>Element</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>MAIN OUTCOME</td>
+                        <td>
+                            <div class="main-outcome">
+                                <strong>Become a "master manifester"</strong> by fixing the 3 hidden problems that make traditional manifestation fail: broken frequency, identity mismatch, and inability to collapse time. Traditional methods (vision boards, affirmations) are only 20% – this teaches the 80%.
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>SUB-OUTCOMES</td>
+                        <td>
+                            <ul>
+                                <li>Tune your "inner radio" to match your desires (frequency calibration)</li>
+                                <li>Recode your identity from "doing" to "being"</li>
+                                <li>Collapse timelines – achieve in months what normally takes years</li>
+                                <li>Expand your energetic capacity to receive more</li>
+                                <li>Transform internal blocks into rocket fuel</li>
+                                <li>Access your future self (5-20 years ahead) and import that version NOW</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>KEY ANGLE</td>
+                        <td>
+                            <div class="key-angle">
+                                <strong>"Why Your Vision Board Isn't Working"</strong> – You've tried affirmations. You've done vision boards. You've watched The Secret. Nothing happened. That's because traditional manifestation is only 20% of the equation. The other 80%? Your frequency, identity, and relationship with time. This fixes all three.
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>SUB-ANGLES</td>
+                        <td>
+                            <div class="sub-angle">
+                                <div class="sub-angle-title">The $8.70 Story</div>
+                                <div class="sub-angle-desc">Regan was evicted, sleeping on a friend's couch with $8.70 to her name. 12 months later? Her first million. Before age 23.</div>
+                            </div>
+                            <div class="sub-angle">
+                                <div class="sub-angle-title">The Man in the Blue Jacket</div>
+                                <div class="sub-angle-desc">A mysterious mentor named Simon appeared at a conference and revealed: "You're putting all your energy in the wrong direction"</div>
+                            </div>
+                            <div class="sub-angle">
+                                <div class="sub-angle-title">$1M Coaching Clients</div>
+                                <div class="sub-angle-desc">CEOs pay Regan $1 million PER YEAR for private guidance – that's how effective these tools are</div>
+                            </div>
+                            <div class="sub-angle">
+                                <div class="sub-angle-title">50+ Millionaires Created</div>
+                                <div class="sub-angle-desc">Not theory – verified client results from applying the Energetic Architecture Method</div>
+                            </div>
+                            <div class="sub-angle">
+                                <div class="sub-angle-title">600 Acres in Costa Rica</div>
+                                <div class="sub-angle-desc">Regan manifested a massive retreat center from nothing – proof the method works at scale</div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- MANIFESTING EMAILS -->
+            <div class="emails-section">
+                <div class="emails-header">
+                    <h4>📧 Email Campaigns</h4>
+                    <div class="email-tabs">
+                        <button class="email-tab active" onclick="showEmail('manifest', 1)">Email 1: Story</button>
+                        <button class="email-tab" onclick="showEmail('manifest', 2)">Email 2: Outcome</button>
+                        <button class="email-tab" onclick="showEmail('manifest', 3)">Email 3: Last Call</button>
+                    </div>
+                </div>
+
+                <!-- Manifest Email 1 -->
+                <div id="manifest-email-1" class="email-content active">
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-type story">Story Email</span>
+                            <div class="subject-options">
+                                <div class="subject-options-title">Subject Line Options</div>
+                                <div class="subject-option">She had $8.70. 12 months later, $1 million.</div>
+                                <div class="subject-option">The letter that slid under her door (and changed everything)</div>
+                                <div class="subject-option">The man in the blue jacket who changed her life</div>
+                            </div>
+                            <div class="email-subject">"$8.70 to $1 Million in 12 Months"</div>
+                            <div class="email-preview">Regan Hillyer's real story – from eviction notice to manifestation empire...</div>
+                        </div>
+                        <div class="email-body">
+                            <p>Regan Hillyer was making coffee in her Melbourne apartment when a letter slid under the door.</p>
+
+                            <p>Strange. Mail was supposed to go to the post office.</p>
+
+                            <p>She opened it. And felt sick.</p>
+
+                            <div class="highlight"><strong>48 hours to vacate. She was being evicted.</strong></div>
+
+                            <p>She logged into her bank account, confused.</p>
+
+                            <p><strong>$8.70.</strong></p>
+
+                            <p>That was it. Everything she had.</p>
+
+                            <hr class="divider">
+
+                            <p>The vision board on her wall mocked her. The dream car. The dream life. The dream business.</p>
+
+                            <p>All fantasy.</p>
+
+                            <p>Reality? She was about to be homeless.</p>
+
+                            <p>She couldn't tell her family – they'd already said she'd fail.</p>
+
+                            <p>So she called the one friend she trusted. Theo.</p>
+
+                            <p><em>"I don't have anywhere to sleep. Can I stay with you?"</em></p>
+
+                            <p><em>"I have a one-bedroom apartment. You can have the couch."</em></p>
+
+                            <p>So there she was. 26 years old. Sleeping on a friend's couch. $8.70 to her name.</p>
+
+                            <p>And the worst part? <strong>She'd been TRYING to manifest.</strong></p>
+
+                            <p>Vision boards. Affirmations. Law of attraction. Wealth seminars. Forex trading courses.</p>
+
+                            <p>Nothing. Was. Working.</p>
+
+                            <hr class="divider">
+
+                            <p>Then she borrowed money – put $5,000 on a credit card she couldn't afford – to attend one more wealth conference.</p>
+
+                            <p>She sat in the back. Youngest person in the room. Felt like she didn't belong.</p>
+
+                            <p>And then an older man sat next to her.</p>
+
+                            <p>Mid-60s. Beautiful blue jacket. His name was Simon.</p>
+
+                            <p>Something about him felt safe. And everything spilled out of her – the eviction, the couch, the $8.70, the failed businesses.</p>
+
+                            <p>She said: <em>"Maybe I'm not cut out for this. Maybe the dream life isn't meant for people like me."</em></p>
+
+                            <p><strong>Simon's response changed everything:</strong></p>
+
+                            <div class="highlight">
+                                <em>"Regan, don't you realize? Anything you desire to create, you have to do it a SPECIFIC way."</em><br><br>
+                                <em>"Right now, you're pushing. Hustling. Working hard. But you're putting all that energy in the WRONG direction."</em><br><br>
+                                <em>"Regan – it's 80% about your mind, your spirit, your energetics. What are you doing about THAT?"</em>
+                            </div>
+
+                            <hr class="divider">
+
+                            <p>She had no idea what he meant.</p>
+
+                            <p>But she became his student. Every meeting, Simon laid out protocols. Step by step.</p>
+
+                            <p>Not vision boards. Not affirmations.</p>
+
+                            <p><strong>Frequency calibration. Identity recoding. Time collapse.</strong></p>
+
+                            <p>She was a good student. She followed every instruction.</p>
+
+                            <hr class="divider">
+
+                            <h3>12 months later?</h3>
+
+                            <p>$8.70 became over <strong>$1 million</strong>. Before she turned 23.</p>
+
+                            <p>She kept going. Built a branding company. A dating education company. Multiple millions in revenue.</p>
+
+                            <p>By 27, she was working only <strong>4 hours a week</strong>.</p>
+
+                            <p>Today? <strong>CEOs pay her $1 million per year</strong> for private coaching. She's created <strong>50+ millionaires</strong> among her clients. She owns <strong>600 acres in Costa Rica</strong> for her manifestation retreat center.</p>
+
+                            <p>Harper's Bazaar called her method <strong>"the world's #1 manifestation method."</strong></p>
+
+                            <hr class="divider">
+
+                            <p>And now she's teaching the core tools in a free masterclass.</p>
+
+                            <p><strong>The Art of Manifesting</strong> reveals:</p>
+
+                            <ul>
+                                <li>→ The 3 hidden reasons manifestation fails</li>
+                                <li>→ How to tune your inner "frequency" to match your desires</li>
+                                <li>→ How to recode your identity from "doing" to "being"</li>
+                                <li>→ How to collapse time – achieve in months what takes others years</li>
+                            </ul>
+
+                            <a href="#" class="cta">JOIN THE FREE MASTERCLASS →</a>
+
+                            <p>If Regan can go from $8.70 to $1M in 12 months...</p>
+
+                            <p>What could these tools do for you?</p>
+
+                            <a href="#" class="cta">RESERVE YOUR SPOT NOW →</a>
+
+                            <div class="ps">
+                                <strong>P.S.</strong> The masterclass is 32 minutes. 189,000+ people have already watched it. It's currently Mindvalley's #1 rated program. And it's free – but only for a limited time. <a href="#">Save your seat →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Manifest Email 2 -->
+                <div id="manifest-email-2" class="email-content">
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-type outcome">Outcome Email</span>
+                            <div class="subject-options">
+                                <div class="subject-options-title">Subject Line Options</div>
+                                <div class="subject-option">The 3 reasons manifestation fails (and how to fix them)</div>
+                                <div class="subject-option">Vision boards don't work. Here's what does.</div>
+                                <div class="subject-option">You've been manifesting wrong (here's the 80% you're missing)</div>
+                            </div>
+                            <div class="email-subject">"Why Your Vision Board Isn't Working"</div>
+                            <div class="email-preview">Traditional manifestation is only 20% of the equation...</div>
+                        </div>
+                        <div class="email-body">
+                            <p>Be honest...</p>
+
+                            <p>How many vision boards have you made?</p>
+                            <p>How many affirmations have you repeated?</p>
+                            <p>How many times have you watched The Secret?</p>
+
+                            <p>And how much has actually manifested?</p>
+
+                            <hr class="divider">
+
+                            <p>If you're like most people, there's a gap.</p>
+
+                            <p>A frustrating, confusing, maddening gap between what you're TRYING to attract and what's actually showing up.</p>
+
+                            <p><strong>You're not doing it wrong. You're just missing 80% of the equation.</strong></p>
+
+                            <hr class="divider">
+
+                            <p>Here's what Regan Hillyer – whose clients pay $1M/year for her guidance – discovered:</p>
+
+                            <p>Traditional manifestation focuses on <strong>action.</strong> Vision boards. Affirmations. Goal-setting. Hustle.</p>
+
+                            <p>That's the 20%.</p>
+
+                            <p>The 80% that actually WORKS?</p>
+
+                            <div class="highlight"><strong>Your frequency. Your identity. Your relationship with time.</strong></div>
+
+                            <hr class="divider">
+
+                            <h3>THE 3 HIDDEN PROBLEMS:</h3>
+
+                            <p><strong>PROBLEM #1: BROKEN RADIO SYNDROME</strong><br>
+                            There's a frequency mismatch between you and what you want. You SAY you want abundance. But unconsciously, you're broadcasting scarcity, fear, doubt. The universe hears the broadcast, not the words.</p>
+
+                            <p><strong>PROBLEM #2: IDENTITY MISMATCH</strong><br>
+                            You're trying to DO your way to success. But you don't GET in life what you do. You get in life WHO YOU ARE. If your identity is wired for struggle, that's what you'll keep creating.</p>
+
+                            <p><strong>PROBLEM #3: THE TIME TRAP</strong><br>
+                            Most people let time alter THEM. What if you could collapse time? Access the version of you 20 years in the future – and import that consciousness into NOW?</p>
+
+                            <hr class="divider">
+
+                            <h3>WHAT HAPPENS WHEN YOU FIX ALL 3:</h3>
+
+                            <div class="testimonial">"I signed a $165K contract within 3 weeks of starting the program."</div>
+
+                            <div class="testimonial">"I manifested the most peaceful divorce ever."</div>
+
+                            <div class="testimonial">"I wrote and published a book – and I'm only 17."</div>
+
+                            <div class="testimonial">"I manifested the relationship with my soulmate. We just got engaged."</div>
+
+                            <hr class="divider">
+
+                            <p>In the free <strong>Art of Manifesting Masterclass</strong>, you'll learn:</p>
+
+                            <ul>
+                                <li>✓ The 3 Energetic Shifts that fix all 3 problems</li>
+                                <li>✓ How to tune your frequency to become an energetic MATCH</li>
+                                <li>✓ How to recode your identity from "doing" to "being"</li>
+                                <li>✓ How to collapse timelines and achieve faster</li>
+                            </ul>
+
+                            <p><strong>189,000+ people have watched. #1 rated on Mindvalley. 32 minutes. Free.</strong></p>
+
+                            <a href="#" class="cta">JOIN NOW →</a>
+
+                            <p>Stop trying to manifest from the 20%. Learn the 80% that actually works.</p>
+
+                            <div class="ps">
+                                <strong>P.S.</strong> The masterclass includes a special 8-hour audio you can play WHILE YOU SLEEP to reprogram your unconscious mind. It's like upgrading your manifestation software while you rest. <a href="#">Get instant access →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Manifest Email 3 -->
+                <div id="manifest-email-3" class="email-content">
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-type lastcall">Last Call Email</span>
+                            <div class="subject-options">
+                                <div class="subject-options-title">Subject Line Options</div>
+                                <div class="subject-option">[FINAL HOURS] The manifestation masterclass closes tonight</div>
+                                <div class="subject-option">Last chance: Learn why vision boards don't work</div>
+                                <div class="subject-option">Art of Manifesting – registration ends at midnight</div>
+                            </div>
+                            <div class="email-subject">"Closing Tonight: The Art of Manifesting"</div>
+                            <div class="email-preview">189,000+ people have transformed. Your turn?</div>
+                        </div>
+                        <div class="email-body">
+                            <p>Quick note –</p>
+
+                            <p><strong>The Art of Manifesting Masterclass</strong> closes tonight.</p>
+
+                            <p>This is Mindvalley's <strong>#1 rated program</strong>.</p>
+
+                            <p><strong>189,000+ people</strong> have already watched it.</p>
+
+                            <p>If you've been waiting to sign up, now's the time.</p>
+
+                            <hr class="divider">
+
+                            <h3>What you'll learn in 32 minutes:</h3>
+
+                            <ul>
+                                <li>✓ The 3 Energetic Shifts that make manifestation actually work</li>
+                                <li>✓ Why vision boards and affirmations are only 20% of the equation</li>
+                                <li>✓ How to fix "Broken Radio Syndrome" (frequency mismatch)</li>
+                                <li>✓ How to recode your identity for automatic attraction</li>
+                                <li>✓ How to collapse time and achieve in months what takes years</li>
+                                <li>✓ Regan Hillyer's story: $8.70 → $1M in 12 months</li>
+                            </ul>
+
+                            <hr class="divider">
+
+                            <h3>Regan's credentials:</h3>
+
+                            <p>→ CEOs pay her $1M/year for coaching<br>
+                            → Created 50+ millionaires among clients<br>
+                            → Owns 600-acre manifestation retreat in Costa Rica<br>
+                            → Harper's Bazaar: "World's #1 manifestation method"<br>
+                            → Featured: CBS, Fox, ABC, Forbes, Entrepreneur</p>
+
+                            <hr class="divider">
+
+                            <p><strong>Free. 32 minutes. Closing tonight.</strong></p>
+
+                            <a href="#" class="cta">WATCH THE MASTERCLASS NOW →</a>
+
+                            <p>Don't let another year go by with your dreams stuck on a vision board.</p>
+
+                            <p>[Signature]</p>
+
+                            <div class="ps">
+                                <strong>P.S.</strong> Student testimonial from last week: <em>"I manifested a $165K contract within 3 weeks of starting."</em> These tools work FAST when you apply them correctly. <a href="#">Last chance to join →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2026 TRENDS SECTION -->
+    <section id="trends" class="section">
+        <div class="trends-section">
+            <div class="section-header">
+                <h2>2026 Marketing Trends to Leverage</h2>
+                <p>Based on current market research in the spiritual/personal growth space</p>
+            </div>
+
+            <div class="trends-grid">
+                <div class="trend-card">
+                    <h4>📱 Social Media Dominance</h4>
+                    <p>TikTok, Instagram, and YouTube are driving manifestation trends. Short-form content with "quick wins" positioning resonates strongly with Gen Z and Millennials (60%+ actively use spiritual tools).</p>
+                </div>
+                <div class="trend-card">
+                    <h4>🧘 Soul-Aligned Over Hustle</h4>
+                    <p>Manifestation in 2026 is about alignment, peace, and clarity – not pressure-driven goals. "Stop hustling, start aligning" messaging is trending.</p>
+                </div>
+                <div class="trend-card">
+                    <h4>🤖 AI + Spirituality Hybrid</h4>
+                    <p>50% increase in AI-driven astrology and guided meditation apps. Silva can position as "the original brain technology" – before AI, there was the trained human mind.</p>
+                </div>
+                <div class="trend-card">
+                    <h4>🎯 Personalization Wins</h4>
+                    <p>40% of new consumers prefer personalized spiritual experiences. Duality's "where is YOUR block?" and BE's "which quality do YOU want?" are perfect for this trend.</p>
+                </div>
+                <div class="trend-card">
+                    <h4>💎 Premium Experiences</h4>
+                    <p>28% increase in premium spiritual products. Regan's $1M coaching and 600-acre retreat support aspirational "premium tier" positioning.</p>
+                </div>
+                <div class="trend-card">
+                    <h4>🌱 Holistic Integration</h4>
+                    <p>Wellness is becoming integrated into daily life. Silva + physical wellness (breathwork, thermotherapy) positioning aligns with this trend.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 4rem 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
+        <p style="color: var(--gray);">Mindvalley Masterclass Email Campaign Strategy</p>
+        <p style="color: var(--gray); font-size: 0.85rem; margin-top: 0.5rem;">Created for Marketing Team • Based on Transcript Analysis & 2026 Trends</p>
+    </footer>
+
+    <script>
+        // Email tab switching
+        function showEmail(masterclass, emailNum) {
+            // Hide all emails for this masterclass
+            for (let i = 1; i <= 3; i++) {
+                const email = document.getElementById(`${masterclass}-email-${i}`);
+                if (email) email.classList.remove('active');
+            }
+
+            // Show selected email
+            const selectedEmail = document.getElementById(`${masterclass}-email-${emailNum}`);
+            if (selectedEmail) selectedEmail.classList.add('active');
+
+            // Update tabs
+            const section = selectedEmail.closest('.strategy-section');
+            const tabs = section.querySelectorAll('.email-tab');
+            tabs.forEach((tab, index) => {
+                if (index === emailNum - 1) {
+                    tab.classList.add('active');
+                } else {
+                    tab.classList.remove('active');
+                }
+            });
+        }
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

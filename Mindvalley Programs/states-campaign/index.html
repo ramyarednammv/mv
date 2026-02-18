@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindvalley States Campaign - Preview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a0a2e 0%, #2d1b4e 100%);
+            min-height: 100vh;
+            color: #fff;
+            padding: 50px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #fff 0%, #c9a0ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 50px;
+            font-size: 1.1rem;
+        }
+
+        .models-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .model-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+            text-align: left;
+        }
+
+        .model-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #fbbf24;
+        }
+
+        .model-card p {
+            color: rgba(255,255,255,0.7);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .model-card ul {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .model-card li {
+            padding: 8px 0;
+            color: rgba(255,255,255,0.8);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .model-card li:last-child {
+            border-bottom: none;
+        }
+
+        .preview-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .preview-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 5px 12px;
+            background: rgba(139, 92, 246, 0.2);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #a78bfa;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mindvalley States Campaign</h1>
+        <p class="subtitle">Gamified Discount Pages - Choose Your Model</p>
+
+        <div class="models-grid">
+            <div class="model-card">
+                <span class="tag">Model 1</span>
+                <h2>🎰 Vending Machine</h2>
+                <p>Users get 5 spins to unlock different offers. Each spin reveals a discount, and they keep the best one from all their tries.</p>
+                <ul>
+                    <li>✓ 5 chances to spin</li>
+                    <li>✓ Building excitement with each reveal</li>
+                    <li>✓ Keeps best offer from all spins</li>
+                    <li>✓ Offers: 20%, 30%, $50, 40%, BOGO</li>
+                </ul>
+                <a href="vending-machine.html" class="preview-btn">Preview Vending Machine →</a>
+            </div>
+
+            <div class="model-card">
+                <span class="tag">Model 2</span>
+                <h2>🃏 Card Flip</h2>
+                <p>Users choose one card from 5 cards (named after States products). One try only - trust your intuition and flip to reveal your discount.</p>
+                <ul>
+                    <li>✓ 1 chance only - high stakes</li>
+                    <li>✓ Cards named: Focus, Zen, Bliss, Dream, Gazm</li>
+                    <li>✓ Each card has unique color</li>
+                    <li>✓ Randomized offers each visit</li>
+                </ul>
+                <a href="card-flip.html" class="preview-btn">Preview Card Flip →</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

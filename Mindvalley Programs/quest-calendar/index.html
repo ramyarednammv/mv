@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindvalley Quest Release Calendar 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #fff;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: rgba(255,255,255,0.7);
+            font-size: 1.1rem;
+        }
+
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .dot-quest { background: #10b981; }
+        .dot-summit { background: #f59e0b; }
+        .dot-mastery { background: #ef4444; }
+        .dot-promo { background: #6366f1; }
+        .dot-cert { background: #ec4899; }
+        .dot-event { background: #14b8a6; }
+
+        .month-section {
+            margin-bottom: 50px;
+        }
+
+        .month-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(255,255,255,0.1);
+        }
+
+        .month-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .month-theme {
+            background: rgba(102, 126, 234, 0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #a5b4fc;
+        }
+
+        .calendar-grid {
+            display: grid;
+            gap: 15px;
+        }
+
+        .event-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .event-card:hover {
+            background: rgba(255,255,255,0.08);
+            transform: translateX(5px);
+        }
+
+        .event-card.quest { border-color: #10b981; }
+        .event-card.summit { border-color: #f59e0b; }
+        .event-card.mastery { border-color: #ef4444; }
+        .event-card.promo { border-color: #6366f1; }
+        .event-card.cert { border-color: #ec4899; }
+        .event-card.event { border-color: #14b8a6; }
+
+        .event-dates {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .date-badge {
+            background: rgba(255,255,255,0.1);
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .event-type {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.7;
+        }
+
+        .event-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .event-author {
+            color: #a5b4fc;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+        }
+
+        .event-credibility {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.6);
+            font-style: italic;
+        }
+
+        .event-note {
+            margin-top: 10px;
+            padding: 10px;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: #c4b5fd;
+        }
+
+        .promo-window {
+            display: inline-block;
+            background: rgba(99, 102, 241, 0.2);
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-left: 10px;
+        }
+
+        .revenue-tag {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.2);
+            color: #6ee7b7;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-top: 8px;
+        }
+
+        .tier-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        .tier-1 { background: #fbbf24; color: #000; }
+        .tier-2 { background: #94a3b8; color: #000; }
+
+        .flow-arrow {
+            text-align: center;
+            padding: 15px;
+            color: rgba(255,255,255,0.4);
+            font-size: 1.5rem;
+        }
+
+        .summary-section {
+            margin-top: 60px;
+            padding: 30px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+        }
+
+        .summary-section h2 {
+            margin-bottom: 20px;
+            color: #a5b4fc;
+        }
+
+        .summary-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .summary-table th,
+        .summary-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .summary-table th {
+            color: #a5b4fc;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8rem; }
+            .legend { flex-direction: column; align-items: flex-start; }
+            .event-card { padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Mindvalley Quest Release Calendar 2026</h1>
+            <p>Quest Releases & Relaunches aligned with Summits and Masteries</p>
+            <p style="margin-top: 10px; color: #a5b4fc;">Strategy: Quests (3-4 day promo) → Summit → Mastery</p>
+        </header>
+
+        <div class="legend">
+            <div class="legend-item"><span class="legend-dot dot-promo"></span> Quest Promotion Window</div>
+            <div class="legend-item"><span class="legend-dot dot-quest"></span> Quest Release</div>
+            <div class="legend-item"><span class="legend-dot dot-summit"></span> Summit</div>
+            <div class="legend-item"><span class="legend-dot dot-mastery"></span> Mastery Program</div>
+            <div class="legend-item"><span class="legend-dot dot-cert"></span> Certification</div>
+            <div class="legend-item"><span class="legend-dot dot-event"></span> Major Event</div>
+        </div>
+
+        <!-- MARCH 2026 -->
+        <div class="month-section">
+            <div class="month-header">
+                <span class="month-name">March 2026</span>
+                <span class="month-theme">AI & Learning Theme</span>
+            </div>
+            <div class="calendar-grid">
+                <div class="event-card quest">
+                    <div class="event-dates">
+                        <span class="date-badge">Mar 2</span>
+                        <span class="event-type">Quest Soft Release</span>
+                        <span class="promo-window">Promo: Feb 27 - Mar 1</span>
+                    </div>
+                    <div class="event-title">The Maestro's Guide to Leadership <span class="tier-badge tier-2">Tier 2</span></div>
+                    <div class="event-author">Itay Talgam</div>
+                    <div class="event-credibility">TED Talk with 3M+ views, orchestra conductor turned leadership expert</div>
+                </div>
+
+                <div class="event-card quest">
+                    <div class="event-dates">
+                        <span class="date-badge">Mar 3</span>
+                        <span class="event-type">Quest Soft Release</span>
+                        <span class="promo-window">Promo: Feb 28 - Mar 2</span>
+                    </div>
+                    <div class="event-title">Bold Conversations <span class="tier-badge tier-2">Tier 2</span></div>
+                    <div class="event-author">Verna Myers</div>
+                    <div class="event-credibility">VP Inclusion Strategy at Netflix, TED speaker</div>
+                </div>
+
+                <div class="event-card quest">
+                    <div class="event-dates">
+                        <span class="date-badge">Mar 9</span>
+                        <span class="event-type">Quest Relaunch</span>
+                        <span class="promo-window">Promo: Mar 5 - Mar 8</span>
+                    </div>
+                    <div class="event-title">Superbrain <span class="tier-badge tier-1">Tier 1</span></div>
+                    <div class="event-author">Jim Kwik</div>
+                    <div class="event-credibility">NYT/WSJ #1 Bestseller, worked with Elon Musk, NASA, Nike</div>
+                    <div class="event-note">🎯 Highest credibility author - "Your brain is your greatest asset in the AI age"</div>
+                </div>
+
+                <div class="event-card quest">
+                    <div class="event-dates">
+                        <span class="date-badge">Mar 16</span>
+                        <span class="event-type">Quest Feature</span>
+                        <span class="promo-window">Promo: Mar 12 - Mar 15</span>
+                    </div>
+                    <div class="event-title">Amplify with AI <span class="tier-badge tier-1">Tier 1</span></div>
+                    <div class="event-author">Vishen Lakhiani</div>
+                    <div class="event-credibility">Founder Mindvalley, NYT Bestseller, spoken at Google/Facebook/UN</div>
+                    <div class="event-note">🎯 Direct tie-in to AI Summit - "Now combine your superbrain with AI"</div>
+                </div>
+
+                <div class="flow-arrow">↓</div>
+
+                <div class="event-card summit">
+                    <div class="event-dates">
+                        <span class="date-badge">Mar 20-22</span>
+                        <span class="event-type">Mastery Online Summit</span>
+                    </div>
+                    <div class="event-title">AI Summit</div>
+                    <div class="event-author">Multiple Speakers</div>
+                    <div class="revenue-tag">Expected: $5,000,000</div>
+                </div>
+
+                <div class="event-card mastery">
+                    <div class="event-dates">
+                        <span class="date-badge">Mar 29</span>
+                        <span class="event-type">Highlights Webinar</span>
+                    </div>
+                    <div class="event-title">AI Summit Highlights</div>
+                    <div class="revenue-tag">Expected: $500,000</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- APRIL 2026 -->
+        <div class="month-section">
+            <div class="month-header">
+                <span class="month-name">April 2026</span>
+                <span class="month-theme">AI Mastery + Productivity</span>
+            </div>
+            <div class="calendar-grid">
+                <div class="event-card mastery">
+                    <div class="event-dates">
+                        <span class="date-badge">Apr 6</span>
+                        <span class="event-type">Mastery Program Start</span>
+                    </div>
+                    <div class="event-title">AI Mastery</div>
+                    <div class="event-author">Cohort begins</div>
+                </div>
+
+                <div class="event-card quest">
+                    <div class="event-dates">
+                        <span class="date-badge">Apr 13</span>
+                        <span class="event-type">Quest Release</span>
+                        <span class="promo-window">Promo: Apr 9 - Apr 12</span>
+                    </div>
+                    <div class="event-title">The Habit of Ferocity <span class="tier-badge tier-1">Tier 1</span></div>
+                    <div class="event-author">Steven Kotler</div>
+                    <div class="event-credibility">Flow Research Collective founder, peak performance expert</div>
+                    <div class="event-note">Pairs with AI Mastery - peak performance for the AI age</div>
+                </div>
+
+                <div class="event-card quest">
+                    <div class="event-dates">
+                        <span class="date-badge">Apr 20</span>
+                        <span class="event-type">Quest Relaunch</span>
+                        <span class="promo-window">Promo: Apr 16 - Apr 19</span>
+                    </div>
+                    <div class="event-title">Super Reading <span class="tier-badge tier-1">Tier 1</span></div>
+                    <div class="event-author">Jim Kwik</div>
+                    <div class="event-credibility">Speed reading for information age - Jim Kwik double feature</div>
+                </div>
+
+                <div class="event-card quest">
+                    <div class="event-dates">
+                        <span class="date-badge">Apr 27</span>
+                        <span class="event-type">Quest Release</span>
+                        <span class="promo-window">Promo: Apr 23 - Apr 26</span>
+                    </div>
+                    <div class="event-title">Feng Shui for Life <span class="tier-badge tier-1">Tier 1</span></div>
+                    <div class="event-author">Marie Diamond</div>
+                    <div class="event-credibility">Featured in The Secret, clients: Steven Spielberg, Rolling Stones</div>
+                    <div class="event-note">🎯 Begins Manifesting warm-up - "Prepare your environment for abundance"</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MAY 2026 -->
+        <div class="month-section">
+            <div class="month-header">
+                <span class="month-name">May 2026</span>
+                <span class="month-theme">Manifesting Theme</span>
+            </div>
+            <div class="calendar-grid">
+                <div class="event-card quest">
+                    <div class="event-dates">
+                        <span class="date-badge">May 4</span>
+                        <span class="event-type">Quest Feature</span>
+                        <span class="promo-window">Promo: Apr 30 - May 3</span>
+                    </div>
+                    <div class="event-title">Success Magic <span class="tier-badge tier-1">Tier 1</span></div>
+                    <div class="event-author">Marie Diamond</div>
+                    <div class="event-credibility">The Secret star, 30M copies sold, Knighted for humanitarian service</div>
+                    <div class="event-note">🎯 Marie Diamond double feature month - "Learn the art of manifesting"</div>
+                </div>
+
+                <div class="event-card quest">
+                    <div class="event-dates">
+                        <span class="date-badge">May 11</span>
+                        <span class="event-type">Quest Relaunch</span>
+                        <span class="promo-window">Promo: May 7 - May 10</span>
+                    </div>
+                    <div class="event-title">The Silva Ultramind System <span class="tier-badge tier-2">Tier 2</span></div>
+                    <div class="event-author">Jose Silva Legacy</div>
+                    <div class="event-credibility">Classic methodology, millions of practitioners worldwide</div>
+                    <div class="event-note">Summit week primer - altered states for manifesting</div>
+                </div>
+
+                <div class="flow-arrow">↓</div>
+
+                <div class="event-card summit">
+                    <div class="event-dates">
+                        <span class="date-badge">May 16-17</span>
+                        <span class="event-type">Mastery Hybrid Summit</span>
+                    </div>
+                    <div class="event-title">Manifesting Summit</div>
+                    <div class="event-author">Multiple Speakers</div>
+                    <div class="revenue-tag">Expected: $5,000,000</div>
+                </div>
+
+                <div class="event-card quest">
+                    <div class="event-dates">
+                        <span class="date-badge">May 18</span>
+                        <span class="event-type">Quest Relaunch</span>
+                        <span class="promo-window">Promo: May 14 - May 17</span>
+                    </div>
+                    <div class="event-title">Duality <span class="tier-badge tier-2">Tier 2</span></div>
+                    <div class="event-author">Jeffrey Allen</div>
+                    <div class="event-credibility">Mindvalley's top spiritual teacher</div>
+                    <div class="event-note">Post-summit momentum - "Go deeper into spiritual awakening"</div>
+                </div>
+
+                <div class="event-card mastery">
+                    <div class="event-dates">
+                        <span class="date-badge">May 24</span>
+                        <span class="event-type">Highlights Webinar</span>
+                    </div>
+                    <div class="event-title">Manifesting Summit Highlights</div>
+                    <div class="revenue-tag">Expected: $500,000</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- JUNE 2026 -->
+        <div class="month-section">
+            <div class="month-header">
+                <span class="month-name">June 2026</span>
+                <span class="month-theme">Manifesting Mastery + Abundance</span>
+            </div>
+            <div class="calendar-grid">
+                <div class="event-card mastery">
+                    <div class="event-dates">
+                        <span class="date-badge">Jun 1</span>
+                        <span class="event-type">Mastery Program Start</span>
+                    </div>
+                    <div class="event-title">Manifesting Mastery</div>
+                </div>
+
+                <div class="event-card cert">
+                    <div class="event-dates">
+                        <span class="date-badge">Jun 6</span>
+                        <span class="event-type">Certification Seminar</span>
+                    </div>
+                    <div class="event-title">Business Coach Certification</div>
+                    <div class="revenue-tag">Expected: $1,200,000</div>
+                </div>
+
+                <div class="event-card quest">
+                    <div class="event-dates">
+                        <span class="date-badge">Jun 8</span>
+                        <span class="event-type">Quest Relaunch</span>
+                        <span class="promo-window">Promo: Jun 4 - Jun 7</span>
+                    </div>
+                    <div class="event-title">Unlimited Abundance <span class="tier-badge tier-2">Tier 2</span></div>
+                    <div class="event-author">Christie Marie Sheldon</div>
+                    <div class="event-credibility">Mindvalley classic, 100K+ students completed</div>
+                </div>
+
+                <div class="event-card quest">
+                    <div class="event-dates">
+                        <span class="date-badge">Jun 15</span>
+                        <span class="event-type">Quest Feature</span>
+                        <span class="promo-window">Promo: Jun 11 - Jun 14</span>
+                    </div>
+                    <div class="event-title">Creative Visualization <span class="tier-badge tier-1">Tier 1</span></div>
+                    <div class="event-author">Lisa Nichols</div>
+                    <div class="event-credibility">Featured in The Secret, Top 50 Keynote Speakers in World</div>
+                    <div class="event-note">🎯 High credibility - abundance mindset continuation</div>
+                </div>
+
+                <div class="event-card quest">
+                    <div class="event-dates">
+                        <span class="date-badge">Jun 22</span>
+                        <span class="event-type">Quest Feature</span>
+                        <span class="promo-window">Promo: Jun 18 - Jun 21</span>
+                    </div>
+                    <div class="event-title">Money EQ <span class="tier-badge tier-2">Tier 2</span></div>
+                    <div class="event-author">Ken Honda</div>
+                    <div class="event-credibility">Japan's #1 money teacher, "Zen Millionaire"</div>
+                    <div class="event-note">Bridge from manifesting to business themes</div>
+                </div>
+
+                <div class="event-card quest">
+                    <div class="event-dates">
+                        <span class="date-badge">Jun 29</span>
+                        <span class="event-type">Quest Feature</span>
+                        <span class="promo-window">Promo: Jun 25 - Jun 28</span>
+                    </div>
+                    <div class="event-title">Total Self-Confidence <span class="tier-badge tier-1">Tier 1</span></div>
+                    <div class="event-author">Paul McKenna</div>
+                    <div class="event-credibility">UK's #1 non-fiction author, 10M+ books sold</div>
+                    <div class="event-note">🎯 Begins Speaking & Influence warm-up - build confidence first</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- JULY 2026 -->
+        <div class="month-section">
+            <div class="month-header">
+                <span class="month-name">July 2026</span>
+                <span class="month-theme">Speaking & Influence Theme</span>
+            </div>
+            <div class="calendar-grid">
+                <div class="event-card quest">
+                    <div class="event-dates">
+                        <span class="date-badge">Jul 6</span>
+                        <span class="event-type">Quest Feature</span>
+                        <span class="promo-window">Promo: Jul 2 - Jul 5</span>
+                    </div>
+                    <div class="event-title">The Stage Effect <span class="tier-badge tier-2">Tier 2</span></div>
+                    <div class="event-author">Eric Edmeades</div>
+                    <div class="event-credibility">Founder WILDFIT, professional keynote speaker</div>
+                </div>
+
+                <div class="event-card quest">
+                    <div class="event-dates">
+                        <span class="date-badge">Jul 13</span>
+                        <span class="event-type">Quest Relaunch</span>
+                        <span class="promo-window">Promo: Jul 9 - Jul 12</span>
+                    </div>
+                    <div class="event-title">Speak and Inspire <span class="tier-badge tier-1">Tier 1</span></div>
+                    <div class="event-author">Lisa Nichols</div>
+                    <div class="event-credibility">Featured in The Secret, Top 50 Keynote Speakers</div>
+                    <div class="event-note">🎯 Lisa Nichols is a proven speaker - direct summit tie-in</div>
+                </div>
+
+                <div class="event-card event">
+                    <div class="event-dates">
+                        <span class="date-badge">Jul 18-19</span>
+                        <span class="event-type">Supercoach Summit</span>
+                    </div>
+                    <div class="event-title">Supercoach Summit</div>
+                    <div class="revenue-tag">Expected: $60,000</div>
+                </div>
+
+                <div class="event-card event">
+                    <div class="event-dates">
+                        <span class="date-badge">Jul 20 - Aug 2</span>
+                        <span class="event-type">Mindvalley U</span>
+                    </div>
+                    <div class="event-title">MVU Estonia</div>
+                    <div class="revenue-tag">Expected: $1,200,000</div>
+                </div>
+
+                <div class="event-card quest">
+                    <div class="event-dates">
+                        <span class="date-badge">Jul 20</span>
+                        <span class="event-type">Quest Feature</span>
+                        <span class="promo-window">Promo: Jul 16 - Jul 19</span>
+                    </div>
+                    <div class="event-title">Mastering Authentic Networking <span class="tier-badge tier-1">Tier 1</span></div>
+                    <div class="event-author">Keith Ferrazzi</div>
+                    <div class="event-credibility">NYT Bestseller "Never Eat Alone", Fortune 500 advisor</div>
+                    <div class="event-note">Summit week - networking & influence</div>
+                </div>
+
+                <div class="flow-arrow">↓</div>
+
+                <div class="event-card summit">
+                    <div class="event-dates">
+                        <span class="date-badge">Jul 25-26</span>
+                        <span class="event-type">Mastery Hybrid Summit</span>
+                    </div>
+                    <div class="event-title">Speaking & Influence Summit</div>
+                    <div class="event-author">Multiple Speakers</div>
+                    <div class="revenue-tag">Expected: $5,000,000</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AUGUST 2026 -->
+        <div class="month-section">
+            <div class="month-header">
+                <span class="month-name">August 2026</span>
+                <span class="month-theme">Speaking Mastery + Hypnotherapy</span>
+            </div>
+            <div class="calendar-grid">
+                <div class="event-card quest">
+                    <div class="event-dates">
+                        <span class="date-badge">Aug 3</span>
+                        <span class="event-type">Quest Feature</span>
+                        <span class="promo-window">Promo: Jul 30 - Aug 2</span>
+                    </div>
+                    <div class="event-title">The Science of Personal Branding <span class="tier-badge tier-2">Tier 2</span></div>
+                    <div class="event-author">Gerard Adams</div>
+                    <div class="event-credibility">Founded Elite Daily (sold for $50M)</div>
+                </div>
+
+                <div class="event-card cert">
+                    <div class="event-dates">
+                        <span class="date-badge">Aug 9</span>
+                        <span class="event-type">Certification Seminar</span>
+                    </div>
+                    <div class="event-title">Certified Hypnotherapy (Members)</div>
+                    <div class="revenue-tag">Expected: $1,200,000</div>
+                </div>
+
+                <div class="event-card mastery">
+                    <div class="event-dates">
+                        <span class="date-badge">Aug 10</span>
+                        <span class="event-type">Mastery Program Start</span>
+                    </div>
+                    <div class="event-title">Speaking & Influence Mastery</div>
+                </div>
+
+                <div class="event-card quest">
+                    <div class="event-dates">
+                        <span class="date-badge">Aug 10</span>
+                        <span class="event-type">Quest Feature</span>
+                        <span class="promo-window">Promo: Aug 6 - Aug 9</span>
+                    </div>
+                    <div class="event-title">Rapid Transformational Hypnotherapy <span class="tier-badge tier-1">Tier 1</span></div>
+                    <div class="event-author">Marisa Peer</div>
+                    <div class="event-credibility">UK's #1 therapist, celebrity hypnotherapist</div>
+                    <div class="event-note">🎯 Hypnotherapy certification tie-in</div>
+                </div>
+
+                <div class="event-card cert">
+                    <div class="event-dates">
+                        <span class="date-badge">Aug 11</span>
+                        <span class="event-type">Certification Webinar</span>
+                    </div>
+                    <div class="event-title">Certified Hypnotherapy (All)</div>
+                    <div class="revenue-tag">Expected: $1,200,000</div>
+                </div>
+
+                <div class="event-card quest">
+                    <div class="event-dates">
+                        <span class="date-badge">Aug 17</span>
+                        <span class="event-type">Quest Feature</span>
+                        <span class="promo-window">Promo: Aug 13 - Aug 16</span>
+                    </div>
+                    <div class="event-title">UNSHAKEABLE <span class="tier-badge tier-2">Tier 2</span></div>
+                    <div class="event-author">Shadé Zahrai</div>
+                    <div class="event-credibility">3M+ TikTok followers, Harvard research background</div>
+                </div>
+
+                <div class="event-card quest">
+                    <div class="event-dates">
+                        <span class="date-badge">Aug 24</span>
+                        <span class="event-type">Quest Feature</span>
+                        <span class="promo-window">Promo: Aug 20 - Aug 23</span>
+                    </div>
+                    <div class="event-title">The Longevity Blueprint <span class="tier-badge tier-2">Tier 2</span></div>
+                    <div class="event-author">Ben Greenfield</div>
+                    <div class="event-credibility">Top biohacking podcast host</div>
+                    <div class="event-note">🎯 Begins Longevity Summit warm-up</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEPTEMBER 2026 -->
+        <div class="month-section">
+            <div class="month-header">
+                <span class="month-name">September 2026</span>
+                <span class="month-theme">Longevity + Entrepreneurship</span>
+            </div>
+            <div class="calendar-grid">
+                <div class="event-card quest">
+                    <div class="event-dates">
+                        <span class="date-badge">Sep 7</span>
+                        <span class="event-type">Quest Feature</span>
+                        <span class="promo-window">Promo: Sep 3 - Sep 6</span>
+                    </div>
+                    <div class="event-title">Smarter Not Harder <span class="tier-badge tier-1">Tier 1</span></div>
+                    <div class="event-author">Dave Asprey</div>
+                    <div class="event-credibility">Bulletproof founder, father of biohacking</div>
+                    <div class="event-note">🎯 Longevity Summit week primer</div>
+                </div>
+
+                <div class="flow-arrow">↓</div>
+
+                <div class="event-card summit">
+                    <div class="event-dates">
+                        <span class="date-badge">Sep 11-13</span>
+                        <span class="event-type">Mastery Hybrid Summit</span>
+                    </div>
+                    <div class="event-title">Longevity Summit</div>
+                    <div class="event-author">Multiple Speakers</div>
+                    <div class="revenue-tag">Expected: $5,000,000</div>
+                </div>
+
+                <div class="event-card quest">
+                    <div class="event-dates">
+                        <span class="date-badge">Sep 14</span>
+                        <span class="event-type">Quest Feature</span>
+                        <span class="promo-window">Promo: Sep 10 - Sep 13</span>
+                    </div>
+                    <div class="event-title">The Mastery of Sleep <span class="tier-badge tier-2">Tier 2</span></div>
+                    <div class="event-author">Dr. Michael Breus</div>
+                    <div class="event-credibility">"The Sleep Doctor", sleep specialist</div>
+                    <div class="event-note">Post-Longevity Summit - sleep is recovery</div>
+                </div>
+
+                <div class="event-card quest">
+                    <div class="event-dates">
+                        <span class="date-badge">Sep 21</span>
+                        <span class="event-type">Quest Feature</span>
+                        <span class="promo-window">Promo: Sep 17 - Sep 20</span>
+                    </div>
+                    <div class="event-title">The Power of Boldness <span class="tier-badge tier-1">Tier 1</span></div>
+                    <div class="event-author">Naveen Jain</div>
+                    <div class="event-credibility">Billionaire entrepreneur, founded Moon Express, Viome</div>
+                    <div class="event-note">🎯 Entrepreneurship Summit primer - learn from a billionaire</div>
+                </div>
+
+                <div class="flow-arrow">↓</div>
+
+                <div class="event-card summit">
+                    <div class="event-dates">
+                        <span class="date-badge">Sep 25-27</span>
+                        <span class="event-type">Mastery Hybrid Summit</span>
+                    </div>
+                    <div class="event-title">Entrepreneurship Summit</div>
+                    <div class="event-author">Multiple Speakers</div>
+                    <div class="revenue-tag">Expected: $5,000,000</div>
+                </div>
+
+                <div class="event-card mastery">
+                    <div class="event-dates">
+                        <span class="date-badge">Sep 28</span>
+                        <span class="event-type">Mastery Program Start</span>
+                    </div>
+                    <div class="event-title">Longevity Mastery</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- OCTOBER 2026 -->
+        <div class="month-section">
+            <div class="month-header">
+                <span class="month-name">October 2026</span>
+                <span class="month-theme">Entrepreneurship Mastery</span>
+            </div>
+            <div class="calendar-grid">
+                <div class="event-card quest">
+                    <div class="event-dates">
+                        <span class="date-badge">Oct 5</span>
+                        <span class="event-type">Quest Feature</span>
+                        <span class="promo-window">Promo: Oct 1 - Oct 4</span>
+                    </div>
+                    <div class="event-title">Scale Your Business to $1 Million <span class="tier-badge tier-1">Tier 1</span></div>
+                    <div class="event-author">Verne Harnish</div>
+                    <div class="event-credibility">"Scaling Up" author, business growth legend</div>
+                </div>
+
+                <div class="event-card mastery">
+                    <div class="event-dates">
+                        <span class="date-badge">Oct 12</span>
+                        <span class="event-type">Mastery Program Start</span>
+                    </div>
+                    <div class="event-title">Entrepreneurship Mastery</div>
+                </div>
+
+                <div class="event-card quest">
+                    <div class="event-dates">
+                        <span class="date-badge">Oct 12</span>
+                        <span class="event-type">Quest Feature</span>
+                        <span class="promo-window">Promo: Oct 8 - Oct 11</span>
+                    </div>
+                    <div class="event-title">Ultimate Leadership <span class="tier-badge tier-1">Tier 1</span></div>
+                    <div class="event-author">Keith Ferrazzi</div>
+                    <div class="event-credibility">NYT Bestseller, Fortune 500 leadership advisor</div>
+                </div>
+
+                <div class="event-card quest">
+                    <div class="event-dates">
+                        <span class="date-badge">Oct 19</span>
+                        <span class="event-type">Quest Feature</span>
+                        <span class="promo-window">Promo: Oct 15 - Oct 18</span>
+                    </div>
+                    <div class="event-title">Vivid Vision <span class="tier-badge tier-2">Tier 2</span></div>
+                    <div class="event-author">Cameron Herold</div>
+                    <div class="event-credibility">COO Alliance founder, "CEO Whisperer"</div>
+                </div>
+
+                <div class="event-card quest">
+                    <div class="event-dates">
+                        <span class="date-badge">Oct 26</span>
+                        <span class="event-type">Quest Feature</span>
+                        <span class="promo-window">Promo: Oct 22 - Oct 25</span>
+                    </div>
+                    <div class="event-title">Zero to $100 Million <span class="tier-badge tier-2">Tier 2</span></div>
+                    <div class="event-author">Miki Agrawal</div>
+                    <div class="event-credibility">Serial entrepreneur, THINX founder</div>
+                    <div class="event-note">Builds momentum toward Black Friday</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- NOVEMBER 2026 -->
+        <div class="month-section">
+            <div class="month-header">
+                <span class="month-name">November 2026</span>
+                <span class="month-theme">Black Friday - Best of 2026</span>
+            </div>
+            <div class="calendar-grid">
+                <div class="event-card event">
+                    <div class="event-dates">
+                        <span class="date-badge">Nov 1-30</span>
+                        <span class="event-type">Major Sale</span>
+                    </div>
+                    <div class="event-title">Black Friday Campaign</div>
+                    <div class="revenue-tag">Expected: $5,000,000</div>
+                </div>
+
+                <div class="event-card quest">
+                    <div class="event-dates">
+                        <span class="date-badge">Nov 2</span>
+                        <span class="event-type">Quest Flagship</span>
+                        <span class="promo-window">Promo: Oct 29 - Nov 1</span>
+                    </div>
+                    <div class="event-title">Be Extraordinary <span class="tier-badge tier-1">Tier 1</span></div>
+                    <div class="event-author">Vishen Lakhiani</div>
+                    <div class="event-credibility">Founder's signature program, NYT Bestseller</div>
+                    <div class="event-note">🎯 Black Friday flagship - brand recognition drives conversions</div>
+                </div>
+
+                <div class="event-card event">
+                    <div class="event-dates">
+                        <span class="date-badge">Nov 6-8</span>
+                        <span class="event-type">Festival</span>
+                    </div>
+                    <div class="event-title">Future Human Dubai</div>
+                    <div class="revenue-tag">Expected: $3,000,000</div>
+                </div>
+
+                <div class="event-card quest">
+                    <div class="event-dates">
+                        <span class="date-badge">Nov 9</span>
+                        <span class="event-type">Quest Feature</span>
+                        <span class="promo-window">Promo: Nov 5 - Nov 8</span>
+                    </div>
+                    <div class="event-title">The 6 Phase Meditation <span class="tier-badge tier-1">Tier 1</span></div>
+                    <div class="event-author">Vishen Lakhiani</div>
+                    <div class="event-credibility">20M+ users, endorsed by athletes from every major US sports league</div>
+                    <div class="event-note">Entry point for new members - low barrier, high conversion</div>
+                </div>
+
+                <div class="event-card quest">
+                    <div class="event-dates">
+                        <span class="date-badge">Nov 16</span>
+                        <span class="event-type">Quest Relaunch</span>
+                        <span class="promo-window">Promo: Nov 12 - Nov 15</span>
+                    </div>
+                    <div class="event-title">Superbrain <span class="tier-badge tier-1">Tier 1</span></div>
+                    <div class="event-author">Jim Kwik</div>
+                    <div class="event-credibility">NYT/WSJ #1 Bestseller, highest credibility</div>
+                    <div class="event-note">🎯 Black Friday highlight - Jim Kwik drives conversions</div>
+                </div>
+
+                <div class="event-card quest">
+                    <div class="event-dates">
+                        <span class="date-badge">Nov 23</span>
+                        <span class="event-type">Quest Feature</span>
+                        <span class="promo-window">Promo: Nov 19 - Nov 22</span>
+                    </div>
+                    <div class="event-title">The 5 Elements of Happiness <span class="tier-badge tier-1">Tier 1</span></div>
+                    <div class="event-author">Dr. Tal Ben-Shahar</div>
+                    <div class="event-credibility">Taught Harvard's most popular course in history</div>
+                    <div class="event-note">Thanksgiving week - gratitude & happiness theme</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DECEMBER 2026 -->
+        <div class="month-section">
+            <div class="month-header">
+                <span class="month-name">December 2026</span>
+                <span class="month-theme">Life Design & 2027 Prep</span>
+            </div>
+            <div class="calendar-grid">
+                <div class="event-card quest">
+                    <div class="event-dates">
+                        <span class="date-badge">Dec 7</span>
+                        <span class="event-type">Quest Feature</span>
+                        <span class="promo-window">Promo: Dec 3 - Dec 6</span>
+                    </div>
+                    <div class="event-title">Life Visioning Mastery <span class="tier-badge tier-2">Tier 2</span></div>
+                    <div class="event-author">Michael Beckwith</div>
+                    <div class="event-credibility">Founder Agape International, Featured in The Secret</div>
+                    <div class="event-note">Life design theme - prep for Lifebook</div>
+                </div>
+
+                <div class="event-card quest">
+                    <div class="event-dates">
+                        <span class="date-badge">Dec 14</span>
+                        <span class="event-type">Quest Feature</span>
+                        <span class="promo-window">Promo: Dec 10 - Dec 13</span>
+                    </div>
+                    <div class="event-title">The 3 Most Important Questions <span class="tier-badge tier-1">Tier 1</span></div>
+                    <div class="event-author">Vishen Lakhiani</div>
+                    <div class="event-credibility">Founder, clarity framework</div>
+                    <div class="event-note">Pre-Lifebook - clarity before goal-setting</div>
+                </div>
+
+                <div class="flow-arrow">↓</div>
+
+                <div class="event-card event">
+                    <div class="event-dates">
+                        <span class="date-badge">Dec 19</span>
+                        <span class="event-type">Lifebook Webinar</span>
+                    </div>
+                    <div class="event-title">Lifebook Live</div>
+                    <div class="revenue-tag">Expected: $1,000,000</div>
+                </div>
+
+                <div class="event-card quest">
+                    <div class="event-dates">
+                        <span class="date-badge">Dec 21</span>
+                        <span class="event-type">Quest Feature</span>
+                        <span class="promo-window">Promo: Dec 17 - Dec 20</span>
+                    </div>
+                    <div class="event-title">From Awesome to Flawesome <span class="tier-badge tier-2">Tier 2</span></div>
+                    <div class="event-author">Kristina Mand-Lakhiani</div>
+                    <div class="event-credibility">Co-founder Mindvalley</div>
+                    <div class="event-note">Year-end self-acceptance, set up 2027 strong</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SUMMARY TABLE -->
+        <div class="summary-section">
+            <h2>Complete Quest Release Schedule</h2>
+            <table class="summary-table">
+                <thead>
+                    <tr>
+                        <th>Promo Start</th>
+                        <th>Release Date</th>
+                        <th>Quest</th>
+                        <th>Author</th>
+                        <th>Tier</th>
+                        <th>Ties To</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Feb 27</td><td>Mar 2</td><td>The Maestro's Guide to Leadership</td><td>Itay Talgam</td><td>2</td><td>AI Summit</td></tr>
+                    <tr><td>Feb 28</td><td>Mar 3</td><td>Bold Conversations</td><td>Verna Myers</td><td>2</td><td>AI Summit</td></tr>
+                    <tr style="background: rgba(16,185,129,0.1);"><td>Mar 5</td><td>Mar 9</td><td>Superbrain</td><td>Jim Kwik</td><td>1</td><td>AI Summit</td></tr>
+                    <tr style="background: rgba(16,185,129,0.1);"><td>Mar 12</td><td>Mar 16</td><td>Amplify with AI</td><td>Vishen Lakhiani</td><td>1</td><td>AI Summit</td></tr>
+                    <tr style="background: rgba(16,185,129,0.1);"><td>Apr 9</td><td>Apr 13</td><td>The Habit of Ferocity</td><td>Steven Kotler</td><td>1</td><td>AI Mastery</td></tr>
+                    <tr style="background: rgba(16,185,129,0.1);"><td>Apr 16</td><td>Apr 20</td><td>Super Reading</td><td>Jim Kwik</td><td>1</td><td>AI Mastery</td></tr>
+                    <tr style="background: rgba(16,185,129,0.1);"><td>Apr 23</td><td>Apr 27</td><td>Feng Shui for Life</td><td>Marie Diamond</td><td>1</td><td>Manifesting Summit</td></tr>
+                    <tr style="background: rgba(16,185,129,0.1);"><td>Apr 30</td><td>May 4</td><td>Success Magic</td><td>Marie Diamond</td><td>1</td><td>Manifesting Summit</td></tr>
+                    <tr><td>May 7</td><td>May 11</td><td>Silva Ultramind</td><td>Jose Silva</td><td>2</td><td>Manifesting Summit</td></tr>
+                    <tr><td>May 14</td><td>May 18</td><td>Duality</td><td>Jeffrey Allen</td><td>2</td><td>Manifesting Mastery</td></tr>
+                    <tr><td>Jun 4</td><td>Jun 8</td><td>Unlimited Abundance</td><td>Christie Marie Sheldon</td><td>2</td><td>Manifesting Mastery</td></tr>
+                    <tr style="background: rgba(16,185,129,0.1);"><td>Jun 11</td><td>Jun 15</td><td>Creative Visualization</td><td>Lisa Nichols</td><td>1</td><td>Manifesting Mastery</td></tr>
+                    <tr><td>Jun 18</td><td>Jun 22</td><td>Money EQ</td><td>Ken Honda</td><td>2</td><td>Business Coach</td></tr>
+                    <tr style="background: rgba(16,185,129,0.1);"><td>Jun 25</td><td>Jun 29</td><td>Total Self-Confidence</td><td>Paul McKenna</td><td>1</td><td>Speaking Summit</td></tr>
+                    <tr><td>Jul 2</td><td>Jul 6</td><td>The Stage Effect</td><td>Eric Edmeades</td><td>2</td><td>Speaking Summit</td></tr>
+                    <tr style="background: rgba(16,185,129,0.1);"><td>Jul 9</td><td>Jul 13</td><td>Speak and Inspire</td><td>Lisa Nichols</td><td>1</td><td>Speaking Summit</td></tr>
+                    <tr style="background: rgba(16,185,129,0.1);"><td>Jul 16</td><td>Jul 20</td><td>Mastering Authentic Networking</td><td>Keith Ferrazzi</td><td>1</td><td>Speaking Summit</td></tr>
+                    <tr><td>Jul 30</td><td>Aug 3</td><td>Science of Personal Branding</td><td>Gerard Adams</td><td>2</td><td>Speaking Mastery</td></tr>
+                    <tr style="background: rgba(16,185,129,0.1);"><td>Aug 6</td><td>Aug 10</td><td>RTT for Abundance</td><td>Marisa Peer</td><td>1</td><td>Hypnotherapy Cert</td></tr>
+                    <tr><td>Aug 13</td><td>Aug 17</td><td>UNSHAKEABLE</td><td>Shadé Zahrai</td><td>2</td><td>Speaking Mastery</td></tr>
+                    <tr><td>Aug 20</td><td>Aug 24</td><td>Longevity Blueprint</td><td>Ben Greenfield</td><td>2</td><td>Longevity Summit</td></tr>
+                    <tr style="background: rgba(16,185,129,0.1);"><td>Sep 3</td><td>Sep 7</td><td>Smarter Not Harder</td><td>Dave Asprey</td><td>1</td><td>Longevity Summit</td></tr>
+                    <tr><td>Sep 10</td><td>Sep 14</td><td>Mastery of Sleep</td><td>Dr. Michael Breus</td><td>2</td><td>Longevity Mastery</td></tr>
+                    <tr style="background: rgba(16,185,129,0.1);"><td>Sep 17</td><td>Sep 21</td><td>Power of Boldness</td><td>Naveen Jain</td><td>1</td><td>Entrepreneurship Summit</td></tr>
+                    <tr style="background: rgba(16,185,129,0.1);"><td>Oct 1</td><td>Oct 5</td><td>Scale to $1 Million</td><td>Verne Harnish</td><td>1</td><td>Entrepreneurship Mastery</td></tr>
+                    <tr style="background: rgba(16,185,129,0.1);"><td>Oct 8</td><td>Oct 12</td><td>Ultimate Leadership</td><td>Keith Ferrazzi</td><td>1</td><td>Entrepreneurship Mastery</td></tr>
+                    <tr><td>Oct 15</td><td>Oct 19</td><td>Vivid Vision</td><td>Cameron Herold</td><td>2</td><td>Entrepreneurship Mastery</td></tr>
+                    <tr><td>Oct 22</td><td>Oct 26</td><td>Zero to $100 Million</td><td>Miki Agrawal</td><td>2</td><td>Black Friday</td></tr>
+                    <tr style="background: rgba(16,185,129,0.1);"><td>Oct 29</td><td>Nov 2</td><td>Be Extraordinary</td><td>Vishen Lakhiani</td><td>1</td><td>Black Friday</td></tr>
+                    <tr style="background: rgba(16,185,129,0.1);"><td>Nov 5</td><td>Nov 9</td><td>6 Phase Meditation</td><td>Vishen Lakhiani</td><td>1</td><td>Black Friday</td></tr>
+                    <tr style="background: rgba(16,185,129,0.1);"><td>Nov 12</td><td>Nov 16</td><td>Superbrain</td><td>Jim Kwik</td><td>1</td><td>Black Friday</td></tr>
+                    <tr style="background: rgba(16,185,129,0.1);"><td>Nov 19</td><td>Nov 23</td><td>5 Elements of Happiness</td><td>Dr. Tal Ben-Shahar</td><td>1</td><td>Black Friday</td></tr>
+                    <tr><td>Dec 3</td><td>Dec 7</td><td>Life Visioning Mastery</td><td>Michael Beckwith</td><td>2</td><td>Lifebook</td></tr>
+                    <tr style="background: rgba(16,185,129,0.1);"><td>Dec 10</td><td>Dec 14</td><td>3 Most Important Questions</td><td>Vishen Lakhiani</td><td>1</td><td>Lifebook</td></tr>
+                    <tr><td>Dec 17</td><td>Dec 21</td><td>From Awesome to Flawesome</td><td>Kristina Mand-Lakhiani</td><td>2</td><td>New Year 2027</td></tr>
+                </tbody>
+            </table>
+            <p style="margin-top: 20px; color: rgba(255,255,255,0.6); font-size: 0.9rem;">
+                Highlighted rows = Tier 1 authors (highest credibility, lead campaigns)
+            </p>
+        </div>
+
+        <div class="summary-section" style="margin-top: 30px;">
+            <h2>Quick Stats</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px;">
+                <div style="text-align: center; padding: 20px; background: rgba(16,185,129,0.1); border-radius: 12px;">
+                    <div style="font-size: 2.5rem; font-weight: 700; color: #10b981;">35</div>
+                    <div style="color: rgba(255,255,255,0.7);">Quest Releases</div>
+                </div>
+                <div style="text-align: center; padding: 20px; background: rgba(245,158,11,0.1); border-radius: 12px;">
+                    <div style="font-size: 2.5rem; font-weight: 700; color: #f59e0b;">6</div>
+                    <div style="color: rgba(255,255,255,0.7);">Major Summits</div>
+                </div>
+                <div style="text-align: center; padding: 20px; background: rgba(239,68,68,0.1); border-radius: 12px;">
+                    <div style="font-size: 2.5rem; font-weight: 700; color: #ef4444;">6</div>
+                    <div style="color: rgba(255,255,255,0.7);">Mastery Programs</div>
+                </div>
+                <div style="text-align: center; padding: 20px; background: rgba(99,102,241,0.1); border-radius: 12px;">
+                    <div style="font-size: 2.5rem; font-weight: 700; color: #6366f1;">19</div>
+                    <div style="color: rgba(255,255,255,0.7);">Tier 1 Releases</div>
+                </div>
+            </div>
+        </div>
+
+        <footer style="text-align: center; margin-top: 60px; padding: 30px; color: rgba(255,255,255,0.5);">
+            <p>Mindvalley Quest Release Calendar 2026</p>
+            <p style="font-size: 0.85rem; margin-top: 10px;">Strategy: Quests warm up topics → Summits convert → Masteries capture high-intent buyers</p>
+        </footer>
+    </div>
+</body>
+</html>

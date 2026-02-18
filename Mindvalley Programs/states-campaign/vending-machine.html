@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlock Your Exclusive Offer | Mindvalley States</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a0a2e 0%, #2d1b4e 50%, #1a0a2e 100%);
+            min-height: 100vh;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 30px;
+        }
+
+        .header-tag {
+            display: inline-block;
+            background: rgba(138, 43, 226, 0.3);
+            border: 1px solid rgba(138, 43, 226, 0.5);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #fff 0%, #c9a0ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .turns-counter {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .turn-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .turn-dot.used {
+            background: #8b5cf6;
+            border-color: #a78bfa;
+            box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+        }
+
+        .turn-dot.current {
+            background: #fbbf24;
+            border-color: #fcd34d;
+            box-shadow: 0 0 15px rgba(251, 191, 36, 0.6);
+            transform: scale(1.2);
+        }
+
+        .vending-machine {
+            background: linear-gradient(180deg, #3d2066 0%, #2a1548 100%);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 2px solid rgba(139, 92, 246, 0.3);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+
+        .display-window {
+            background: linear-gradient(135deg, #1a0a2e 0%, #0f0518 100%);
+            border-radius: 15px;
+            padding: 30px 20px;
+            margin-bottom: 20px;
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .display-window::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+        }
+
+        .offer-text {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 10px;
+        }
+
+        .offer-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .offer-value.revealed {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .offer-description {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .spin-btn {
+            width: 100%;
+            padding: 18px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .spin-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+        }
+
+        .spin-btn:active {
+            transform: translateY(0);
+        }
+
+        .spin-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .spin-btn.spinning {
+            animation: pulse 0.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(0.98); }
+        }
+
+        .best-offer-section {
+            display: none;
+            margin-top: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.1) 0%, rgba(245, 158, 11, 0.1) 100%);
+            border-radius: 15px;
+            border: 2px solid rgba(251, 191, 36, 0.3);
+        }
+
+        .best-offer-section.show {
+            display: block;
+            animation: slideUp 0.5s ease;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .best-offer-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #fbbf24;
+            margin-bottom: 10px;
+        }
+
+        .best-offer-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .claim-btn {
+            width: 100%;
+            padding: 16px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1a0a2e;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .claim-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(251, 191, 36, 0.4);
+        }
+
+        .offers-history {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .offers-history h3 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 15px;
+        }
+
+        .history-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .history-item {
+            padding: 6px 12px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .history-item.best {
+            background: rgba(251, 191, 36, 0.2);
+            color: #fbbf24;
+            border: 1px solid rgba(251, 191, 36, 0.3);
+        }
+
+        .footer-note {
+            margin-top: 30px;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.4);
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #fbbf24;
+            top: -10px;
+            animation: fall 3s linear forwards;
+            pointer-events: none;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* Spinning animation for display */
+        .display-window.spinning .offer-value {
+            animation: slotSpin 0.1s linear infinite;
+        }
+
+        @keyframes slotSpin {
+            0% { transform: translateY(-20px); opacity: 0.3; }
+            50% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(20px); opacity: 0.3; }
+        }
+
+        .initial-state {
+            text-align: center;
+        }
+
+        .initial-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .initial-text {
+            color: rgba(255,255,255,0.6);
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">Mindvalley States</div>
+
+        <div class="header-tag">Exclusive Private Offer</div>
+
+        <h1>Unlock Your Mystery Discount</h1>
+
+        <p class="subtitle">You have 5 chances to reveal exclusive offers. Spin to unlock discounts on the Mindvalley States Box Set - keep the best one!</p>
+
+        <div class="turns-counter" id="turnsCounter">
+            <div class="turn-dot current" data-turn="1"></div>
+            <div class="turn-dot" data-turn="2"></div>
+            <div class="turn-dot" data-turn="3"></div>
+            <div class="turn-dot" data-turn="4"></div>
+            <div class="turn-dot" data-turn="5"></div>
+        </div>
+
+        <div class="vending-machine">
+            <div class="display-window" id="displayWindow">
+                <div class="initial-state" id="initialState">
+                    <div class="initial-icon">🎰</div>
+                    <div class="initial-text">Press SPIN to reveal your first offer</div>
+                </div>
+                <div id="offerDisplay" style="display: none;">
+                    <div class="offer-text">You unlocked:</div>
+                    <div class="offer-value" id="offerValue">20% OFF</div>
+                    <div class="offer-description" id="offerDescription">On the States Box Set</div>
+                </div>
+            </div>
+
+            <button class="spin-btn" id="spinBtn" onclick="spin()">
+                Spin to Reveal (5 left)
+            </button>
+        </div>
+
+        <div class="offers-history" id="offersHistory" style="display: none;">
+            <h3>Your Unlocked Offers</h3>
+            <div class="history-items" id="historyItems"></div>
+        </div>
+
+        <div class="best-offer-section" id="bestOfferSection">
+            <div class="best-offer-label">Your Best Offer</div>
+            <div class="best-offer-value" id="bestOfferValue">Buy 1 Get 1 FREE</div>
+            <button class="claim-btn" onclick="claimOffer()">Claim This Offer Now</button>
+        </div>
+
+        <p class="footer-note">This exclusive offer is only available through this link. Offer expires in 48 hours.</p>
+    </div>
+
+    <script>
+        const offers = [
+            { text: '20% OFF', value: 20, description: 'Save $30 on the Box Set', code: 'STATES20' },
+            { text: '30% OFF', value: 30, description: 'Save $45 on the Box Set', code: 'STATES30' },
+            { text: '$50 OFF', value: 50, description: 'Instant $50 discount', code: 'STATES50' },
+            { text: '40% OFF', value: 60, description: 'Save $60 on the Box Set', code: 'STATES40' },
+            { text: 'Buy 1 Get 1 FREE', value: 100, description: 'Double your order!', code: 'STATESBOGO' }
+        ];
+
+        let currentTurn = 0;
+        let maxTurns = 5;
+        let unlockedOffers = [];
+        let bestOffer = null;
+        let isSpinning = false;
+
+        function spin() {
+            if (currentTurn >= maxTurns || isSpinning) return;
+
+            isSpinning = true;
+            const spinBtn = document.getElementById('spinBtn');
+            const displayWindow = document.getElementById('displayWindow');
+            const offerValue = document.getElementById('offerValue');
+            const offerDescription = document.getElementById('offerDescription');
+            const initialState = document.getElementById('initialState');
+            const offerDisplay = document.getElementById('offerDisplay');
+
+            // Hide initial state, show offer display
+            initialState.style.display = 'none';
+            offerDisplay.style.display = 'block';
+
+            // Start spinning animation
+            spinBtn.classList.add('spinning');
+            spinBtn.disabled = true;
+            displayWindow.classList.add('spinning');
+            offerValue.classList.remove('revealed');
+
+            // Spinning effect - show random offers quickly
+            let spinCount = 0;
+            const spinInterval = setInterval(() => {
+                const randomOffer = offers[Math.floor(Math.random() * offers.length)];
+                offerValue.textContent = randomOffer.text;
+                spinCount++;
+            }, 100);
+
+            // Stop after 1.5 seconds
+            setTimeout(() => {
+                clearInterval(spinInterval);
+                displayWindow.classList.remove('spinning');
+
+                // Determine actual offer (weighted towards lower early, better late)
+                let offerIndex;
+                if (currentTurn < 2) {
+                    offerIndex = Math.floor(Math.random() * 3); // First 3 offers
+                } else if (currentTurn < 4) {
+                    offerIndex = Math.floor(Math.random() * 4); // First 4 offers
+                } else {
+                    offerIndex = 4; // Always best offer on last spin
+                }
+
+                const selectedOffer = offers[offerIndex];
+
+                // Update display
+                offerValue.textContent = selectedOffer.text;
+                offerDescription.textContent = selectedOffer.description;
+                offerValue.classList.add('revealed');
+
+                // Track offer
+                unlockedOffers.push(selectedOffer);
+                if (!bestOffer || selectedOffer.value > bestOffer.value) {
+                    bestOffer = selectedOffer;
+                }
+
+                // Update turn counter
+                currentTurn++;
+                updateTurnCounter();
+                updateHistory();
+
+                // Update button
+                const remaining = maxTurns - currentTurn;
+                if (remaining > 0) {
+                    spinBtn.textContent = `Spin to Reveal (${remaining} left)`;
+                    spinBtn.disabled = false;
+                } else {
+                    spinBtn.textContent = 'All Spins Used!';
+                    showBestOffer();
+                    createConfetti();
+                }
+
+                spinBtn.classList.remove('spinning');
+                isSpinning = false;
+
+            }, 1500);
+        }
+
+        function updateTurnCounter() {
+            const dots = document.querySelectorAll('.turn-dot');
+            dots.forEach((dot, index) => {
+                dot.classList.remove('used', 'current');
+                if (index < currentTurn) {
+                    dot.classList.add('used');
+                } else if (index === currentTurn) {
+                    dot.classList.add('current');
+                }
+            });
+        }
+
+        function updateHistory() {
+            const historySection = document.getElementById('offersHistory');
+            const historyItems = document.getElementById('historyItems');
+
+            historySection.style.display = 'block';
+            historyItems.innerHTML = unlockedOffers.map((offer, index) => {
+                const isBest = offer === bestOffer;
+                return `<span class="history-item ${isBest ? 'best' : ''}">${offer.text}</span>`;
+            }).join('');
+        }
+
+        function showBestOffer() {
+            const section = document.getElementById('bestOfferSection');
+            const valueEl = document.getElementById('bestOfferValue');
+
+            valueEl.textContent = bestOffer.text;
+            section.classList.add('show');
+        }
+
+        function claimOffer() {
+            // In production, this would redirect to checkout with the code applied
+            const checkoutUrl = `https://www.mindvalley.com/states/checkout?code=${bestOffer.code}`;
+
+            // For demo, show alert
+            alert(`Your code: ${bestOffer.code}\n\nRedirecting to checkout...`);
+            window.location.href = checkoutUrl;
+        }
+
+        function createConfetti() {
+            const colors = ['#fbbf24', '#8b5cf6', '#ec4899', '#10b981', '#fff'];
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                    document.body.appendChild(confetti);
+                    setTimeout(() => confetti.remove(), 4000);
+                }, i * 50);
+            }
+        }
+    </script>
+</body>
+</html>
