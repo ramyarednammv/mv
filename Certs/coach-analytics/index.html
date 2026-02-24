@@ -242,7 +242,7 @@
 
             <div class="note warn" style="margin-top: 20px;">
                 <div class="note-title">Why This Matters</div>
-                <p>When a campaign goes out, the 227K multi-list leads receive it on their <em>primary</em> list first (Daily, Members, etc.) and are <strong>suppressed</strong> from the Coach send. The Coach send only reaches the remaining ~211K "Coach-only" leads. This is why Coach open rates appear lower &mdash; they mostly measure the least engaged segment of the list.</p>
+                <p>When a campaign goes to multiple lists, overlapping leads are <strong>suppressed</strong> from one send to avoid duplicates. For multi-list campaigns (summits, promos), the Coach send often only reaches the ~211K "Coach-only" segment &mdash; overlapping leads already received it via another list. For <strong>Coach-specific</strong> campaigns (CLC, MCH), the full 438K is reached. This mix of audiences is why Coach open rates vary so widely.</p>
             </div>
         </div>
     </section>
@@ -253,40 +253,66 @@
         <h2 class="sec-title">How Coach Emails Actually Get Sent</h2>
         <div class="card">
             <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 20px;">
-                Mindvalley sends campaigns to lists in a priority order. Each list suppresses people who already received the email on a higher-priority list:
+                Mindvalley has <strong>6 independent broadcast lists</strong>, each with its own unique audience. Many leads sit on multiple lists. To avoid duplicate emails, overlapping leads are <strong>suppressed</strong> from one send when the same campaign goes to multiple lists.
             </p>
 
-            <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px;">
-                <div style="display: flex; align-items: center; gap: 12px;">
-                    <div style="background: var(--green-bg); border: 1px solid var(--green-border); border-radius: 10px; padding: 12px 20px; flex: 1;">
-                        <strong style="color: var(--green);">1. Daily</strong> <span style="color: var(--text-muted); font-size: 13px;">&mdash; 916K &mdash; Sent first, full audience</span>
+            <!-- Lists as equal peers -->
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 24px;">
+                <div style="background: var(--purple-softer); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; text-align: center;">
+                    <strong style="color: var(--purple-mid); font-size: 14px;">Daily</strong>
+                    <div style="color: var(--text-muted); font-size: 12px; margin-top: 4px;">916K leads</div>
+                </div>
+                <div style="background: var(--purple-softer); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; text-align: center;">
+                    <strong style="color: var(--purple-mid); font-size: 14px;">Members</strong>
+                    <div style="color: var(--text-muted); font-size: 12px; margin-top: 4px;">212K leads</div>
+                </div>
+                <div style="background: var(--purple-softer); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; text-align: center;">
+                    <strong style="color: var(--purple-mid); font-size: 14px;">Highlights</strong>
+                    <div style="color: var(--text-muted); font-size: 12px; margin-top: 4px;">403K leads</div>
+                </div>
+                <div style="background: var(--purple-softer); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; text-align: center;">
+                    <strong style="color: var(--purple-mid); font-size: 14px;">Weekly</strong>
+                    <div style="color: var(--text-muted); font-size: 12px; margin-top: 4px;">335K leads</div>
+                </div>
+                <div style="background: var(--purple-softer); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; text-align: center;">
+                    <strong style="color: var(--purple-mid); font-size: 14px;">Events</strong>
+                    <div style="color: var(--text-muted); font-size: 12px; margin-top: 4px;">Various</div>
+                </div>
+                <div style="background: linear-gradient(135deg, #ede9fe, #f5f3ff); border: 2px solid var(--purple-mid); border-radius: 10px; padding: 14px 16px; text-align: center;">
+                    <strong style="color: var(--purple-deep); font-size: 14px;">Coach</strong>
+                    <div style="color: var(--purple-mid); font-size: 12px; margin-top: 4px; font-weight: 600;">438K leads</div>
+                </div>
+            </div>
+
+            <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 16px; font-weight: 600;">
+                How suppression works for Coach:
+            </p>
+
+            <!-- Two scenarios -->
+            <div class="two-col" style="margin-bottom: 20px;">
+                <div style="background: var(--green-bg); border: 1px solid var(--green-border); border-radius: 12px; padding: 20px;">
+                    <div style="font-weight: 700; color: var(--green); font-size: 14px; margin-bottom: 10px;">Coach-Specific Campaigns</div>
+                    <div style="font-size: 13px; color: var(--text-secondary); line-height: 1.7;">
+                        <strong>CLC launches, Modern Coach Challenge</strong><br>
+                        Only event-specific lists suppressed (e.g., seminar signups).<br>
+                        <strong style="color: var(--green);">Reaches 90-97% of full Coach list</strong><br>
+                        Result: <strong>20-25% OR</strong> &mdash; the true Coach engagement.
                     </div>
                 </div>
-                <div style="display: flex; align-items: center; gap: 12px;">
-                    <div style="background: var(--green-bg); border: 1px solid var(--green-border); border-radius: 10px; padding: 12px 20px; flex: 1;">
-                        <strong style="color: var(--green);">2. Members</strong> <span style="color: var(--text-muted); font-size: 13px;">&mdash; 212K &mdash; Sent early, mostly full</span>
-                    </div>
-                </div>
-                <div style="display: flex; align-items: center; gap: 12px;">
-                    <div style="background: var(--amber-bg); border: 1px solid var(--amber-border); border-radius: 10px; padding: 12px 20px; flex: 1;">
-                        <strong style="color: var(--gold);">3. Highlights</strong> <span style="color: var(--text-muted); font-size: 13px;">&mdash; 403K &mdash; Some suppression</span>
-                    </div>
-                </div>
-                <div style="display: flex; align-items: center; gap: 12px;">
-                    <div style="background: var(--amber-bg); border: 1px solid var(--amber-border); border-radius: 10px; padding: 12px 20px; flex: 1;">
-                        <strong style="color: var(--gold);">4. Weekly</strong> <span style="color: var(--text-muted); font-size: 13px;">&mdash; 335K &mdash; Some suppression</span>
-                    </div>
-                </div>
-                <div style="display: flex; align-items: center; gap: 12px;">
-                    <div style="background: var(--red-bg); border: 1px solid var(--red-border); border-radius: 10px; padding: 12px 20px; flex: 1;">
-                        <strong style="color: var(--red);">5. Coach</strong> <span style="color: var(--text-muted); font-size: 13px;">&mdash; 438K total, but only ~211K reached after suppression</span>
+                <div style="background: var(--amber-bg); border: 1px solid var(--amber-border); border-radius: 12px; padding: 20px;">
+                    <div style="font-weight: 700; color: var(--gold); font-size: 14px; margin-bottom: 10px;">Multi-List Campaigns</div>
+                    <div style="font-size: 13px; color: var(--text-secondary); line-height: 1.7;">
+                        <strong>Summits, promos, Vishen's NL</strong><br>
+                        Overlapping leads suppressed from Coach send (already received via another list).<br>
+                        <strong style="color: var(--gold);">Reaches ~211K Coach-only leads</strong><br>
+                        Result: <strong>12-17% OR</strong> &mdash; the residual segment.
                     </div>
                 </div>
             </div>
 
-            <div class="note good">
-                <div class="note-title">The Exception: Coach-Specific Campaigns</div>
-                <p>Some campaigns &mdash; like CLC launches and Modern Coach Challenge &mdash; only suppress event-specific lists (e.g., seminar signups), <strong>not</strong> the broadcast lists. These reach 90-97% of the full Coach list and give us the true picture of Coach engagement: <strong>20-25% OR</strong>.</p>
+            <div class="note">
+                <div class="note-title">Key: Coach leads are suppressed from other lists' sends</div>
+                <p>When a campaign goes to Daily, Coach leads on the Daily list are <strong>suppressed from the Daily send</strong>. They receive the email through their Coach send instead. But for multi-list campaigns, the Coach send itself may also suppress leads who already received it via Members, Highlights, or other lists &mdash; leaving the Coach send with the residual Coach-only audience.</p>
             </div>
         </div>
     </section>
@@ -325,15 +351,15 @@
         <div class="card" style="margin-top: 20px;">
             <table class="tbl">
                 <thead>
-                    <tr><th>List</th><th>Avg OR%</th><th>Suppression Level</th><th>Comparable?</th></tr>
+                    <tr><th>List</th><th>Avg OR%</th><th>Suppression Context</th><th>Comparable?</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td><strong>Daily</strong></td><td class="hi">48.1%</td><td class="dim">Sent first &mdash; no suppression</td><td class="dim">No</td></tr>
-                    <tr><td><strong>Members</strong></td><td class="hi">33.8%</td><td class="dim">Sent early &mdash; minimal</td><td class="dim">No</td></tr>
-                    <tr><td><strong>Highlights</strong></td><td>20.6%</td><td class="dim">Some suppression</td><td class="dim">Somewhat</td></tr>
-                    <tr><td><strong>Weekly</strong></td><td>20.1%</td><td class="dim">Some suppression</td><td class="dim">Somewhat</td></tr>
-                    <tr style="background: var(--purple-softer);"><td><strong style="color: var(--purple-mid);">Coach (residual)</strong></td><td>16.5%</td><td style="color: var(--red);">Heavy &mdash; last in hierarchy</td><td class="dim">Not directly</td></tr>
-                    <tr style="background: var(--green-bg);"><td><strong style="color: var(--green);">Coach (full list)</strong></td><td class="hi">20-25%</td><td style="color: var(--green);">CLC, MCH &mdash; minimal suppression</td><td class="dim">Fair comparison</td></tr>
+                    <tr><td><strong>Daily</strong></td><td class="hi">48.1%</td><td class="dim">Coach leads suppressed from Daily sends</td><td class="dim">No</td></tr>
+                    <tr><td><strong>Members</strong></td><td class="hi">33.8%</td><td class="dim">Dedicated audience, minimal suppression</td><td class="dim">No</td></tr>
+                    <tr><td><strong>Highlights</strong></td><td>20.6%</td><td class="dim">Independent list, some overlap suppression</td><td class="dim">Somewhat</td></tr>
+                    <tr><td><strong>Weekly</strong></td><td>20.1%</td><td class="dim">Independent list, some overlap suppression</td><td class="dim">Somewhat</td></tr>
+                    <tr style="background: var(--purple-softer);"><td><strong style="color: var(--purple-mid);">Coach (residual)</strong></td><td>16.5%</td><td style="color: var(--gold);">Multi-list campaigns &mdash; heavy suppression</td><td class="dim">Not directly</td></tr>
+                    <tr style="background: var(--green-bg);"><td><strong style="color: var(--green);">Coach (full list)</strong></td><td class="hi">20-25%</td><td style="color: var(--green);">Coach-specific campaigns &mdash; minimal suppression</td><td class="dim">Fair comparison</td></tr>
                 </tbody>
             </table>
         </div>
@@ -416,7 +442,7 @@
             </table>
             <div class="note">
                 <div class="note-title">Reading This Table</div>
-                <p><span class="tag tag-full">Full list</span> = Campaign sent to most/all of the Coach list (only event-specific suppression). These show the <strong>true Coach engagement: 20-22% OR</strong>. <span class="tag tag-res">Residual</span> = Campaign heavily suppressed against other broadcast lists. These only reached the Coach-only segment (~211K) and show <strong>12-17% OR</strong>. The performance gap is largely a suppression gap, not a content relevance gap.</p>
+                <p><span class="tag tag-full">Full list</span> = Coach-specific campaign (CLC, MCH) with only event-specific suppression. These reach 90-97% of the list and show the <strong>true Coach engagement: 20-22% OR</strong>. <span class="tag tag-res">Residual</span> = Multi-list campaign where overlapping leads already received it via another list. Coach send only reaches the ~211K Coach-only segment at <strong>12-17% OR</strong>. The performance gap is a suppression gap, not a content gap.</p>
             </div>
         </div>
     </section>
@@ -632,7 +658,7 @@
             <div class="ins-card">
                 <div class="ins-num">3</div>
                 <h4>Use the CLC Suppression Model</h4>
-                <p>CLC only suppresses event-specific lists, not broadcast lists. Result: 90-97% of Coach reached, 20-25% OR. Apply this model to future coaching campaigns &mdash; suppress the sign-up list, not Daily/Members/Highlights.</p>
+                <p>CLC only suppresses event-specific lists, not other broadcast lists. Result: 90-97% of Coach reached, 20-25% OR. Apply this model to future coaching campaigns &mdash; suppress only the event sign-up list so the full Coach audience is reached.</p>
             </div>
             <div class="ins-card">
                 <div class="ins-num">4</div>
@@ -646,8 +672,8 @@
             </div>
             <div class="ins-card">
                 <div class="ins-num">6</div>
-                <h4>Question Residual-Only Sends</h4>
-                <p>Is it worth sending AI Summit, Entrepreneurship Summit, and Spiritual Summit invites to the residual Coach segment at 12-14% OR? These add volume (25+ emails/month in peak periods) but may accelerate fatigue on the Coach-only leads. Consider reducing non-coaching sends to the residual.</p>
+                <h4>Question Multi-List Sends to Coach</h4>
+                <p>Is it worth sending AI Summit, Entrepreneurship Summit, and Spiritual Summit to the Coach-only segment at 12-14% OR? These add volume (25+ emails/month in peak periods) but may accelerate fatigue on leads who aren't on other lists. Consider reducing non-coaching campaign sends to Coach.</p>
             </div>
         </div>
     </section>
