@@ -8,87 +8,52 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <style>
         :root {
-            --purple-deep: #0f0720;
-            --purple-dark: #1a0a2e;
+            --bg: #ffffff;
+            --bg-alt: #f8f7fc;
+            --bg-card: #ffffff;
+            --purple-deep: #2d1b69;
+            --purple-dark: #3b2280;
             --purple-mid: #7c3aed;
             --purple-light: #a78bfa;
-            --purple-glow: rgba(139, 92, 246, 0.4);
-            --gold: #fbbf24;
-            --gold-dark: #f59e0b;
-            --gold-glow: rgba(251, 191, 36, 0.35);
-            --green: #34d399;
-            --green-dim: rgba(52, 211, 153, 0.15);
-            --red: #f87171;
-            --red-dim: rgba(248, 113, 113, 0.15);
-            --blue: #60a5fa;
-            --white: #ffffff;
-            --white-90: rgba(255, 255, 255, 0.9);
-            --white-70: rgba(255, 255, 255, 0.7);
-            --white-50: rgba(255, 255, 255, 0.5);
-            --white-30: rgba(255, 255, 255, 0.3);
-            --white-10: rgba(255, 255, 255, 0.1);
-            --white-05: rgba(255, 255, 255, 0.05);
-            --glass-bg: rgba(255, 255, 255, 0.04);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --card-radius: 20px;
+            --purple-soft: #ede9fe;
+            --purple-softer: #f5f3ff;
+            --gold: #d97706;
+            --gold-light: #f59e0b;
+            --green: #059669;
+            --green-bg: #ecfdf5;
+            --green-border: #a7f3d0;
+            --red: #dc2626;
+            --red-bg: #fef2f2;
+            --red-border: #fecaca;
+            --blue: #2563eb;
+            --text: #1e1b4b;
+            --text-secondary: #4c4574;
+            --text-muted: #8b83a8;
+            --border: #e9e5f5;
+            --border-light: #f0edf7;
+            --card-shadow: 0 1px 3px rgba(45, 27, 105, 0.06), 0 8px 24px rgba(45, 27, 105, 0.04);
+            --card-shadow-hover: 0 4px 12px rgba(45, 27, 105, 0.08), 0 16px 40px rgba(45, 27, 105, 0.06);
+            --card-radius: 16px;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--purple-deep);
+            background: var(--bg);
             min-height: 100vh;
-            color: var(--white);
+            color: var(--text);
             overflow-x: hidden;
             line-height: 1.6;
         }
 
-        /* ============ BACKGROUND ============ */
-        .bg-layer {
+        /* ============ SUBTLE BG PATTERN ============ */
+        .bg-pattern {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;
             background:
-                radial-gradient(ellipse at 20% 0%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 100%, rgba(251, 191, 36, 0.08) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 50%, rgba(45, 27, 78, 0.8) 0%, var(--purple-deep) 100%);
-        }
-
-        .orb {
-            position: fixed; border-radius: 50%; filter: blur(80px);
-            pointer-events: none; z-index: 0;
-        }
-        .orb-1 {
-            width: 400px; height: 400px; background: rgba(139, 92, 246, 0.12);
-            top: -100px; right: -100px; animation: orbFloat1 16s ease-in-out infinite;
-        }
-        .orb-2 {
-            width: 300px; height: 300px; background: rgba(251, 191, 36, 0.06);
-            bottom: -80px; left: -80px; animation: orbFloat2 20s ease-in-out infinite;
-        }
-        .orb-3 {
-            width: 200px; height: 200px; background: rgba(236, 72, 153, 0.08);
-            top: 50%; left: 50%; transform: translate(-50%, -50%);
-            animation: orbFloat3 14s ease-in-out infinite;
-        }
-
-        @keyframes orbFloat1 {
-            0%, 100% { transform: translate(0, 0); }
-            33% { transform: translate(-60px, 80px); }
-            66% { transform: translate(40px, -40px); }
-        }
-        @keyframes orbFloat2 {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(80px, -60px); }
-        }
-        @keyframes orbFloat3 {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); }
-            50% { transform: translate(-50%, -50%) scale(1.4); }
-        }
-
-        .noise-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 1; opacity: 0.03; pointer-events: none;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+                radial-gradient(ellipse at 20% 0%, rgba(124, 58, 237, 0.04) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 100%, rgba(124, 58, 237, 0.03) 0%, transparent 50%);
+            pointer-events: none;
         }
 
         /* ============ LAYOUT ============ */
@@ -101,11 +66,12 @@
         /* ============ HERO ============ */
         .hero {
             text-align: center;
-            padding: 60px 0 40px;
+            padding: 48px 0 32px;
         }
         .hero-badge {
             display: inline-block;
-            background: linear-gradient(135deg, var(--purple-mid), var(--gold-dark));
+            background: var(--purple-mid);
+            color: #fff;
             padding: 6px 20px;
             border-radius: 50px;
             font-size: 12px;
@@ -116,31 +82,28 @@
         }
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(32px, 5vw, 52px);
+            font-size: clamp(32px, 5vw, 48px);
             font-weight: 700;
             line-height: 1.15;
             margin-bottom: 16px;
-            background: linear-gradient(135deg, var(--white) 0%, var(--gold) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--purple-deep);
         }
         .hero p {
-            color: var(--white-70);
+            color: var(--text-secondary);
             font-size: 17px;
-            font-weight: 300;
+            font-weight: 400;
         }
         .hero p span {
-            color: var(--gold);
-            font-weight: 500;
+            color: var(--purple-mid);
+            font-weight: 600;
         }
 
         /* ============ SECTION ============ */
         .section {
             margin-top: 48px;
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.7s ease, transform 0.7s ease;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
         .section.visible {
             opacity: 1;
@@ -151,25 +114,24 @@
             font-weight: 700;
             letter-spacing: 3px;
             text-transform: uppercase;
-            color: var(--purple-light);
-            margin-bottom: 8px;
+            color: var(--purple-mid);
+            margin-bottom: 6px;
         }
         .section-title {
             font-family: 'Playfair Display', serif;
             font-size: clamp(22px, 3vw, 30px);
             font-weight: 600;
             margin-bottom: 20px;
-            color: var(--white-90);
+            color: var(--purple-deep);
         }
 
-        /* ============ GLASS CARD ============ */
-        .glass-card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
+        /* ============ CARD ============ */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
             border-radius: var(--card-radius);
             padding: 32px;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            box-shadow: var(--card-shadow);
         }
 
         /* ============ KPI GRID ============ */
@@ -179,37 +141,33 @@
             gap: 16px;
         }
         .kpi-card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
             padding: 24px;
             text-align: center;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            transition: transform 0.3s ease, border-color 0.3s ease;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .kpi-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--purple-mid);
+            transform: translateY(-3px);
+            box-shadow: var(--card-shadow-hover);
         }
         .kpi-value {
             font-size: 36px;
             font-weight: 800;
-            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--purple-mid);
             line-height: 1.1;
         }
         .kpi-label {
             font-size: 13px;
-            color: var(--white-50);
+            color: var(--text-secondary);
             margin-top: 8px;
             font-weight: 500;
         }
         .kpi-sub {
             font-size: 11px;
-            color: var(--white-30);
+            color: var(--text-muted);
             margin-top: 4px;
         }
 
@@ -226,23 +184,24 @@
             font-weight: 700;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            color: var(--purple-light);
-            border-bottom: 1px solid var(--white-10);
+            color: var(--purple-mid);
+            border-bottom: 2px solid var(--border);
+            background: var(--purple-softer);
         }
         .data-table tbody td {
             padding: 10px 14px;
-            border-bottom: 1px solid var(--white-05);
-            color: var(--white-70);
+            border-bottom: 1px solid var(--border-light);
+            color: var(--text-secondary);
         }
         .data-table tbody tr:hover {
-            background: rgba(139, 92, 246, 0.06);
+            background: var(--purple-softer);
         }
         .data-table .highlight-val {
-            color: var(--gold);
-            font-weight: 600;
+            color: var(--purple-mid);
+            font-weight: 700;
         }
         .data-table .dim-val {
-            color: var(--white-30);
+            color: var(--text-muted);
         }
         .data-table .subject-col {
             max-width: 340px;
@@ -271,16 +230,16 @@
 
         /* ============ LOVES / IGNORES ============ */
         .sentiment-card {
-            border-radius: 16px;
+            border-radius: 14px;
             padding: 24px;
         }
         .sentiment-card.loves {
-            background: var(--green-dim);
-            border: 1px solid rgba(52, 211, 153, 0.2);
+            background: var(--green-bg);
+            border: 1px solid var(--green-border);
         }
         .sentiment-card.ignores {
-            background: var(--red-dim);
-            border: 1px solid rgba(248, 113, 113, 0.2);
+            background: var(--red-bg);
+            border: 1px solid var(--red-border);
         }
         .sentiment-card h3 {
             font-family: 'Playfair Display', serif;
@@ -293,9 +252,9 @@
             display: flex;
             justify-content: space-between;
             padding: 8px 0;
-            border-bottom: 1px solid var(--white-05);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
             font-size: 14px;
-            color: var(--white-70);
+            color: var(--text-secondary);
         }
         .sentiment-item:last-child { border-bottom: none; }
         .sentiment-item .or-val {
@@ -308,8 +267,8 @@
 
         /* ============ CALLOUT ============ */
         .callout {
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(251, 191, 36, 0.08));
-            border-left: 3px solid var(--gold);
+            background: var(--purple-softer);
+            border-left: 3px solid var(--purple-mid);
             border-radius: 0 12px 12px 0;
             padding: 20px 24px;
             margin-top: 16px;
@@ -317,12 +276,12 @@
         .callout-title {
             font-weight: 700;
             font-size: 14px;
-            color: var(--gold);
+            color: var(--purple-mid);
             margin-bottom: 6px;
         }
         .callout p {
             font-size: 14px;
-            color: var(--white-70);
+            color: var(--text-secondary);
             line-height: 1.7;
         }
 
@@ -333,15 +292,16 @@
             gap: 20px;
         }
         .insight-card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
             padding: 24px;
-            backdrop-filter: blur(12px);
+            box-shadow: var(--card-shadow);
         }
         .insight-card .insight-num {
             display: inline-block;
-            background: linear-gradient(135deg, var(--purple-mid), var(--gold-dark));
+            background: var(--purple-mid);
+            color: #fff;
             width: 32px; height: 32px;
             border-radius: 8px;
             text-align: center;
@@ -354,15 +314,15 @@
             font-size: 16px;
             font-weight: 600;
             margin-bottom: 8px;
-            color: var(--white-90);
+            color: var(--purple-deep);
         }
         .insight-card p {
             font-size: 13px;
-            color: var(--white-50);
+            color: var(--text-muted);
             line-height: 1.7;
         }
 
-        /* ============ NEWSLETTER COMPARISON ============ */
+        /* ============ COMPARISON BARS ============ */
         .comparison-bar {
             display: flex;
             align-items: center;
@@ -371,16 +331,17 @@
         .comparison-label {
             width: 200px;
             font-size: 13px;
-            color: var(--white-70);
+            color: var(--text-secondary);
             flex-shrink: 0;
         }
         .comparison-track {
             flex: 1;
             height: 28px;
-            background: var(--white-05);
+            background: var(--bg-alt);
             border-radius: 6px;
             position: relative;
             overflow: hidden;
+            border: 1px solid var(--border-light);
         }
         .comparison-fill {
             height: 100%;
@@ -390,15 +351,65 @@
             padding-left: 10px;
             font-size: 12px;
             font-weight: 700;
-            color: var(--white);
+            color: #fff;
             transition: width 1.2s ease;
+        }
+
+        /* ============ COMPARISON TABLE ============ */
+        .nl-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .nl-box {
+            border-radius: 14px;
+            padding: 24px;
+            text-align: center;
+        }
+        .nl-box.vishen {
+            background: var(--purple-softer);
+            border: 1px solid var(--border);
+        }
+        .nl-box.coaching {
+            background: #fdf4e7;
+            border: 1px solid #fde68a;
+        }
+        .nl-box h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .nl-box .nl-author {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+        .nl-stat {
+            margin-bottom: 12px;
+        }
+        .nl-stat .nl-stat-val {
+            font-size: 32px;
+            font-weight: 800;
+        }
+        .nl-box.vishen .nl-stat-val { color: var(--purple-mid); }
+        .nl-box.coaching .nl-stat-val { color: var(--gold); }
+        .nl-stat .nl-stat-label {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+        .nl-meta {
+            font-size: 12px;
+            color: var(--text-muted);
+            padding-top: 12px;
+            border-top: 1px solid rgba(0,0,0,0.06);
         }
 
         /* ============ FOOTER ============ */
         .footer {
             text-align: center;
             padding: 60px 0 20px;
-            color: var(--white-30);
+            color: var(--text-muted);
             font-size: 12px;
         }
         .footer-brand {
@@ -407,30 +418,27 @@
             font-weight: 600;
             letter-spacing: 4px;
             text-transform: uppercase;
-            color: var(--white-30);
+            color: var(--purple-light);
             margin-bottom: 8px;
         }
 
         /* ============ RESPONSIVE ============ */
         @media (max-width: 600px) {
             .page-wrapper { padding: 20px 16px 60px; }
-            .glass-card { padding: 20px; }
+            .card { padding: 20px; }
             .kpi-grid { grid-template-columns: repeat(2, 1fr); }
             .kpi-value { font-size: 28px; }
             .data-table { font-size: 12px; }
             .data-table thead th, .data-table tbody td { padding: 8px 8px; }
             .comparison-label { width: 140px; font-size: 11px; }
             .insight-grid { grid-template-columns: 1fr; }
+            .nl-comparison { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-<div class="bg-layer"></div>
-<div class="orb orb-1"></div>
-<div class="orb orb-2"></div>
-<div class="orb orb-3"></div>
-<div class="noise-overlay"></div>
+<div class="bg-pattern"></div>
 
 <div class="page-wrapper">
 
@@ -478,7 +486,7 @@
     <section class="section">
         <div class="section-label">Section 02</div>
         <h2 class="section-title">Coach vs Other Lists &mdash; Performance Gap</h2>
-        <div class="glass-card">
+        <div class="card">
             <table class="data-table">
                 <thead>
                     <tr>
@@ -518,8 +526,8 @@
                         <td>0.08%</td>
                         <td>67</td>
                     </tr>
-                    <tr style="background: rgba(139, 92, 246, 0.08);">
-                        <td><strong style="color: var(--gold);">Coach</strong></td>
+                    <tr style="background: var(--purple-softer);">
+                        <td><strong style="color: var(--purple-mid);">Coach</strong></td>
                         <td style="color: var(--red);">16.5%</td>
                         <td>0.24%</td>
                         <td>0.06%</td>
@@ -541,7 +549,7 @@
     <section class="section">
         <div class="section-label">Section 03</div>
         <h2 class="section-title">Monthly Open Rate Trend</h2>
-        <div class="glass-card">
+        <div class="card">
             <div class="chart-wrap">
                 <canvas id="monthlyTrendChart"></canvas>
             </div>
@@ -568,8 +576,8 @@
                     <tr><td>Oct 2025</td><td>17</td><td>15.5%</td><td>0.20%</td><td class="dim-val">&mdash;</td></tr>
                     <tr><td>Nov 2025</td><td>17</td><td>15.4%</td><td>0.23%</td><td class="dim-val">Spiritual Summit</td></tr>
                     <tr><td>Dec 2025</td><td>22</td><td>18.3%</td><td>0.27%</td><td class="dim-val">Holiday rebound</td></tr>
-                    <tr style="background: rgba(139, 92, 246, 0.06);"><td>Jan 2026</td><td>22</td><td>16.3%</td><td>0.21%</td><td class="dim-val">Social Media Summit</td></tr>
-                    <tr style="background: rgba(139, 92, 246, 0.06);"><td>Feb 2026</td><td>16</td><td class="highlight-val">20.3%</td><td>0.27%</td><td class="dim-val">CLC 2026 launch lift</td></tr>
+                    <tr style="background: var(--purple-softer);"><td>Jan 2026</td><td>22</td><td>16.3%</td><td>0.21%</td><td class="dim-val">Social Media Summit</td></tr>
+                    <tr style="background: var(--purple-softer);"><td>Feb 2026</td><td>16</td><td class="highlight-val">20.3%</td><td>0.27%</td><td class="dim-val">CLC 2026 launch lift</td></tr>
                 </tbody>
             </table>
             <div class="callout">
@@ -583,10 +591,10 @@
     <section class="section">
         <div class="section-label">Section 04</div>
         <h2 class="section-title">Weekly Send Frequency &amp; Cadence</h2>
-        <div class="glass-card">
+        <div class="card">
             <div class="two-col">
                 <div>
-                    <h3 style="font-size: 15px; color: var(--white-70); margin-bottom: 12px;">Monthly Email Counts</h3>
+                    <h3 style="font-size: 15px; color: var(--text-secondary); margin-bottom: 12px;">Monthly Email Counts</h3>
                     <table class="data-table">
                         <thead>
                             <tr><th>Month</th><th>Sends</th><th>Per Week</th></tr>
@@ -604,13 +612,13 @@
                             <tr><td>Oct 2025</td><td>17</td><td>3.9</td></tr>
                             <tr><td>Nov 2025</td><td>17</td><td>4.3</td></tr>
                             <tr><td>Dec 2025</td><td>22</td><td>5.1</td></tr>
-                            <tr style="background: rgba(139, 92, 246, 0.06);"><td>Jan 2026</td><td>22</td><td>5.1</td></tr>
-                            <tr style="background: rgba(139, 92, 246, 0.06);"><td>Feb 2026</td><td>16</td><td>5.3</td></tr>
+                            <tr style="background: var(--purple-softer);"><td>Jan 2026</td><td>22</td><td>5.1</td></tr>
+                            <tr style="background: var(--purple-softer);"><td>Feb 2026</td><td>16</td><td>5.3</td></tr>
                         </tbody>
                     </table>
                 </div>
                 <div>
-                    <h3 style="font-size: 15px; color: var(--white-70); margin-bottom: 12px;">Day-of-Week Performance (2025)</h3>
+                    <h3 style="font-size: 15px; color: var(--text-secondary); margin-bottom: 12px;">Day-of-Week Performance (2025)</h3>
                     <table class="data-table">
                         <thead>
                             <tr><th>Day</th><th>Count</th><th>Avg OR%</th><th>Avg CTR%</th></tr>
@@ -619,8 +627,8 @@
                             <tr><td>Monday</td><td>36</td><td>15.7%</td><td>0.23%</td></tr>
                             <tr><td>Tuesday</td><td>40</td><td>17.1%</td><td>0.24%</td></tr>
                             <tr><td>Wednesday</td><td>31</td><td>15.8%</td><td>0.21%</td></tr>
-                            <tr style="background: rgba(52, 211, 153, 0.06);"><td><strong>Thursday</strong></td><td>24</td><td class="highlight-val">16.4%</td><td>0.21%</td></tr>
-                            <tr style="background: rgba(52, 211, 153, 0.06);"><td><strong>Friday</strong></td><td>35</td><td class="highlight-val">17.5%</td><td class="highlight-val">0.32%</td></tr>
+                            <tr><td>Thursday</td><td>24</td><td>16.4%</td><td>0.21%</td></tr>
+                            <tr style="background: var(--green-bg);"><td><strong>Friday</strong></td><td>35</td><td class="highlight-val">17.5%</td><td class="highlight-val">0.32%</td></tr>
                             <tr><td>Saturday</td><td>22</td><td>16.6%</td><td>0.23%</td></tr>
                             <tr><td>Sunday</td><td>18</td><td>15.6%</td><td>0.25%</td></tr>
                         </tbody>
@@ -638,7 +646,7 @@
     <section class="section">
         <div class="section-label">Section 05</div>
         <h2 class="section-title">Campaign Category Performance on Coach List</h2>
-        <div class="glass-card">
+        <div class="card">
             <div class="chart-wrap" style="max-height: 420px;">
                 <canvas id="categoryChart"></canvas>
             </div>
@@ -654,6 +662,7 @@
                     <tr><td>Modern Coach Challenge</td><td>5</td><td class="highlight-val">21.6%</td><td>0.28%</td></tr>
                     <tr><td>CLC 2026</td><td>12</td><td class="highlight-val">21.0%</td><td>0.28%</td></tr>
                     <tr><td>MCH Webinar 2025</td><td>10</td><td>20.4%</td><td>0.27%</td></tr>
+                    <tr><td>Vishen's Newsletter</td><td>39</td><td>17.6%</td><td>0.27%</td></tr>
                     <tr><td>Social Media Summit 2025</td><td>8</td><td>16.6%</td><td>0.31%</td></tr>
                     <tr><td>Social Media Summit 2026</td><td>10</td><td>15.8%</td><td>0.23%</td></tr>
                     <tr><td>Entrepreneurship Summit</td><td>14</td><td>14.2%</td><td>0.22%</td></tr>
@@ -665,61 +674,108 @@
             </table>
             <div class="callout">
                 <div class="callout-title">Pattern</div>
-                <p>Coaching-specific campaigns (CLC, Modern Coach Challenge, MCH Webinar) consistently outperform generic summits by <strong>6-9 percentage points</strong> in OR. The Coach audience responds to content about <em>their profession</em>, not general personal growth events.</p>
+                <p>Coaching-specific campaigns (CLC, Modern Coach Challenge, MCH Webinar) consistently outperform generic summits by <strong>6-9 percentage points</strong> in OR. Vishen's Newsletter (17.6% OR, 0.27% CTR) performs above the list average and delivers the most consistent engagement across the year. Generic summits (AI, Entrepreneurship, Spiritual) drag the average down to 12-14% OR.</p>
             </div>
         </div>
     </section>
 
-    <!-- ============ COACHING NEWSLETTER DEEP DIVE ============ -->
+    <!-- ============ NEWSLETTER COMPARISON: VISHEN vs COACHING ============ -->
     <section class="section">
         <div class="section-label">Section 06</div>
-        <h2 class="section-title">Coaching Newsletter vs Everything Else</h2>
-        <div class="glass-card">
-            <p style="color: var(--white-50); font-size: 14px; margin-bottom: 20px;">
-                The <strong style="color: var(--gold);">"Newsletter: Thursday - Coaching"</strong> series sent 25 dedicated emails to the Coach list in 2025 with significantly higher engagement than other campaign types.
+        <h2 class="section-title">Vishen's Newsletter vs Coaching Newsletter on Coach List</h2>
+        <div class="card">
+            <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 12px;">
+                Two newsletter types have been sent to the coaching audience. The key context for this comparison:
             </p>
+            <ul style="color: var(--text-secondary); font-size: 14px; margin-bottom: 20px; padding-left: 20px; line-height: 1.8;">
+                <li><strong>Coaching Newsletter (Ajit)</strong> &rarr; sent to the <strong>full Coach list</strong> (no suppression, 434-570K)</li>
+                <li><strong>Vishen's Newsletter</strong> &rarr; sent to Coach list <strong>after suppressing</strong> leads already on Daily, Members, Highlights, Weekly</li>
+                <li>Many Coach leads are also on other broadcast lists. Vishen's NL only reaches the <strong>residual segment</strong> &mdash; people not on any other list &mdash; which is a smaller, typically less engaged group.</li>
+            </ul>
 
-            <div class="comparison-bar">
-                <div class="comparison-label">Coaching Newsletter</div>
-                <div class="comparison-track">
-                    <div class="comparison-fill" style="width: 68%; background: linear-gradient(90deg, var(--gold), var(--gold-dark));">20.6%</div>
+            <div class="nl-comparison">
+                <div class="nl-box vishen">
+                    <h4 style="color: var(--purple-deep);">Vishen's Newsletter</h4>
+                    <div class="nl-author">by Vishen Lakhiani</div>
+                    <div class="nl-stat">
+                        <div class="nl-stat-val">17.6%</div>
+                        <div class="nl-stat-label">Avg Open Rate</div>
+                    </div>
+                    <div class="nl-stat">
+                        <div class="nl-stat-val">0.27%</div>
+                        <div class="nl-stat-label">Avg Click Rate</div>
+                    </div>
+                    <div class="nl-meta">
+                        <strong>39 emails</strong> &bull; Coach list <em>after suppression</em><br>
+                        Reaches only residual segment (not on other lists)<br>
+                        Sent Jan 2025 &ndash; Feb 2026 &bull; Weekly cadence
+                    </div>
                 </div>
-            </div>
-            <div class="comparison-bar">
-                <div class="comparison-label">Vishen's Newsletter</div>
-                <div class="comparison-track">
-                    <div class="comparison-fill" style="width: 58%; background: linear-gradient(90deg, var(--purple-mid), var(--purple-light));">17.6%</div>
-                </div>
-            </div>
-            <div class="comparison-bar">
-                <div class="comparison-label">CLC Campaign</div>
-                <div class="comparison-track">
-                    <div class="comparison-fill" style="width: 72%; background: linear-gradient(90deg, var(--green), #059669);">21.7%</div>
-                </div>
-            </div>
-            <div class="comparison-bar">
-                <div class="comparison-label">Summit Invites (avg)</div>
-                <div class="comparison-track">
-                    <div class="comparison-fill" style="width: 50%; background: linear-gradient(90deg, #6366f1, #818cf8);">15.1%</div>
-                </div>
-            </div>
-            <div class="comparison-bar">
-                <div class="comparison-label">AI Summit</div>
-                <div class="comparison-track">
-                    <div class="comparison-fill" style="width: 42%; background: linear-gradient(90deg, var(--red), #ef4444);">12.7%</div>
+                <div class="nl-box coaching">
+                    <h4 style="color: #92400e;">Coaching Newsletter</h4>
+                    <div class="nl-author">by Ajit Nawalkha &bull; Discontinued</div>
+                    <div class="nl-stat">
+                        <div class="nl-stat-val">20.6%</div>
+                        <div class="nl-stat-label">Avg Open Rate</div>
+                    </div>
+                    <div class="nl-stat">
+                        <div class="nl-stat-val">0.21%</div>
+                        <div class="nl-stat-label">Avg Click Rate</div>
+                    </div>
+                    <div class="nl-meta">
+                        <strong>25 emails</strong> &bull; Full Coach list <em>(no suppression)</em><br>
+                        Reaches entire list including multi-list leads<br>
+                        Sent Jan &ndash; Nov 2025 &bull; Discontinued due to low engagement
+                    </div>
                 </div>
             </div>
 
-            <div class="two-col" style="margin-top: 24px;">
+            <table class="data-table" style="margin-top: 24px;">
+                <thead>
+                    <tr><th>Metric</th><th>Vishen's NL (suppressed)</th><th>Coaching NL (full list)</th><th>Analysis</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Open Rate</td>
+                        <td>17.6%</td>
+                        <td>20.6%</td>
+                        <td class="dim-val">Coaching NL had access to more engaged multi-list leads</td>
+                    </tr>
+                    <tr>
+                        <td>Click Rate</td>
+                        <td class="highlight-val">0.27%</td>
+                        <td>0.21%</td>
+                        <td class="dim-val">Vishen's NL drives more clicks despite harder audience</td>
+                    </tr>
+                    <tr>
+                        <td>CTOR</td>
+                        <td>~1.5%</td>
+                        <td>~1.0%</td>
+                        <td class="dim-val">Vishen's content converts openers into clickers at 1.5x rate</td>
+                    </tr>
+                    <tr>
+                        <td>Audience</td>
+                        <td>Residual (suppressed)</td>
+                        <td>Full list (unsuppressed)</td>
+                        <td class="dim-val">Vishen's NL reaches a harder-to-engage segment</td>
+                    </tr>
+                    <tr>
+                        <td>Status</td>
+                        <td style="color: var(--green);"><strong>Active</strong></td>
+                        <td style="color: var(--red);">Discontinued</td>
+                        <td class="dim-val">&mdash;</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="two-col" style="margin-top: 20px;">
                 <div class="callout" style="margin-top: 0;">
-                    <div class="callout-title">Coaching Newsletter Stats (25 emails)</div>
-                    <p><strong>Avg OR: 20.6%</strong> &nbsp;|&nbsp; <strong>Avg CTR: 0.21%</strong><br>
-                    Peak: 34.4% OR on Jan 23 ("Unlock Your Potential: The Questions That Change Everything")<br>
-                    Consistently 25-34% OR in Jan-Feb when series was weekly.</p>
+                    <div class="callout-title">Vishen's NL: Punching Above Its Weight</div>
+                    <p>Vishen's Newsletter achieves <strong>17.6% OR on the hardest segment</strong> of the Coach list &mdash; people not on any other Mindvalley list. These are residual leads after Daily, Members, Highlights, and Weekly suppression. Despite this disadvantage, it delivers the <strong>highest CTR (0.27%)</strong> and CTOR (~1.5%) of any recurring content on the Coach list.</p>
                 </div>
                 <div class="callout" style="margin-top: 0;">
-                    <div class="callout-title">Why It Matters</div>
-                    <p>Coaching Newsletter outperforms generic summit invites by <strong>+5.5pp in OR</strong> (20.6% vs 15.1%). The Coach list <em>wants</em> coaching content. When the newsletter cadence dropped after June, the list saw its worst engagement months.</p>
+                    <div class="callout-title">Why Coaching NL Was Discontinued</div>
+                    <p>The Coaching Newsletter's 20.6% OR looks higher, but it had the advantage of reaching the <strong>full unsuppressed list</strong> &mdash; including multi-list leads who are inherently more engaged. Despite this advantage, its CTR (0.21%) and CTOR (~1.0%) lagged behind Vishen's NL. The engagement didn't justify the production effort, leading to its discontinuation.</p>
                 </div>
             </div>
         </div>
@@ -741,10 +797,6 @@
                     <span class="or-val">21.6%</span>
                 </div>
                 <div class="sentiment-item">
-                    <span>Coaching newsletters (weekly)</span>
-                    <span class="or-val">20.6%</span>
-                </div>
-                <div class="sentiment-item">
                     <span>Lifebook / personal planning</span>
                     <span class="or-val">22.8%</span>
                 </div>
@@ -755,6 +807,10 @@
                 <div class="sentiment-item">
                     <span>MCH Webinar series</span>
                     <span class="or-val">20.4%</span>
+                </div>
+                <div class="sentiment-item">
+                    <span>Vishen's Newsletter</span>
+                    <span class="or-val">17.6%</span>
                 </div>
                 <div class="sentiment-item">
                     <span>"Free pass expiring" urgency</span>
@@ -795,7 +851,7 @@
         </div>
         <div class="callout" style="margin-top: 20px;">
             <div class="callout-title">The Pattern</div>
-            <p>The Coach list engages with <strong>coaching-career content</strong> (CLC, challenges, newsletters, webinars) at 20%+ OR. Generic personal growth summits (AI, Entrepreneurship, Spiritual) land at 12-14% OR. The gap is ~8pp &mdash; nearly a 2x difference in engagement. This audience self-selects for professional coaching content.</p>
+            <p>The Coach list engages with <strong>coaching-career content</strong> (CLC, challenges, webinars) at 20%+ OR and <strong>Vishen's personal brand</strong> (newsletters, stories) at 17-27% OR. Generic personal growth summits (AI, Entrepreneurship, Spiritual) land at 12-14% OR. This audience self-selects for professional coaching content and Vishen's thought leadership.</p>
         </div>
     </section>
 
@@ -803,7 +859,7 @@
     <section class="section">
         <div class="section-label">Section 08</div>
         <h2 class="section-title">Top 10 &amp; Bottom 10 Emails</h2>
-        <div class="glass-card">
+        <div class="card">
             <h3 style="font-size: 16px; color: var(--green); margin-bottom: 14px;">Top 10 by Open Rate</h3>
             <div style="overflow-x: auto;">
                 <table class="data-table">
@@ -852,7 +908,7 @@
     <section class="section">
         <div class="section-label">Section 09</div>
         <h2 class="section-title">List Size Trajectory</h2>
-        <div class="glass-card">
+        <div class="card">
             <div class="chart-wrap">
                 <canvas id="listSizeChart"></canvas>
             </div>
@@ -883,7 +939,7 @@
     <section class="section">
         <div class="section-label">Section 10</div>
         <h2 class="section-title">Sequence Type Performance</h2>
-        <div class="glass-card">
+        <div class="card">
             <table class="data-table">
                 <thead>
                     <tr><th>Sequence Type</th><th>Emails</th><th>Avg OR%</th><th>Avg CTR%</th><th>Notes</th></tr>
@@ -920,8 +976,8 @@
                 </tbody>
             </table>
             <div class="callout">
-                <div class="callout-title">Key Insight</div>
-                <p>The Coach list is overwhelmingly used for <strong>invite sequences (91%)</strong>. This means the audience is mostly receiving "come to this event" messages rather than nurture or value-driven content. The 7 newsletter sends in 2026 already show a higher OR (17.7%), suggesting more value content could improve overall engagement.</p>
+                <div class="callout-title">Key Observation</div>
+                <p>The Coach list is overwhelmingly used for <strong>invite sequences (91%)</strong>. This means the audience mostly receives "come to this event" messages rather than nurture or value-driven content. The Coach list rarely receives show-up sequences or sales sequences &mdash; it primarily serves as a top-of-funnel broadcast list for cross-promoting events.</p>
             </div>
         </div>
     </section>
@@ -930,9 +986,9 @@
     <section class="section">
         <div class="section-label">Section 11</div>
         <h2 class="section-title">2026 CLC Campaign &mdash; Coach List Spotlight</h2>
-        <div class="glass-card">
-            <p style="color: var(--white-50); font-size: 14px; margin-bottom: 16px;">
-                The CLC 2026 launch (Feb 6-23) has been the <strong style="color: var(--gold);">top-performing campaign</strong> on the Coach list this year, with 12 emails averaging 21.0% OR &mdash; the highest sustained campaign performance since CLC Feb 2025.
+        <div class="card">
+            <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 16px;">
+                The CLC 2026 launch (Feb 6-23) has been the <strong style="color: var(--purple-mid);">top-performing campaign</strong> on the Coach list this year, with 12 emails averaging 21.0% OR &mdash; the highest sustained campaign performance since CLC Feb 2025.
             </p>
             <div style="overflow-x: auto;">
                 <table class="data-table">
@@ -971,17 +1027,17 @@
             <div class="insight-card">
                 <div class="insight-num">1</div>
                 <h4>Stop Treating Coach as a Broadcast List</h4>
-                <p>91% of Coach emails are invite sequences for events that aren't coaching-specific. The list's best performance comes from CLC launches (21-26% OR) and coaching newsletters (20.6% OR). Generic summits drag the average down to 12-14% OR. Recommend reducing non-coaching campaign sends by 40%.</p>
+                <p>91% of Coach emails are invite sequences for events that aren't coaching-specific. The list's best performance comes from CLC launches (21-26% OR) and coaching challenges (21.6% OR). Generic summits drag the average down to 12-14% OR. Consider reducing non-coaching campaign sends to protect list health.</p>
             </div>
             <div class="insight-card">
                 <div class="insight-num">2</div>
-                <h4>Revive the Weekly Coaching Newsletter</h4>
-                <p>The "Thursday Coaching Newsletter" averaged 20.6% OR when active (Jan-Jun 2025) but was largely discontinued after June. During that gap, the list saw its worst months (Jul: 12.9%, Oct-Nov: 15.4%). A consistent weekly coaching newsletter would provide a reliable engagement floor.</p>
+                <h4>Vishen's Newsletter Is the Engagement Anchor</h4>
+                <p>With 39 emails at 17.6% OR and the highest CTR of any recurring content (0.27%), Vishen's Newsletter is the most reliable engagement driver on the Coach list. It outperforms summit invites, sales sequences, and even the now-discontinued Coaching Newsletter on click-through rate. Protect this send &mdash; it's the floor that keeps the list warm.</p>
             </div>
             <div class="insight-card">
                 <div class="insight-num">3</div>
                 <h4>Address the List Decay Problem</h4>
-                <p>The Coach list has lost 136K subscribers (-23.9%) since April 2025. At the current rate, the list will drop below 400K by mid-2026. Recommend: (1) run a re-engagement campaign for dormant subs, (2) implement a sunset policy for 90-day inactives, (3) add new Coach acquisition flows.</p>
+                <p>The Coach list has lost 136K subscribers (-23.9%) since April 2025. At the current rate, the list will drop below 400K by mid-2026. Recommend: (1) run a re-engagement campaign for dormant subs, (2) implement a sunset policy for 90-day inactives, (3) add new Coach acquisition flows to replenish the list.</p>
             </div>
             <div class="insight-card">
                 <div class="insight-num">4</div>
@@ -990,8 +1046,8 @@
             </div>
             <div class="insight-card">
                 <div class="insight-num">5</div>
-                <h4>Reduce July-September Volume</h4>
-                <p>The highest-volume months (Jul: 25 emails, Sep: 29 emails) had the worst open rates (12.9%, 16.1%). There's a clear inverse correlation between send volume and engagement. Cap Coach sends at 4/week maximum during non-launch periods.</p>
+                <h4>Reduce High-Volume Months</h4>
+                <p>The highest-volume months (Jul: 25 emails, Sep: 29 emails) had the worst open rates (12.9%, 16.1%). There's a clear inverse correlation between send volume and engagement. Cap Coach sends at 4/week maximum during non-launch periods to protect deliverability and engagement.</p>
             </div>
             <div class="insight-card">
                 <div class="insight-num">6</div>
@@ -1022,8 +1078,8 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.section').forEach(s => observer.observe(s));
 
 // ============ CHART DEFAULTS ============
-Chart.defaults.color = 'rgba(255,255,255,0.5)';
-Chart.defaults.borderColor = 'rgba(255,255,255,0.06)';
+Chart.defaults.color = '#8b83a8';
+Chart.defaults.borderColor = '#e9e5f5';
 Chart.defaults.font.family = "'Inter', sans-serif";
 Chart.defaults.font.size = 12;
 
@@ -1036,11 +1092,11 @@ new Chart(document.getElementById('listComparisonChart'), {
             label: 'Avg Open Rate %',
             data: [48.1, 33.8, 20.6, 20.1, 16.5],
             backgroundColor: [
-                'rgba(96, 165, 250, 0.7)',
-                'rgba(52, 211, 153, 0.7)',
+                'rgba(37, 99, 235, 0.7)',
+                'rgba(5, 150, 105, 0.7)',
                 'rgba(167, 139, 250, 0.7)',
-                'rgba(251, 191, 36, 0.5)',
-                'rgba(251, 191, 36, 1)'
+                'rgba(245, 158, 11, 0.5)',
+                'rgba(124, 58, 237, 0.85)'
             ],
             borderRadius: 6,
             borderSkipped: false
@@ -1054,7 +1110,7 @@ new Chart(document.getElementById('listComparisonChart'), {
             tooltip: { callbacks: { label: ctx => ctx.parsed.y + '% OR' } }
         },
         scales: {
-            y: { beginAtZero: true, ticks: { callback: v => v + '%' }, grid: { color: 'rgba(255,255,255,0.04)' } },
+            y: { beginAtZero: true, ticks: { callback: v => v + '%' }, grid: { color: '#f0edf7' } },
             x: { grid: { display: false } }
         }
     }
@@ -1068,18 +1124,20 @@ new Chart(document.getElementById('monthlyTrendChart'), {
         datasets: [{
             label: 'Avg Open Rate %',
             data: [21.9, 21.6, 17.9, 16.0, 14.4, 15.7, 12.9, 17.5, 16.1, 15.5, 15.4, 18.3, 16.3, 20.3],
-            borderColor: '#fbbf24',
-            backgroundColor: 'rgba(251, 191, 36, 0.1)',
+            borderColor: '#7c3aed',
+            backgroundColor: 'rgba(124, 58, 237, 0.06)',
             fill: true,
             tension: 0.35,
             pointBackgroundColor: function(ctx) {
                 const val = ctx.dataset.data[ctx.dataIndex];
-                if (val >= 20) return '#34d399';
-                if (val <= 14) return '#f87171';
-                return '#fbbf24';
+                if (val >= 20) return '#059669';
+                if (val <= 14) return '#dc2626';
+                return '#7c3aed';
             },
             pointRadius: 5,
-            pointHoverRadius: 8
+            pointHoverRadius: 8,
+            pointBorderColor: '#fff',
+            pointBorderWidth: 2
         }]
     },
     options: {
@@ -1090,7 +1148,7 @@ new Chart(document.getElementById('monthlyTrendChart'), {
             tooltip: { callbacks: { label: ctx => ctx.parsed.y + '% avg OR' } }
         },
         scales: {
-            y: { min: 10, max: 25, ticks: { callback: v => v + '%' }, grid: { color: 'rgba(255,255,255,0.04)' } },
+            y: { min: 10, max: 25, ticks: { callback: v => v + '%' }, grid: { color: '#f0edf7' } },
             x: { grid: { display: false } }
         }
     }
@@ -1102,18 +1160,18 @@ new Chart(document.getElementById('categoryChart'), {
     data: {
         labels: [
             'Q5 Promo', 'Lifebook', 'Best of MV Summit', 'CLC Feb \'25',
-            'Modern Coach', 'CLC 2026', 'MCH Webinar', 'SM Summit \'25',
-            'SM Summit \'26', 'Entrep. Summit', 'Black Friday',
+            'Modern Coach', 'CLC 2026', 'MCH Webinar', 'Vishen\'s NL',
+            'SM Summit \'25', 'SM Summit \'26', 'Entrep. Summit', 'Black Friday',
             'Spiritual Summit', 'MVU 2025', 'AI Summit'
         ],
         datasets: [{
             label: 'Avg OR%',
-            data: [27.8, 22.8, 22.0, 21.7, 21.6, 21.0, 20.4, 16.6, 15.8, 14.2, 14.1, 14.3, 13.1, 12.7],
+            data: [27.8, 22.8, 22.0, 21.7, 21.6, 21.0, 20.4, 17.6, 16.6, 15.8, 14.2, 14.1, 14.3, 13.1, 12.7],
             backgroundColor: function(ctx) {
                 const v = ctx.dataset.data[ctx.dataIndex];
-                if (v >= 20) return 'rgba(52, 211, 153, 0.7)';
-                if (v >= 16) return 'rgba(251, 191, 36, 0.6)';
-                return 'rgba(248, 113, 113, 0.6)';
+                if (v >= 20) return 'rgba(5, 150, 105, 0.65)';
+                if (v >= 16) return 'rgba(124, 58, 237, 0.5)';
+                return 'rgba(220, 38, 38, 0.5)';
             },
             borderRadius: 4,
             borderSkipped: false
@@ -1128,8 +1186,8 @@ new Chart(document.getElementById('categoryChart'), {
             tooltip: { callbacks: { label: ctx => ctx.parsed.x + '% avg OR' } }
         },
         scales: {
-            x: { beginAtZero: true, max: 30, ticks: { callback: v => v + '%' }, grid: { color: 'rgba(255,255,255,0.04)' } },
-            y: { grid: { display: false }, ticks: { font: { size: 11 } } }
+            x: { beginAtZero: true, max: 30, ticks: { callback: v => v + '%' }, grid: { color: '#f0edf7' } },
+            y: { grid: { display: false }, ticks: { font: { size: 11 }, color: '#4c4574' } }
         }
     }
 });
@@ -1142,13 +1200,15 @@ new Chart(document.getElementById('listSizeChart'), {
         datasets: [{
             label: 'List Size (K)',
             data: [100, 552, 566, 570, 564, 534, 504, 508, 515, 478, 453, 434, 444, 434],
-            borderColor: '#a78bfa',
-            backgroundColor: 'rgba(167, 139, 250, 0.1)',
+            borderColor: '#7c3aed',
+            backgroundColor: 'rgba(124, 58, 237, 0.06)',
             fill: true,
             tension: 0.3,
-            pointBackgroundColor: '#a78bfa',
+            pointBackgroundColor: '#7c3aed',
             pointRadius: 5,
-            pointHoverRadius: 8
+            pointHoverRadius: 8,
+            pointBorderColor: '#fff',
+            pointBorderWidth: 2
         }]
     },
     options: {
@@ -1159,7 +1219,7 @@ new Chart(document.getElementById('listSizeChart'), {
             tooltip: { callbacks: { label: ctx => ctx.parsed.y + 'K subscribers' } }
         },
         scales: {
-            y: { min: 0, max: 600, ticks: { callback: v => v + 'K' }, grid: { color: 'rgba(255,255,255,0.04)' } },
+            y: { min: 0, max: 600, ticks: { callback: v => v + 'K' }, grid: { color: '#f0edf7' } },
             x: { grid: { display: false } }
         }
     }
